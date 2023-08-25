@@ -8,12 +8,12 @@ namespace CV.Application.Contracts.Persistence
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<T> GetById(int id);
-        Task<IEnumerable<T>> GetAll();
-        Task Add(T entity);
-        Task Delete(T entity);
-        Task Delete(int id);
-        Task Update(T entity);
-        Task<bool> Exist(int id);
+        Task<T> GetByIdAsync(int id);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task AddAsync(T entity);
+        Task DeleteAsync(T entity);
+        Task DeleteAsync(int id);
+        Task UpdateAsync(T entity);
+        Task<bool> ExistAsync(int id);
     }
 }
