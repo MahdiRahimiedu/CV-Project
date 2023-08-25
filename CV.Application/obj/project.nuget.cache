@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NqRChNjPz1+x+b7mSVE4mDLj4bry4iDmWu98ABmSxsXH26zsr2szTwOf61jtIEfwKKrKhBdO3pyAzXYw3gRdYw==",
+  "dgSpecHash": "caoRBMX3tUGqEIYWrhyVkG57Gp9ih0IMv2l/K9m08LJ/+mxMl5EybPcAESZt/Nfoo9ouWzpTSwni9yEUnJRpDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Application\\CV.Application.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\programmers house\\Repository\\CV\\CV.Application\\CV.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
