@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CV.Domain
+namespace CV.Domain.Command
 {
-    class Class1
+    public class BaseEntityDomein
     {
+        public int Id { get; set; }
     }
 }
