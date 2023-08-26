@@ -1,4 +1,5 @@
 ﻿using CV.Application.Contracts.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,45 +11,59 @@ namespace CV.Persistence.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly CVDbContext _context;
+        private readonly DbSet<T> _db;
 
         public GenericRepository(CVDbContext context)
         {
             _context = context;
+            _db = context.Set<T>();
         }
 
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            await _db.AddAsync(entity);
+            await SaveChange();
         }
 
-        public Task DeleteAsync(T entity)
+        public async Task DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            _db.Remove(entity);
+            await SaveChange();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await GetByIdAsync(id);
+            _db.Remove(result);
+            await SaveChange();
         }
 
-        public Task<bool> ExistAsync(int id)
+        public async Task<bool> ExistAsync(int id)
         {
-            throw new NotImplementedException();
+            var entity = await GetByIdAsync(id);
+            return entity != null;
         }
 
-        public Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _db.ToListAsync();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _db.FindAsync(id);
         }
 
-        public Task UpdateAsync(T entity)
+        public async Task UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            _db.Update(entity);
+            await SaveChange();
         }
+
+
+        private async Task SaveChange()
+        {
+            await _context.SaveChangesAsync();
+        } 
     }
 }

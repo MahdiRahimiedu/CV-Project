@@ -1,0 +1,5 @@
+C:\Users\LENOVO\Desktop\CVProject\CV.Persistence\obj\Debug\net6.0\CV.Persistence.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Persistence\obj\Debug\net6.0\CV.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\CVProject\CV.Persistence\obj\Debug\net6.0\CV.Persistence.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Persistence\obj\Debug\net6.0\CV.Persistence.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\CVProject\CV.Persistence\obj\Debug\net6.0\CV.Persistence.csproj.CoreCompileInputs.cache

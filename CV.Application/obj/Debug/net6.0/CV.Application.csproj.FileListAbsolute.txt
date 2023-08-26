@@ -10,3 +10,18 @@ F:\programmers house\Repository\CV\CV.Application\obj\Debug\net6.0\CV.Applicatio
 F:\programmers house\Repository\CV\CV.Application\obj\Debug\net6.0\refint\CV.Application.dll
 F:\programmers house\Repository\CV\CV.Application\obj\Debug\net6.0\CV.Application.pdb
 F:\programmers house\Repository\CV\CV.Application\obj\Debug\net6.0\ref\CV.Application.dll
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.dll
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\refint\CV.Application.dll
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.pdb
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\bin\Debug\net6.0\CV.Application.deps.json
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\bin\Debug\net6.0\CV.Application.dll
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\bin\Debug\net6.0\CV.Application.pdb
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\bin\Debug\net6.0\CV.Domain.dll
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\bin\Debug\net6.0\CV.Domain.pdb
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\CVProject\CV.Application\obj\Debug\net6.0\ref\CV.Application.dll
