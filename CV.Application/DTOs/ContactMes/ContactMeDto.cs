@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CV.Application.DTOs.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CV.Application.DTOs.ContactMes
 {
-    public class ContactMeDto
+    public class ContactMeDto : BaseDto , IContactMeDto
     {
         public string Name { get; set; }
         public string Email { get; set; }
@@ -18,6 +19,6 @@ namespace CV.Application.DTOs.ContactMes
         public DateTime DateCreated { get; set; }
         public string DateCreatedIr { get; set; }
         public bool Star { get; set; }
-        public string Note { get; set; }
+        public string? Note { get; set; }
     }
 }
