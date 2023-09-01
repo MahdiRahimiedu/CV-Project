@@ -7,27 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ContactMes\Handlers\Commands\" />
-    <Folder Include="Features\ContactMes\Requests\Commands\" />
-    <Folder Include="Features\Doings\Handlers\Commands\" />
-    <Folder Include="Features\Doings\Requests\Commands\" />
-    <Folder Include="Features\Educations\Handlers\Commands\" />
-    <Folder Include="Features\Educations\Requests\Commands\" />
-    <Folder Include="Features\EmploymentHistories\Handlers\Commands\" />
-    <Folder Include="Features\EmploymentHistories\Requests\Commands\" />
-    <Folder Include="Features\Favorites\Handlers\Commands\" />
-    <Folder Include="Features\Favorites\Requests\Commands\" />
-    <Folder Include="Features\Projects\Handlers\Commands\" />
-    <Folder Include="Features\Projects\Requests\Commands\" />
-    <Folder Include="Features\Services\Handlers\Commands\" />
-    <Folder Include="Features\Services\Requests\Commands\" />
-    <Folder Include="Features\Skills\Handlers\Commands\" />
-    <Folder Include="Features\Skills\Requests\Commands\" />
-    <Folder Include="Features\SocialNetWorks\Handlers\Commands\" />
-    <Folder Include="Features\SocialNetWorks\Requests\Commands\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />

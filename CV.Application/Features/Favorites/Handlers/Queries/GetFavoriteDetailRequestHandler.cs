@@ -25,7 +25,7 @@ namespace CV.Application.Features.Favorites.Handlers.Queries
         public async Task<FavoriteDto> Handle(GetFavoriteDetailRequest request, CancellationToken cancellationToken)
         {
             var result = await _favoriteioteRepository.GetByIdAsync(request.Id);
-            return _mapper.Map<FavoriteDto>(result);S
+            return _mapper.Map<FavoriteDto>(result);
         }
     }
 }

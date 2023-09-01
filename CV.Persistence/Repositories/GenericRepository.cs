@@ -19,10 +19,11 @@ namespace CV.Persistence.Repositories
             _db = context.Set<T>();
         }
 
-        public async Task AddAsync(T entity)
+        public async Task<T> AddAsync(T entity)
         {
             await _db.AddAsync(entity);
             await SaveChange();
+            return entity;
         }
 
         public async Task DeleteAsync(T entity)
