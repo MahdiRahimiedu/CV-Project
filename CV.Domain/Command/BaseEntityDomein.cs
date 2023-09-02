@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CV.Domain.Command
 {
-    public class BaseEntityDomein
+    public abstract class BaseEntityDomein
     {
         public int Id { get; set; }
     }

@@ -10,7 +10,7 @@ namespace CV.Application.Contracts.Persistence
     {
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
-        Task AddAsync(T entity);
+        Task<T> AddAsync(T entity);
         Task DeleteAsync(T entity);
         Task DeleteAsync(int id);
         Task UpdateAsync(T entity);

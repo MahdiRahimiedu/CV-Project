@@ -20,7 +20,7 @@ namespace CV.Domain
         public DateTime DateCreated { get; set; }
         public string DateCreatedIr { get; set; }
         public bool Star { get; set; }
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
     }
 }

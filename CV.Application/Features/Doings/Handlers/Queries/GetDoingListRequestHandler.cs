@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CV.Application.Contracts.Persistence;
 using CV.Application.DTOs.Doings;
+using CV.Application.Features.Doings.Handlers.Queries;
 using CV.Application.Features.Doings.Requests.Queries;
 using MediatR;
 using System;

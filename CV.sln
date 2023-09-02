@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV.Domain", "CV.Domain\CV.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV.Application", "CV.Application\CV.Application.csproj", "{FD413E31-4461-448D-9087-EAC0E7297201}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CV.Persistence", "CV.Persistence\CV.Persistence.csproj", "{7CF87014-ED95-4E9F-9A98-A5E5D4B13E19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV.Persistence", "CV.Persistence\CV.Persistence.csproj", "{7CF87014-ED95-4E9F-9A98-A5E5D4B13E19}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CV.Api", "CV.Api\CV.Api.csproj", "{DD131D67-A671-4D8D-B6A0-D3988B59CFDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7CF87014-ED95-4E9F-9A98-A5E5D4B13E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CF87014-ED95-4E9F-9A98-A5E5D4B13E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CF87014-ED95-4E9F-9A98-A5E5D4B13E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD131D67-A671-4D8D-B6A0-D3988B59CFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD131D67-A671-4D8D-B6A0-D3988B59CFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD131D67-A671-4D8D-B6A0-D3988B59CFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD131D67-A671-4D8D-B6A0-D3988B59CFDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{F23AA096-458C-494C-9085-5F79E795C366} = {06B0FA24-7E0F-4D33-9EE7-6969398912DB}
 		{FD413E31-4461-448D-9087-EAC0E7297201} = {06B0FA24-7E0F-4D33-9EE7-6969398912DB}
 		{7CF87014-ED95-4E9F-9A98-A5E5D4B13E19} = {26E89324-DB5B-4C8C-A28E-3C397DCB8A22}
+		{DD131D67-A671-4D8D-B6A0-D3988B59CFDB} = {E0B90036-AF09-4807-A7BF-000DD5715562}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F2482F6-9431-41A1-9F6B-E90A64C48B52}
