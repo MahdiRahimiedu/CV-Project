@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CFBD2243-B982-48F1-A8A5-01DA8651D914}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2DA27F21-3A07-46E5-8580-431CD9F1C271}"
-	ProjectSection(SolutionItems) = preProject
-		CV.Persistence\CVDbContext.cs = CV.Persistence\CVDbContext.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{E0B90036-AF09-4807-A7BF-000DD5715562}"
 EndProject
