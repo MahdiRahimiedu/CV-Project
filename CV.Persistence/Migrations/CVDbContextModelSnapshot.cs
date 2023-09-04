@@ -120,7 +120,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -144,7 +144,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -220,7 +220,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -240,7 +240,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.Property<string>("SkillValue")

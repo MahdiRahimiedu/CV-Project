@@ -16,6 +16,9 @@ namespace CV.Application.DTOs.Skills.Validators
 
             RuleFor(o => o.SkillValue).NotEmpty().WithMessage("Fill in the skill value field")
                 .MaximumLength(70).WithMessage("The length of the entered text is not correct");
+
+            RuleFor(o => o.IsActive).NotEmpty().WithMessage("Fill in the skill value field");
+                
         }
     }
 }

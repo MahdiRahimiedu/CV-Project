@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CV.Persistence.Migrations
 {
     [DbContext(typeof(CVDbContext))]
-    [Migration("20230831093823_cvdb")]
-    partial class cvdb
+    [Migration("20230904150249_kol")]
+    partial class kol
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -122,7 +122,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -146,7 +146,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -222,7 +222,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -242,7 +242,7 @@ namespace CV.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Priorty")
+                    b.Property<int>("Priority")
                         .HasColumnType("int");
 
                     b.Property<string>("SkillValue")

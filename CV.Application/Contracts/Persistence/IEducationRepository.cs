@@ -9,5 +9,9 @@ namespace CV.Application.Contracts.Persistence
 {
     public interface IEducationRepository : IGenericRepository<Education>
     {
+        Task<bool> UpdatePrioritiesAsync(List<int> ids);
+        Task<int> PriorityMaxAsync();
+        
+
     }
 }

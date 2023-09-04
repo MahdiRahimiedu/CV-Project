@@ -1,4 +1,5 @@
 ﻿using CV.Application.DTOs.EmploymentHistories;
+using CV.Application.Features.Educations.Requests.Commands;
 using CV.Application.Features.EmploymentHistories.Requests.Commands;
 using CV.Application.Features.EmploymentHistories.Requests.Queries;
 using CV.Application.Response;
@@ -61,6 +62,16 @@ namespace CV.Api.Controllers
             var employmentHistory = new DeleteEmploymentHistoryCommand { Id = id };
 
             var apiResponse = await _mediator.Send(employmentHistory);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpPut("{ids}")]
+        public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
+        {
+            var priorities = new UpdatePrioritiesEmploymentHistoryCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(priorities);
 
             return Ok(apiResponse);
         }

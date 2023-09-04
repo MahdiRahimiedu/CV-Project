@@ -38,6 +38,7 @@ namespace CV.Application.Features.Skills.Handlers.Commands
                 return response;
             }
             var skill = _mapper.Map<Skill>(request.CreateSkillDto);
+            skill.Priority = await _skillRepository.PriorityMaxAsync();
             skill = await _skillRepository.AddAsync(skill);
             response.Success = true;
             response.Message = "creating Successful";

@@ -12,6 +12,7 @@ namespace CV.Domain
     {
         public string Name { get; set; }
         public string SkillValue { get; set; }
-        public int Priorty { get; set; }
+        public int Priority { get; set; }
+        public bool IsActive { get; set; }
     }
 }

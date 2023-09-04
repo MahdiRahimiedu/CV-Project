@@ -3,6 +3,7 @@ using CV.Application.DTOs.Skills;
 using CV.Application.DTOs.Skillss;
 using CV.Application.Features.Doings.Requests.Commands;
 using CV.Application.Features.Doings.Requests.Queries;
+using CV.Application.Features.Educations.Requests.Commands;
 using CV.Application.Features.Skills.Requests.Commands;
 using CV.Application.Features.Skills.Requests.Queries;
 using CV.Application.Response;
@@ -63,6 +64,16 @@ namespace CV.Api.Controllers
             var skill = new DeleteSkillCommand { Id = id };
 
             var apiResponse = await _mediator.Send(skill);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpPut("{ids}")]
+        public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
+        {
+            var priorities = new UpdatePrioritiesSkillCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(priorities);
 
             return Ok(apiResponse);
         }

@@ -1,0 +1,8 @@
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.RazorAssemblyInfo.cache
+C:\Users\LENOVO\Desktop\CVProject\CV.Site\obj\Debug\net6.0\CV.Site.RazorAssemblyInfo.cs

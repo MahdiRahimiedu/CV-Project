@@ -38,6 +38,7 @@ namespace CV.Application.Features.Services.Handlers.Commands
                 return response;
             }
             var servic = _mapper.Map<Servic>(request.CreateServicDto);
+            servic.Priority = await _servicRepository.PriorityMaxAsync();
             servic = await _servicRepository.AddAsync(servic);
             response.Success = true;
             response.Message = "creating Successful";

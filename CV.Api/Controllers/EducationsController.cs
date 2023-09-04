@@ -45,7 +45,7 @@ namespace CV.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<BaseCommandResponse>> Edit(int id , EditEducationDto model)
+        public async Task<ActionResult<BaseCommandResponse>> Edit(int id, EditEducationDto model)
         {
             var education = new EditEducationCommand { EditEducationDto = model };
 
@@ -60,6 +60,16 @@ namespace CV.Api.Controllers
             var education = new DeleteEducationCommand { Id = id };
 
             var apiResponse = await _mediator.Send(education);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpPut("{ids}")]
+        public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
+        {
+            var priorities = new UpdatePrioritiesEducationCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(priorities);
 
             return Ok(apiResponse);
         }

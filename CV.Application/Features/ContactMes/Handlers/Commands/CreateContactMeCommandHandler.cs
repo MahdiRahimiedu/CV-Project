@@ -9,6 +9,7 @@ using FluentValidation;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,6 +41,12 @@ namespace CV.Application.Features.ContactMes.Handlers.Commands
                 return response;
             }
             var contactMe = _mappre.Map<ContactMe>(request.CreateContactMeDto);
+
+            contactMe.DateCreated = DateTime.Now;
+            DateTime d = DateTime.Now;
+            PersianCalendar pc = new PersianCalendar();
+            contactMe.DateCreatedIr = string.Format("{0}/{1}/{2}", pc.GetYear(d), pc.GetMonth(d), pc.GetDayOfMonth(d)); 
+
             contactMe = await _contactMeRepository.AddAsync(contactMe);
             response.Success = true;
             response.Message = "creation Successful";

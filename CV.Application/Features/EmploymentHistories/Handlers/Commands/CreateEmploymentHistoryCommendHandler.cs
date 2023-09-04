@@ -40,6 +40,7 @@ namespace CV.Application.Features.EmploymentHistories.Handlers.Commands
                 return response;
             }
             var employmentHistory = _mapper.Map<EmploymentHistory>(request.CreateEmploymentHistoryDto);
+            employmentHistory.Priority = await _employmentHistoryRepository.PriorityMaxAsync();
             employmentHistory = await _employmentHistoryRepository.AddAsync(employmentHistory);
             response.Success = true;
             response.Message = "creating Successful";

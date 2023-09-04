@@ -38,7 +38,10 @@ namespace CV.Application.Features.Educations.Handlers.Commands
                 response.Erorrs = result.Errors.Select(e => e.ErrorMessage).ToList();
                 return response;
             }
+
             var education = _mapper.Map<Education>(request.CreateEducationDto);
+            education.Priority = await _educationRepository.PriorityMaxAsync();
+
             education = await _educationRepository.AddAsync(education);
             response.Success = true;
             response.Message = "creating Successful";

@@ -12,14 +12,14 @@ builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddCors(o =>
-//{
-//    o.AddPolicy("CorsPolicy", b =>
-//    b.AllowAnyOrigin()
-//    .AllowAnyMethod()
-//    .AllowAnyHeader()
-//    );
-//});
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy("CorsPolicy", b =>
+    b.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    );
+});
 
 var app = builder.Build();
 
@@ -34,7 +34,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-//app.UseCors("CorsPolicy");
+app.UseCors("CorsPolicy");
 
 //app.UseRouting();
 

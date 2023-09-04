@@ -12,6 +12,6 @@ namespace CV.Domain
     {
         public string Name { get; set; }
         public string? Icon { get; set; }
-        public int Priorty { get; set; }
+        public int Priority { get; set; }
     }
 }

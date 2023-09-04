@@ -13,6 +13,6 @@ namespace CV.Application.DTOs.Educations
         public string Location { get; set; }
         public string Date { get; set; }
         public string? Img { get; set; }
-        public int Priorty { get; set; }
+        public int Priority { get; set; }
     }
 }

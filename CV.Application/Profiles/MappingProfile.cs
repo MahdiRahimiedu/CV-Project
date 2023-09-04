@@ -29,6 +29,7 @@ namespace CV.Application.Profiles
             CreateMap<ContactMe, ContactMeDto>().ReverseMap();
             CreateMap<ContactMe, CreateContactMeDto>().ReverseMap();
             CreateMap<ContactMe, EditContactMeDto>().ReverseMap();
+            CreateMap<ContactMe, ChangeNoteContactMeDto>().ReverseMap();
 
             CreateMap<Doing, DoingDto>().ReverseMap();
             CreateMap<Doing, CreateDoingDto>().ReverseMap();

@@ -3,6 +3,7 @@ using CV.Application.DTOs.Services;
 using CV.Application.DTOs.Servicess;
 using CV.Application.Features.Doings.Requests.Commands;
 using CV.Application.Features.Doings.Requests.Queries;
+using CV.Application.Features.Educations.Requests.Commands;
 using CV.Application.Features.Services.Requests.Commands;
 using CV.Application.Features.Services.Requests.Queries;
 using CV.Application.Response;
@@ -63,6 +64,16 @@ namespace CV.Api.Controllers
             var servic = new DeleteServicCommand { Id = id };
 
             var apiResponse = await _mediator.Send(servic);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpPut("{ids}")]
+        public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
+        {
+            var priorities = new UpdatePrioritiesServicCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(priorities);
 
             return Ok(apiResponse);
         }

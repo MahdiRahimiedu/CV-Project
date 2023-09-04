@@ -11,5 +11,7 @@ namespace CV.Application.DTOs.Skills
     {
         public string Name { get; set; }
         public string SkillValue { get; set; }
+        public bool IsActive { get; set; }
+
     }
 }

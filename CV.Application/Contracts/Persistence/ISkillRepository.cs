@@ -9,5 +9,7 @@ namespace CV.Application.Contracts.Persistence
 {
     public interface ISkillRepository : IGenericRepository<Skill>
     {
+        Task<bool> UpdatePrioritiesAsync(List<int> ids);
+        Task<int> PriorityMaxAsync();
     }
 }

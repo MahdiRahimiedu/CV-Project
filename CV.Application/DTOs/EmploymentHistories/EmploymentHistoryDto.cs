@@ -12,6 +12,6 @@ namespace CV.Application.DTOs.EmploymentHistories
         public string Title { get; set; }
         public string Date { get; set; }
         public string Compony { get; set; }
-        public int Priorty { get; set; }
+        public int Priority { get; set; }
     }
 }
