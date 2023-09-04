@@ -2795,23 +2795,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Users\\Mahdi Rahimi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Api\\CV.Api.csproj",
+      "projectUniqueName": "F:\\Repository\\CVProject\\CV.Api\\CV.Api.csproj",
       "projectName": "CV.Api",
-      "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Api\\CV.Api.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Api\\obj\\",
+      "projectPath": "F:\\Repository\\CVProject\\CV.Api\\CV.Api.csproj",
+      "packagesPath": "C:\\Users\\Mahdi Rahimi\\.nuget\\packages\\",
+      "outputPath": "F:\\Repository\\CVProject\\CV.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mahdi Rahimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2826,11 +2826,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Application\\CV.Application.csproj": {
-              "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Application\\CV.Application.csproj"
+            "F:\\Repository\\CVProject\\CV.Application\\CV.Application.csproj": {
+              "projectPath": "F:\\Repository\\CVProject\\CV.Application\\CV.Application.csproj"
             },
-            "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Persistence\\CV.Persistence.csproj": {
-              "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Persistence\\CV.Persistence.csproj"
+            "F:\\Repository\\CVProject\\CV.Persistence\\CV.Persistence.csproj": {
+              "projectPath": "F:\\Repository\\CVProject\\CV.Persistence\\CV.Persistence.csproj"
             }
           }
         }

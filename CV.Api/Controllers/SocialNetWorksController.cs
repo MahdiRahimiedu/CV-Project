@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CV.Api.Controllers
 {
     [Route("api/socialnetworks")]
+    [ApiController]
     public class SocialNetWorksController : ControllerBase
     {
         private readonly IMediator _mediator;

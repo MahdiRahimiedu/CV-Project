@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CV.Api.Controllers
 {
     [Route("api/services")]
+    [ApiController]
     public class ServicesController : ControllerBase
     {
         private readonly IMediator _mediator;
