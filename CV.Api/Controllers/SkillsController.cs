@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CV.Api.Controllers
 {
     [Route("api/skills")]
+    [ApiController]
     public class SkillsController : ControllerBase
     {
         private readonly IMediator _mediator;
