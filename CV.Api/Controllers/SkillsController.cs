@@ -68,8 +68,17 @@ namespace CV.Api.Controllers
 
             return Ok(apiResponse);
         }
+        [HttpDelete]
+        public async Task<ActionResult<BaseCommandResponse>> Delete(List<int> ids)
+        {
+            var skill = new DeleteAllSkillCommand { Ids = ids };
 
-        [HttpPut("{ids}")]
+            var apiResponse = await _mediator.Send(skill);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpPut]
         public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
         {
             var priorities = new UpdatePrioritiesSkillCommand { Ids = ids };
@@ -78,5 +87,7 @@ namespace CV.Api.Controllers
 
             return Ok(apiResponse);
         }
+
+        
     }
 }

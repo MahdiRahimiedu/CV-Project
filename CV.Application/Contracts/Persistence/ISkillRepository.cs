@@ -1,9 +1,5 @@
-﻿using CV.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CV.Application.DTOs.Skillss;
+using CV.Domain;
 
 namespace CV.Application.Contracts.Persistence
 {
@@ -11,5 +7,8 @@ namespace CV.Application.Contracts.Persistence
     {
         Task<bool> UpdatePrioritiesAsync(List<int> ids);
         Task<int> PriorityMaxAsync();
+        Task DeleteAllAsync(List<int> ids);
+        Task<bool> ExistListAsync(List<int> ids);
+        Task<List<Skill>> GetAllSortedPriority();
     }
 }

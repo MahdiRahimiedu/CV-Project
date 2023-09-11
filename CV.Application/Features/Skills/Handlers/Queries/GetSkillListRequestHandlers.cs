@@ -26,7 +26,7 @@ namespace CV.Application.Features.Skills.Handlers.Queries
 
         public async Task<List<SkillDto>> Handle(GetSkillListRequest request, CancellationToken cancellationToken)
         {
-            var skill = await _skillRepo.GetAllAsync();
+            var skill = await _skillRepo.GetAllSortedPriority();
             return _mapper.Map<List<SkillDto>>(skill);
         }
     }

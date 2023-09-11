@@ -1,4 +1,6 @@
 ﻿using CV.Application.Contracts.Persistence;
+using CV.Application.DTOs.Skillss;
+using CV.Application.Response;
 using CV.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -45,6 +47,42 @@ namespace CV.Persistence.Repositories
             if (await _context.Skills.AnyAsync())
                 return await _context.Skills.MaxAsync(p => p.Priority) + 1;
             return 1;
+        }
+
+        public async Task DeleteAllAsync(List<int> ids)
+        {
+            List<Skill> skills = new List<Skill>();
+            foreach (int id in ids)
+            {
+                skills.Add(await GetByIdAsync(id));
+            }
+            _context.Skills.RemoveRange(skills);
+            await _context.SaveChangesAsync();
+
+        }
+
+        public async Task<bool> ExistListAsync(List<int> ids)
+        {
+            try
+            {
+                foreach (int id in ids)
+                {
+                    if (!await ExistAsync(id))
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<List<Skill>> GetAllSortedPriority()
+        {
+            return await _context.Skills.OrderBy(x => x.Priority).ToListAsync();
         }
     }
 }
