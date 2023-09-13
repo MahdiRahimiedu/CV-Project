@@ -1,1 +1,225 @@
-﻿
+﻿@font-face {
+    font-family: myFont;
+    src: url(/fontA/NTDI.woff2);
+}
+
+* {
+    border: none;
+    outline: none;
+    text-decoration: none !important;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: normal !important;
+    list-style: none !important;
+    font-family: myFont;
+}
+
+html::-webkit-scrollbar {
+    width: .3rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: #e7eaea;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #5C8D89;
+    border-radius: 7rem;
+}
+
+::selection {
+    background: #5C8D89;
+    color: #050A30;
+}
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.whiteColor1 {
+    color: #e7eaea;
+}
+
+.whiteBack1 {
+    background-color: #e7eaea;
+}
+
+.greenColor1 {
+    color: #A7D7C5;
+}
+
+.greenBack1 {
+    background-color: #A7D7C5;
+}
+
+.greenColor2 {
+    color: #5C8D89;
+}
+
+.greenBack2 {
+    background-color: #5C8D89;
+}
+
+.box-shadoww {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.242);
+}
+
+.fs-7 {
+    font-size: .9rem;
+}
+
+.fs-8 {
+    font-size: .8rem;
+}
+
+.fs-9 {
+    font-size: .7rem;
+}
+
+select {
+    -webkit-appearance: none;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cropper-container {
+    max-height: 700px !important;
+}
+
+.cropper-wrap-box, .cropper-canvas, .cropper-crop-box {
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+.cropper-drag-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100%;
+}
+
+.imge-cropper {
+    max-width: 100% !important;
+    max-height: 500px !important;
+}
+
+.cropper-wrap-box {
+    background: #e7eaea;
+}
+
+
+@media screen And (max-width:1490px) {
+    .containerMain {
+        width: 100% !important;
+    }
+}
+
+@media screen And (max-width:980px) {
+    /* title container */
+    .containerMain {
+        padding: 1rem !important;
+    }
+
+        .containerMain .right, .containerMain .left {
+            width: 100% !important;
+            padding: 0 !important;
+        }
+
+    .title-container, .skill-container {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .title-information, .title-enter-information, .skill-enter-information, .skill-information {
+        border-right: none !important;
+        padding-top: 0rem;
+        margin: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .title-db-table, .skill-db-table {
+        margin: 0 !important;
+        padding-right: .5rem !important;
+    }
+
+    .title-enter-information-form .name input, .title-enter-information-form .provision input, .title-enter-information-form .aboute-me textarea,
+    .title-enter-information-form .cup-coffee input, .title-enter-information-form .complete-project input, .title-enter-information-form .cv-file input,
+    .skill-enter-information-form .name input, .skill-enter-information-form .level select,
+    .skill-enter-information-form .skill-level-input-box, .skill-enter-information-form .skill-name-input-box {
+        width: 100% !important;
+    }
+
+    .title-enter-information-form, .skill-enter-information-form {
+        padding-left: 0 !important;
+    }
+
+    .title-btn-change span, .skill-btn-change span {
+        display: none;
+    }
+}
+
+@media screen And (max-width:560px) {
+    /* title container */
+    .title-person-name, .title-aboute-me {
+        font-size: 1rem !important;
+    }
+
+    .title-enter-information-form .name input, .title-enter-information-form .provision input, .title-enter-information-form .aboute-me textarea,
+    .title-enter-information-form .cup-coffee input, .title-enter-information-form .complete-project input,
+    .title-enter-information-form .cv-file input, .skill-enter-information-form .name input,
+    .skill-enter-information-form .level select {
+        font-size: .9rem !important;
+    }
+
+    .title-enter-information-form .name span, .title-enter-information-form .provision span,
+    .title-enter-information-form .aboute-me span, .title-enter-information-form .complete-project span,
+    .title-enter-information-form .cup-coffee span, .title-enter-information-form .cv-file span,
+    .skill-enter-information-form .name span, .skill-enter-information-form .level span, .skill-enter-information-form .first-text span {
+        font-size: .8rem !important;
+    }
+
+    .title-enter-information-form .btn-box, .skill-enter-information-form .btn-box {
+        justify-content: space-between !important;
+    }
+
+    .title-container, .skill-container {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+}

@@ -3,52 +3,96 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 }
 
-<div class="container">
-    <div class="border rounded p-2">
-        <div class="border d-block d-flex justify-content-between px-2 px-3 py-2 rounded align-items-baseline">
-            <div>Skill</div>
-            <button id="btn-form-box" class="btn btn-primary">Edit</button>
-        </div>
-        <div class="py-2">
-            <div class="d-block">
-                <ul id="box-skill-clinet">
+<!-- Skill Container -->
+<div class="skill-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+    <div class="skill-container w-100 d-flex justify-content-between mt-3 mb-3">
 
-                </ul>
-                <ul class="d-flex-column box-skill d-none" id="sortable-list">
-                </ul>
-                
-            </div>
+        <div class="skill-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
 
-            <div id="form-box-skill" style="display:none">
-                <div class="d-flex py-3 px-2 g-3 align-items-center justify-content-between ">
-                    <div class="col-auto">
-                        <label class="col-form-label">Name Skills</label>
-                        <input class="form-control" name="nameSkill">
-                        <span class="form-text"></span>
+            <!-- ! -->
+            <div id="skill-enter-information" class="skill-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                <div action="" class="skill-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                    <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                        <span class="me-1">
+                            هنوز مهارتی وارد نشده .
+                        </span>
+
+                        <ul id="sortable-list" class="skill-enter-information-skills-box w-100 d-flex flex-wrap gap-1 d-none w-100">
+                        </ul>
                     </div>
-                    <div class="col-auto">
-                        <label class="col-form-label">Value Skills</label>
-                        <select class="form-control" name="valueSkill">
-                            <option value="">....</option>
-                            <option value="A1">A1</option>
-                            <option value="A2">A2</option>
-                            <option value="A3">A3</option>
-                        </select>
-                        <span class="form-text"></span>
+                    <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                        <span class="me-1">
+                            مهارت شما :
+                        </span>
+                        <div class="skill-name-input-box d-flex w-75">
+                            <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="html , c , java ...">
+                        </div>
+                        <span class="me-1 skill-erorr-text-name text-danger d-none">
+
+                        </span>
                     </div>
-                    <button id="add-skill" class="col-auto btn btn-success">+</button>
+                    <div class="level d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                        <span class="me-1">
+                            سطح مهارت :
+                        </span>
+                        <div class="skill-level-input-box d-flex w-75">
+                            <select class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" name="" id="" style="font-weight: 200;">
+                                <option value="choose" disabled="disabled" selected="selected">مهارت شما دارای سطح ...</option>
+                                <option value="متوسط">متوسط</option>
+                                <option value="پیشرفته">پیشرفته</option>
+                                <option value="حرفه ای"> حرفه ای</option>
+                            </select>
+                            <div id="skill-add-icon" class="skill-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                <i class="ri-add-fill fs-5 text-white"></i>
+                            </div>
+                        </div>
+                        <span class="me-1 skill-erorr-text-level text-danger d-none">
+
+                        </span>
+                    </div>
+                    <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                        <span id="skill-enter-information-back-btn" class="skill-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                        <span id="skill-enter-information-save-btn" class="skill-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                    </div>
                 </div>
+
+            </div>
+            <!-- ! -->
+
+            <div id="skill-db-table" class="skill-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                <h6 class="skill-db-table-text fw-semibold mt-2">
+                    <span class="text-dark">Skill</span>
+                </h6>
+                <button id="skill-btn-change" style="background: transparent;" class="skill-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                    <i class="ri-pen-nib-fill"></i>
+                    <span>
+                        ویرایش
+                    </span>
+                </button>
             </div>
 
+            <!-- ! -->
+            <div id="skill-information" class="skill-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
 
-            <div class="d-flex justify-content-end">
-                <button class="btn btn-danger px-3 d-none" id="cancel-skill">cancel</button>
-                <button class="btn btn-primary px-3 mx-2 d-none" id="save-skill">save</button>
+                <div class="skill-text-box w-100">
+
+                    <h6 class="skill-first-text fw-semibold" style="text-align: justify;">
+                        <span class="skill-first-text-lable text-dark">مهارت ها :</span>
+                        <span class="skill-first-text-value go-back-skill greenColor2" style="cursor: pointer;">
+                            + اضافه کردن مهارت
+                        </span>
+                    </h6>
+
+                    <ul id="skill-information-skills-box" class="skill-information-skills-box w-100 d-flex flex-wrap gap-2 w-100">
+                    </ul>
+
+                </div>
+
             </div>
+            <!-- ! -->
 
         </div>
-
-
 
     </div>
 </div>

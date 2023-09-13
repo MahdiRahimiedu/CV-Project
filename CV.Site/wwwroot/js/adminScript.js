@@ -1,52 +1,174 @@
-﻿
-var skillsDb = [];
-var cancelSkill = document.getElementById("cancel-skill");
-var saveSkill = document.getElementById("save-skill");
-var sortedSkillIds = [];
+﻿const D = document;
+//TODO Skill Container Script
+
+const skillNameInput = D.querySelector(".skill-enter-information-form .name input"),
+    skillLevelSelect = D.querySelector(".skill-enter-information-form .level select"),
+    skillLevelSelectOptions = skillLevelSelect.querySelectorAll("option"),
+    skillFirstTextInForm = D.querySelector(".skill-enter-information-form .first-text span"),
+    skillErorrTextName = D.querySelector(".skill-erorr-text-name"),
+    skillErorrTextLevel = D.querySelector(".skill-erorr-text-level"),
+    skillFirstText = D.querySelector(".skill-first-text-lable"),
+    skillFirstTextValue = D.querySelector(".skill-first-text-value");
+
+//console.log(skillErorrTextName)
+
+const skillInputFirstTextFValue = skillFirstTextValue.textContent;
+
+var checkTemperryDeleteForDeletedAllSkill = true; //* for that time all skill is deleted and we wanted first text in form come back
+
+let selectedOptionFirstValue;
+
+var skillDB = []; //* skill database 
+var sortedSkillIds = []; //* skill database for priority
+
+const nameErorrText = "یک متن برای مهارت خود وارد کنید .",
+    levelErorrText = "یک سطح برای مهارت خود انتخاب کنید",
+    sameRecoardErorrText = "این مهارت قبلا ثبت شده .";
+
 $(document).ready(function () {
+    //TODO defult seting
+    //$("#skill-enter-information").slideUp();
+
+    //TODO
+    function fullBothSideAfterChange() {
+
+        skillErorrTextName.innerText = "";
+        skillErorrTextLevel.innerText = "";
+
+        if (skillDB.length == 0) {
+            $(".skill-enter-information-skills-box").html("");
+            $("#skill-information-skills-box").html("");
+            $("#skill-information-skills-box").addClass("d-none");
+            skillFirstTextInForm.classList.remove("d-none");
+            $(".skill-enter-information-skills-box").addClass("d-none");
+            skillFirstText.classList.replace("greenColor2", "text-dark");
+            skillFirstTextValue.classList.remove("d-none");
+        }
+
+        if (!skillDB.length == 0) {
+            $("#skill-information-skills-box").html(" ");
+            $("#skill-information-skills-box").removeClass("d-none");
+            $(".skill-enter-information-skills-box").html(" ");
+            skillFirstTextInForm.classList.add("d-none");
+            $(".skill-enter-information-skills-box").removeClass("d-none");
+            skillFirstText.classList.replace("text-dark", "greenColor2");
+            skillFirstTextValue.classList.add("d-none");
+
+            let informationElemet = "", EnterInformationElement = "";
+
+            for (let i = 0; i < skillDB.length; i++) {
+                EnterInformationElement += ` <li class="rounded-2 greenBack2 text-white d-flex align-items-center justify-content-center p-1 m-1 sortable-item" data-skillPri-id="${skillDB[i].id}"><span class="mx-2">${skillDB[i].name}</span>  |  <span class="mx-2">${skillDB[i].value}</span>   <i class="ri-close-fill fs-5 text-white itemSkill" data-skill-id="${skillDB[i].id}"></i></li> `;
+                skillDB[i].deleted = false;
+
+                informationElemet += ` <li class="skill-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-center p-1 m-1"><span class="mx-2">${skillDB[i].name}</span>  |  <span class="mx-2">${skillDB[i].value}</span></li> `;
+            }
 
 
-    $("#btn-form-box").click(function () {
+            $(".skill-enter-information-skills-box").html(EnterInformationElement);
+            $("#skill-information-skills-box").html(informationElemet);
 
-        $("#form-box-skill").fadeIn("slow");
-        var aa = document.querySelectorAll(".itemSkill");
-        aa.forEach(element => {
-            element.classList.remove("d-none");
+            $(".itemSkill").click(function (e) {
+                this.parentElement.remove();
+                let deleteId = $(this).attr("data-skill-id");
+                for (let i = 0; i < skillDB.length; i++) {
+                    if (skillDB[i].id == deleteId) {
+                        skillDB[i].deleted = true;
+                    }
+                }
+
+                checkTemperryDeleteForDeletedAllSkill = true; //* for that time all skill is deleted and we wanted first text in form come back
+
+                for (let io = 0; io < skillDB.length; io++) { //* for that time all skill is deleted and we wanted first text in form come back
+                    if (skillDB[io].deleted !== true) {
+                        checkTemperryDeleteForDeletedAllSkill = false;
+                        break;
+                    }
+                }
+
+                if (checkTemperryDeleteForDeletedAllSkill) { //* for that time all skill is deleted and we wanted first text in form come back
+                    skillFirstTextInForm.classList.remove("d-none");
+                    $(".skill-enter-information-skills-box").addClass("d-none");
+                }
+            });
+
+            $(".skill-view").click(function (e) {
+                $("#skill-information").slideToggle("slow");
+                $("#skill-enter-information").slideToggle("slow");
+
+                $("#skill-btn-change").addClass("d-none");
+
+                fullBothSideAfterChange();
+
+                sortedSkillIds = [];
+
+                skillNameInput.focus();
+            });
+
+        }
+
+
+    }
+
+    function emptyInputSkill() {
+        skillNameInput.value = "";
+        skillLevelSelectOptions.forEach(option => {
+            option.selected = false;
+            if (option.value === "choose") {
+                skillLevelSelect.style.fontWeight = "200";
+                option.selected = true;
+            };
         });
-        cancelSkill.classList.remove("d-none");
-        saveSkill.classList.remove("d-none");
+    }
 
-        $("#box-skill-clinet").addClass("d-none");
-        $(".box-skill").removeClass("d-none");
+    function getAllSkill() {
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7120/api/skills",
+            contentType: "application/json; charset=utf-8",
+            success: (data) => {
+                jQuery.each(data, (index, itemData) => {
+                    skillDB.push({ id: itemData.id, name: itemData.name, value: itemData.skillValue, priority: itemData.priority, deleted: false });
+                });
+                fullBothSideAfterChange();
+            }
+        })
+    };
 
+    function getMax(arr, prop) {
+        var max;
+        for (var i = 0; i < arr.length; i++) {
+            if (max == null || parseInt(arr[i][prop]) > parseInt(max[prop]))
+                max = arr[i];
+        }
+        return max;
+    }
 
-        refreshSkillsDb("d-inline-block");
+    //! change btn for go in form
+    $("#skill-btn-change").click(function () {
+
+        $("#skill-information").slideToggle("slow");
+        $("#skill-enter-information").slideToggle("slow");
+
+        $("#skill-btn-change").addClass("d-none");
+
+        fullBothSideAfterChange();
 
         sortedSkillIds = [];
 
+        skillNameInput.focus();
+
     });
 
-    $("#cancel-skill").click(function () {
+    //! back btn
+    $("#skill-enter-information-back-btn").click(function () {
+        $("#skill-information").slideToggle("slow");
+        $("#skill-enter-information").slideToggle("slow");
 
-        $("#form-box-skill").fadeOut("slow");
-        var aa = document.querySelectorAll(".itemSkill");
-        aa.forEach(element => {
-            element.classList.add("d-none");
-        });
-        cancelSkill.classList.add("d-none");
-        saveSkill.classList.add("d-none");
-
-        //skillsDb.sort((a, b) => parseFloat(a.id) - parseFloat(b.id));
-
-        refreshSkillsDb("d-none");
+        $("#skill-btn-change").removeClass("d-none");
 
         emptyInputSkill();
 
         sortedSkillIds = [];
-
-
-        $("#box-skill-clinet").removeClass("d-none");
-        $(".box-skill").addClass("d-none");
     });
 
     getAllSkill();
@@ -62,47 +184,21 @@ $(document).ready(function () {
 
         }
     });
-    function refreshSkillsDb(dis) {
 
-        let txt = "";
-        for (let i = 0; i < skillsDb.length; i++) {
+    //! for change text style in select in form after chosse enather option
+    skillLevelSelect.addEventListener("change", function () { skillLevelSelect.style.fontWeight = "400" });
 
-            txt += '<li class="bg-body-secondary d-inline-block ms-3 p-2 rounded sortable-item" data-skillPri-id="' + skillsDb[i].id + '" ><i class="ps-2 itemSkill ' + dis + '" data-skill-id="' + skillsDb[i].id + '">*</i>' + skillsDb[i].name + " | " + skillsDb[i].value + "  </li>";
-            skillsDb[i].deleted = false;
-        }
-        $(".box-skill").html(txt);
-
-        let txt2 = "";
-        for (let i = 0; i < skillsDb.length; i++) {
-
-            txt2 += '<li class="bg-body-secondary d-inline-block ms-3 p-2 rounded ">' + skillsDb[i].name + " | " + skillsDb[i].value + "  </li>";
-        }
-
-        $("#box-skill-clinet").html(txt2);
-
-        $(".itemSkill").click(function (e) {
-            this.parentElement.remove();
-            let iddeleted = $(this).attr("data-skill-id");
-            for (let i = 0; i < skillsDb.length; i++) {
-                if (skillsDb[i].id == iddeleted) {
-                    skillsDb[i].deleted = true;
-                }
-            }
-        });
-    }
-
-    $("#save-skill").click(function (e) {
+    //! save btn
+    $("#skill-enter-information-save-btn").click(function (e) {
         let ids = [];
-
-
-        let skillsDbLength = skillsDb.length;
-        for (let i = 0; i < skillsDbLength; i++) {
-            if (skillsDb[i].deleted) {
-                ids.push(skillsDb[i].id);
+        let skillDBLength = skillDB.length;
+        for (let i = 0; i < skillDBLength; i++) {
+            if (skillDB[i].deleted) {
+                ids.push(skillDB[i].id);
             }
         }
 
-        skillsDb = skillsDb.filter(item => item.deleted !== true)
+        skillDB = skillDB.filter(item => item.deleted !== true);
 
         $.ajax({
             type: "DELETE",
@@ -111,18 +207,8 @@ $(document).ready(function () {
             data: JSON.stringify(ids),
             success: function (data) {
                 if (data.success) {
-                    refreshSkillsDb("d-none");
-                    $("#form-box-skill").fadeOut("slow");
-                    var aa = document.querySelectorAll(".itemSkill");
-                    aa.forEach(element => {
-                        element.classList.add("d-none");
-                    });
-                    cancelSkill.classList.add("d-none");
-                    saveSkill.classList.add("d-none");
+                    fullBothSideAfterChange();
                     emptyInputSkill();
-                }
-                else {
-                    console.log("error");
                 }
             }
         });
@@ -135,75 +221,123 @@ $(document).ready(function () {
                 data: JSON.stringify(sortedSkillIds),
                 success: function (data) {
                     if (data.success) {
-                        skillsDb = [];
+                        skillDB = [];
                         getAllSkill();
                     }
                 }
             });
         }
 
-        $("#box-skill-clinet").removeClass("d-none");
-        $(".box-skill").addClass("d-none");
+        $("#skill-information").slideToggle("slow");
+        $("#skill-enter-information").slideToggle("slow");
+
+        $("#skill-btn-change").removeClass("d-none");
 
     });
 
-    $("#add-skill").click(function (e) {
-        let name = $('input[name="nameSkill"]').val();
-        let value = $('select[name="valueSkill"]').val();
-        let priority = getMax(skillsDb, "priority").priority + 1;
-        $.ajax({
-            type: "POST",
-            url: "https://localhost:7120/api/skills",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ Name: name, SkillValue: value, IsActive: true }),
-            success: function (data) {
-                if (data.success) {
-                    skillsDb.push({ id: data.id, name: name, value: value, priority: priority, deleted: false });
-                    refreshSkillsDb("d-inline-block");
-                    emptyInputSkill();
+    //! add btn
+    $("#skill-add-icon").click(function (e) {
 
-                }
+        selectedOptionFirstValue = skillLevelSelect.querySelector("option:checked");
 
-            },
-            error: function () {
-                $(".skill-erorr-text-level").html("خطا در ارسال درخواست.");
-                success = false;
+        let name = skillNameInput.value;
+        let level = skillLevelSelect.querySelector("option:checked").value;
+        let priority = 0;
+
+        var hasRecoardInDb = false;
+
+        const testNameValueForHasedInDb1 = name.trim();
+        const testNameValueForHasedInDb2 = testNameValueForHasedInDb1.replace(/\s+/g, ' ');
+        const testNameValueForHasedInDb3 = testNameValueForHasedInDb2.toLowerCase();
+
+        for (let h = 0; h < skillDB.length; h++) { //* Check to see if we don't have an object with this name in the database
+            var testForSameRecord = skillDB[h].name.toLowerCase();
+            if (testForSameRecord === testNameValueForHasedInDb3) {
+                hasRecoardInDb = true;
             }
-        });
-
-
-
-
-
-    });
-
-    function emptyInputSkill() {
-        $('input[name="nameSkill"]').val("");
-        $('select[name="valueSkill"]').val("");
-    }
-    function getMax(arr, prop) {
-        var max;
-        for (var i = 0; i < arr.length; i++) {
-            if (max == null || parseInt(arr[i][prop]) > parseInt(max[prop]))
-                max = arr[i];
         }
-        return max;
-    }
 
-    function getAllSkill() {
-        $.ajax({
-            type: "GET",
-            url: "https://localhost:7120/api/skills",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                jQuery.each(data, function (index, itemData) {
-                    skillsDb.push({ id: itemData.id, name: itemData.name, value: itemData.skillValue, priority: itemData.priority, deleted: false });
-                });
-                refreshSkillsDb("d-none");
+        function showErorrTag() {
+            $(skillErorrTextLevel).removeClass("d-none");
+            $(skillErorrTextName).removeClass("d-none");
+        }
 
+        if (skillLevelSelect && selectedOptionFirstValue.value !== "choose" && level !== "" && level !== null && !hasRecoardInDb) {
+
+            skillErorrTextName.innerText = "";
+            skillErorrTextLevel.innerText = "";
+
+            skillFirstTextInForm.classList.add("d-none");
+            $(".skill-enter-information-skills-box").removeClass("d-none");
+
+            if (skillDB.length != 0) {
+                priorty = getMax(skillDB, "priority").priority;
+                priorty += 1;
+            } else {
+                priorty = 1;
             }
 
-        });
-    }
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:7120/api/skills",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ Name: name, SkillValue: level, IsActive: true }),
+                success: function (data) {
+                    if (data.success) {
+                        skillDB.push({ id: data.id, name: name, value: level, priority: priorty, deleted: false });
+                        fullBothSideAfterChange();
+                        emptyInputSkill();
+                    }
+                },
+                error: function () {
+                    $(".skill-erorr-text-level").html("خطا در ارسال درخواست.");
+                    success = false;
+                }
+            });
+        }
+
+        else if ((name === "" || name === null) && (!skillLevelSelect || selectedOptionFirstValue.value === "choose")) {
+            skillErorrTextName.innerText = `${nameErorrText}`;
+            skillErorrTextLevel.innerText = `${levelErorrText}`;
+            showErorrTag();
+        } else if (hasRecoardInDb) {
+            skillErorrTextName.innerText = `${sameRecoardErorrText}`;
+            if (!skillLevelSelect || selectedOptionFirstValue.value === "choose") {
+                skillErorrTextLevel.innerText = `${levelErorrText}`;
+            } else {
+                skillErorrTextLevel.innerText = "";
+            }
+            showErorrTag();
+        } else if (name === "" || name === null) {
+            skillErorrTextName.innerText = `${nameErorrText}`;
+            skillErorrTextLevel.innerText = "";
+            showErorrTag();
+        } else if (!skillLevelSelect || selectedOptionFirstValue.value === "choose") {
+            if (name === "" || name === null) {
+                skillErorrTextName.innerText = `${nameErorrText}`;
+            } else {
+                skillErorrTextName.innerText = "";
+            }
+            skillErorrTextLevel.innerText = `${levelErorrText}`;
+            showErorrTag();
+        } else if ((name === "" || name === null) && hasRecoardInDb) {
+            skillErorrTextName.innerHtml = `<span>${nameErorrText}</span><br><span>${sameRecoardErorrText}</span> `;
+            skillErorrTextLevel.innerText = "";
+            showErorrTag();
+        }
+        skillNameInput.focus();
+    });
+
+    $(".go-back-skill").click(function () {
+
+        $("#skill-information").slideToggle("slow");
+        $("#skill-enter-information").slideToggle("slow");
+
+        fullBothSideAfterChange();
+
+        sortedSkillIds = [];
+
+        skillNameInput.focus();
+    });
 
 });
