@@ -5,6 +5,7 @@ using CV.Application.Features.Doings.Requests.Commands;
 using CV.Application.Features.Doings.Requests.Queries;
 using CV.Application.Features.Favorites.Requests.Commands;
 using CV.Application.Features.Favorites.Requests.Queries;
+using CV.Application.Features.Skills.Requests.Commands;
 using CV.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -62,6 +63,16 @@ namespace CV.Api.Controllers
         public async Task<ActionResult<BaseCommandResponse>> Delete(int id)
         {
             var favorite = new DeleteFavoriteCommand { Id = id };
+
+            var apiResponse = await _mediator.Send(favorite);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<BaseCommandResponse>> Delete(List<int> ids)
+        {
+            var favorite = new DeleteAllFavoriteCommand { Ids = ids };
 
             var apiResponse = await _mediator.Send(favorite);
 

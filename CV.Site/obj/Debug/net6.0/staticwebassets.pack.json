@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\fontA\\all.js"
     },
     {
+      "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\defult-image.jpg",
+      "PackagePath": "staticwebassets\\image\\defult-image.jpg"
+    },
+    {
       "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\js\\adminScript.js",
       "PackagePath": "staticwebassets\\js\\adminScript.js"
     },

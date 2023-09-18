@@ -46,5 +46,40 @@ namespace CV.Persistence.Repositories
                 return await _context.Servics.MaxAsync(p => p.Priority) + 1;
             return 1;
         }
+
+        public async Task DeleteAllAsync(List<int> ids)
+        {
+            List<Servic> servisec = new List<Servic>();
+            foreach (int id in ids)
+            {
+                servisec.Add(await GetByIdAsync(id));
+            }
+            _context.Servics.RemoveRange(servisec);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExistListAsync(List<int> ids)
+        {
+            try
+            {
+                foreach (int id in ids)
+                {
+                    if (!await ExistAsync(id))
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<List<Servic>> GetAllSortedPriority()
+        {
+            return await _context.Servics.OrderBy(x => x.Priority).ToListAsync();
+        }
     }
 }

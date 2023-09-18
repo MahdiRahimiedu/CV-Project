@@ -5,6 +5,7 @@ using CV.Application.Features.Doings.Requests.Commands;
 using CV.Application.Features.Doings.Requests.Queries;
 using CV.Application.Features.Projects.Requests.Commands;
 using CV.Application.Features.Projects.Requests.Queries;
+using CV.Application.Features.SocialNetWorks.Requests.Commands;
 using CV.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -63,6 +64,17 @@ namespace CV.Api.Controllers
         public async Task<ActionResult<BaseCommandResponse>> Delete(int id)
         {
             var project = new DeleteProjectCommand { Id = id };
+
+            var apiResponse = await _mediator.Send(project);
+
+            return Ok(apiResponse);
+        }
+
+
+        [HttpDelete]
+        public async Task<ActionResult<BaseCommandResponse>> Delete(List<int> ids)
+        {
+            var project = new DeleteAllProjectCommand { Ids = ids };
 
             var apiResponse = await _mediator.Send(project);
 

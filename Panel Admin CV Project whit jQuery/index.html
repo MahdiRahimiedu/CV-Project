@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Dashboard</title>
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- remix icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- link font -->
+    <script src="/fontA/all.js"></script>
+    <link rel="stylesheet" href="/fontA/all.css">
+
+
+
+
+
+
+
+    <!-- style -->
+    <style>
+        body {
+            display: flex;align-items: center;justify-content: center;
+        }
+
+        .cropper-container {max-height: 700px !important;}
+        .cropper-wrap-box , .cropper-canvas , .cropper-crop-box  {max-width: 100% !important;max-height: 100% !important;}
+        .cropper-drag-box {
+            position: absolute;
+            top: 0;left: 0;
+            width: 100% !important;height: 100%;
+        }
+        .imge-cropper {max-width: 100% !important;max-height: 500px !important;}
+        .cropper-wrap-box {background: #e7eaea ;}
+
+
+        @media screen And (max-width:1490px) {
+            .containerMain {width: 100% !important;}
+        }
+
+        @media screen And (max-width:980px) {
+            /* title container */
+            .containerMain {
+                padding: 1rem !important;
+            }
+
+            .containerMain .right , .containerMain .left {
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .title-container , .skill-container {
+                flex-direction: column !important;
+                gap: 2rem !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .title-information , .title-enter-information , .skill-enter-information , .skill-information {
+                border-right: none !important;
+                padding-top: 0rem;
+                margin: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            .title-db-table , .skill-db-table  {
+                margin: 0 !important;
+                padding-right: .5rem !important;
+            }
+
+            .title-enter-information-form .name input , .title-enter-information-form .provision input , .title-enter-information-form .aboute-me textarea ,
+            .title-enter-information-form .cup-coffee input , .title-enter-information-form .complete-project input ,.title-enter-information-form .cv-file input , 
+            .skill-enter-information-form .name input , .skill-enter-information-form .level select ,
+            .skill-enter-information-form .skill-level-input-box , .skill-enter-information-form .skill-name-input-box {
+                width: 100% !important;
+            }
+            .title-enter-information-form , .skill-enter-information-form {padding-left: 0 !important ;}
+            .title-btn-change span , .skill-btn-change  span {display: none;}
+
+        }
+
+        @media screen And (max-width:560px) {
+            /* title container */
+            .title-person-name , .title-aboute-me {font-size: 1rem !important;}
+            .title-enter-information-form .name input , .title-enter-information-form .provision input , .title-enter-information-form .aboute-me textarea ,  
+            .title-enter-information-form .cup-coffee input , .title-enter-information-form .complete-project input , 
+            .title-enter-information-form .cv-file input , .skill-enter-information-form .name input , 
+            .skill-enter-information-form .level select  {font-size: .9rem !important;}
+
+            .title-enter-information-form .name span , .title-enter-information-form .provision span ,
+            .title-enter-information-form .aboute-me span , .title-enter-information-form .complete-project span ,
+            .title-enter-information-form .cup-coffee span , .title-enter-information-form .cv-file span , 
+            .skill-enter-information-form .name span , .skill-enter-information-form .level span , .skill-enter-information-form .first-text span {font-size: .8rem !important;}
+
+            .title-enter-information-form .btn-box , .skill-enter-information-form .btn-box  {
+                justify-content: space-between !important;
+            }
+
+            .title-container , .skill-container {
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            
+        }
+
+      
+
+    </style>
+</head>
+<body class="whiteBack1" dir="rtl">
+
+    <div class="container containerMain  d-flex justify-content-center p-3 whiteBack1 h-100 position-relative  w-80">
+
+       
+        <div class="right w-100 d-flex justify-content-center p-2">
+            <div class="wrapper w-100 d-flex flex-column gap-3">
+
+                <!-- Title Container -->
+                <div class="title-container-box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+                    <div class="title-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                        <div class="title-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                            <!-- ! -->
+                            <div class="title-enter-information w-100 me-4 pe-4 overflow-hidden d-none" style="border-right: 2px solid #5C8D89;">
+
+                                <div action="" class="title-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                                    <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            نام و نام خانوادگی : 
+                                        </span>
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" spellcheck="false" placeholder="میلاد , محمد ...">
+                                    </div>
+                                    <div class="provision d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            توضیعات :
+                                        </span>
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" spellcheck="false" placeholder="میلاد احمدی برنامه نویس سایت هستم">
+                                    </div>
+                                    <div class="aboute-me d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            درباره من :
+                                        </span>
+                                        <textarea class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" style="resize: none;" spellcheck="false" placeholder=" من میلاد احمدی برنامه نویس سایت که از تجربه بالایی در ..." rows="4"></textarea>
+                                    </div>
+                                    <div class="cup-coffee d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            فنجان قهوه :
+                                        </span>
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" spellcheck="false" placeholder="999">
+                                    </div>
+                                    <div class="complete-project d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            پروژه های تکمیل شده :
+                                        </span>
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" spellcheck="false" placeholder="999">
+                                    </div>
+                                    <div class="cv-file d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            فایل رزومه :
+                                        </span>
+                                        <input type="file" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" spellcheck="false" >
+                                    </div>
+                                    
+                                    <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                        <span class="title-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                                        <span class="title-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- ! -->
+
+                            <div class="title-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                                <h6 class="title-db-table-text fw-semibold mt-2">
+                                    <span class="text-dark">Json</span>
+                                </h6>
+                                <button style="background: transparent;" class="title-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                                    <i class="ri-pen-nib-fill"></i>
+                                    <span>
+                                        ویرایش
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- ! -->
+                            <div class="title-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                                <div class="title-text-box w-100">
+                                    <h6 class="title-person-name fw-semibold" style="text-align: justify;">
+                                        <span class="title-person-name-lable text-dark">نام شما :</span>
+                                        <span class="title-name-value go-back-title greenColor2" style="cursor: pointer;">
+                                            + اضافه کردن نام
+                                        </span>
+                                    </h6>
+                                    <h6 class="title-provision" style="text-align: justify;">
+                                        <span class="title-provision-lable text-dark">توضیعات :</span>
+                                        <span class="title-provision-value go-back-title greenColor2" style="cursor: pointer;">
+                                            + اضافه کردن توضیعات
+                                        </span>
+                                    </h6>
+                                    <h6 class="title-aboute-me" style="text-align: justify;">
+                                        <span class="title-aboute-me-lable text-dark">درباره من :</span>
+                                        <span class="title-aboute-me-value go-back-title greenColor2" style="cursor: pointer;">
+                                            + اضافه کردن درباره من
+                                        </span>
+                                    </h6>
+                                    <h6 class="title-cup-coffee">
+                                        <span class="title-cup-coffee-lable text-dark">فنجان قهوه :</span>
+                                        <span class="title-cup-coffee-value go-back-title greenColor2" style="cursor: pointer;">
+                                            +   اضافه کردن فنجان های قهوه
+                                        </span>
+                                    </h6>
+                                    <h6 class="title-complete-project">
+                                        <span class="title-complete-project-lable text-dark">پروژه های تکمیل شده :</span>
+                                        <span class="title-complete-project-value go-back-title greenColor2" style="cursor: pointer;">
+                                            +   اضافه کردن پروژه های کامل شده
+                                        </span>
+                                    </h6>
+                                    <h6 class="title-cv-file">
+                                        <span class="title-cv-file-lable text-dark">فایل رزومه :</span>
+                                        <span class="title-cv-file-value go-back-title greenColor2" style="cursor: pointer;">
+                                            + اضافه کردن فایل رزومه
+                                        </span>
+                                    </h6>
+                                    
+                                </div>
+
+                            </div>
+                            <!-- ! -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Skill Container -->
+                <div class="skill-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+                    <div class="skill-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                        <div class="skill-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                            <!-- ! -->
+                            <div id="skill-enter-information" class="skill-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                                <div action="" class="skill-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                                    <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            هنوز مهارتی وارد نشده .
+                                        </span>
+
+                                        <ul id="skill-enter-information-skills-box" class="skill-enter-information-skills-box w-100 d-flex flex-wrap gap-1 d-none w-100">
+
+                                        </ul>
+                                    </div>
+                                    <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            مهارت شما :
+                                        </span>
+                                        <div class="skill-name-input-box d-flex w-75">
+                                            <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="html , c , java ...">
+                                        </div>
+                                        <span class="me-1 skill-erorr-text-name text-danger d-none">
+                                            
+                                        </span>
+                                    </div>
+                                    <div class="level d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                        <span class="me-1">
+                                            سطح مهارت : 
+                                        </span>
+                                        <div class="skill-level-input-box d-flex w-75">
+                                            <select class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" name="" id="" style="font-weight: 200;">
+                                                <option value="choose" disabled="disabled" selected="selected">مهارت شما دارای سطح ...</option>
+                                                <option value="متوسط">متوسط</option>
+                                                <option value="پیشرفته">پیشرفته</option>
+                                                <option value="حرفه ای"> حرفه ای</option>
+                                            </select>
+                                            <div id="skill-add-icon" class="skill-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                                <i class="ri-add-fill fs-5 text-white"></i>
+                                            </div>
+                                        </div>
+                                        <span class="me-1 skill-erorr-text-level text-danger d-none">
+                                            
+                                        </span>
+                                    </div>
+                                    <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                        <span id="skill-enter-information-back-btn" class="skill-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                        <span id="skill-enter-information-save-btn" class="skill-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- ! -->
+
+                            <div id="skill-db-table" class="skill-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                                <h6 class="skill-db-table-text fw-semibold mt-2">
+                                    <span class="text-dark">Skill</span>
+                                </h6>
+                                <button id="skill-btn-change" style="background: transparent;" class="skill-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                                    <i class="ri-pen-nib-fill"></i>
+                                    <span>
+                                        ویرایش
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- ! -->
+                            <div id="skill-information" class="skill-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                                <div class="skill-text-box w-100">
+
+                                    <h6 class="skill-first-text fw-semibold" style="text-align: justify;">
+                                        <span class="skill-first-text-lable text-dark">مهارت ها :</span>
+                                        <span class="skill-first-text-value go-back-skill greenColor2" style="cursor: pointer;">
+                                            + اضافه کردن مهارت
+                                        </span>
+                                    </h6>
+                                    
+                                    <ul id="skill-information-skills-box" class="skill-information-skills-box w-100 d-flex flex-wrap gap-2 w-100">
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                            <!-- ! -->
+
+                        </div>
+
+                    </div>
+                </div>
+
+            
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery Link -->
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <!-- script -->
+    <script src="index.js"></script>
+
+</body>
+</html>

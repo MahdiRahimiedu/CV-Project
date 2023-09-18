@@ -1,6 +1,8 @@
 ﻿using CV.Application.DTOs.Educations;
 using CV.Application.Features.Educations.Requests.Commands;
 using CV.Application.Features.Educations.Requests.Queries;
+using CV.Application.Features.Services.Requests.Commands;
+using CV.Application.Features.SocialNetWorks.Requests.Queries;
 using CV.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +31,7 @@ namespace CV.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<EducationDto>> Get(int id)
         {
-            var education = await _mediator.Send(new GetEducationDetailRequest());
+            var education = await _mediator.Send(new GetEducationDetailRequest { Id = id });
 
             return Ok(education);
         }
@@ -64,7 +66,7 @@ namespace CV.Api.Controllers
             return Ok(apiResponse);
         }
 
-        [HttpPut("{ids}")]
+        [HttpPut]
         public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
         {
             var priorities = new UpdatePrioritiesEducationCommand { Ids = ids };

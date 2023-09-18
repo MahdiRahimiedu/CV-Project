@@ -9,5 +9,7 @@ namespace CV.Application.Contracts.Persistence
 {
     public interface IFavorioteRepository : IGenericRepository<Favorite>
     {
+        Task DeleteAllAsync(List<int> ids);
+        Task<bool> ExistListAsync(List<int> ids);
     }
 }

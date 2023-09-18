@@ -6,6 +6,7 @@ using CV.Application.Features.Doings.Requests.Queries;
 using CV.Application.Features.Educations.Requests.Commands;
 using CV.Application.Features.Services.Requests.Commands;
 using CV.Application.Features.Services.Requests.Queries;
+using CV.Application.Features.Skills.Requests.Commands;
 using CV.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -69,7 +70,17 @@ namespace CV.Api.Controllers
             return Ok(apiResponse);
         }
 
-        [HttpPut("{ids}")]
+        [HttpDelete]
+        public async Task<ActionResult<BaseCommandResponse>> Delete(List<int> ids)
+        {
+            var servic = new DeleteAllServicCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(servic);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpPut]
         public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
         {
             var priorities = new UpdatePrioritiesServicCommand { Ids = ids };

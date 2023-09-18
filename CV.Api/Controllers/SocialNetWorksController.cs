@@ -68,5 +68,16 @@ namespace CV.Api.Controllers
 
             return Ok(apiResponse);
         }
+
+
+        [HttpDelete]
+        public async Task<ActionResult<BaseCommandResponse>> Delete(List<int> ids)
+        {
+            var socialNetWork = new DeleteAllSocialNetWorkCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(socialNetWork);
+
+            return Ok(apiResponse);
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace CV.Application.Features.Educations.Handlers.Queries
 
         public async Task<List<EducationDto>> Handle(GetEducationListRequest request, CancellationToken cancellationToken)
         {
-            var educations = await _educationRepo.GetAllAsync();
+            var educations = await _educationRepo.GetAllSortedPriority();
             return _mapper.Map<List<EducationDto>>(educations);
         }
     }

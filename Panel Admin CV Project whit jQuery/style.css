@@ -1,0 +1,69 @@
+@font-face{font-family: myFont; src: url(/fontA/NTDI.woff2);}
+
+* {
+    border: none;outline: none;
+    text-decoration: none !important;
+    padding: 0;margin: 0;
+    box-sizing: border-box;
+    line-height: normal !important;
+    list-style: none !important;
+    font-family: myFont;
+}
+
+html::-webkit-scrollbar {width: .3rem;}
+html::-webkit-scrollbar-track {background: #e7eaea;}
+html::-webkit-scrollbar-thumb {background:#5C8D89;border-radius: 7rem;}
+::selection {background:  #5C8D89;color: #050A30;}
+
+html {scroll-behavior: smooth !important;}
+
+.w-10 {width: 10%;}
+.w-30 {width: 30%;}
+.w-40 {width: 40%;}
+.w-60 {width: 60%;}
+.w-70 {width: 70%;}
+.w-80 {width: 80%;}
+.w-90 {width: 90%;}
+
+.whiteColor1 {color: #e7eaea;}
+.whiteBack1 {background-color: #e7eaea;}
+
+.greenColor1 {color: #A7D7C5;}
+.greenBack1 {background-color: #A7D7C5;}
+
+.greenColor2 {color: #5C8D89;}
+.greenBack2 {background-color: #5C8D89;}
+
+.box-shadoww {box-shadow: 0 10px 20px rgba(0, 0, 0, 0.242);}
+
+.fs-7 {font-size: .9rem;}
+.fs-8 {font-size: .8rem;}
+.fs-9 {font-size: .7rem;}
+
+select {-webkit-appearance: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -47,5 +47,9 @@ namespace CV.Persistence.Repositories
                 return await _context.Educations.MaxAsync(p => p.Priority) + 1;
             return 1;
         }
+        public async Task<List<Education>> GetAllSortedPriority()
+        {
+            return await _context.Educations.OrderBy(x => x.Priority).ToListAsync();
+        }
     }
 }

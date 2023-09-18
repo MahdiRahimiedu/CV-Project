@@ -3,99 +3,730 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 }
 
-<!-- Skill Container -->
-<div class="skill-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
-    <div class="skill-container w-100 d-flex justify-content-between mt-3 mb-3">
 
-        <div class="skill-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+<div class="containerMain  d-flex justify-content-center whiteBack1 h-100 position-relative w-100 p-0">
+    <div class="wrapper w-100 d-flex flex-column gap-3 container pt-2">
 
-            <!-- ! -->
-            <div id="skill-enter-information" class="skill-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
 
-                <div action="" class="skill-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
-                    <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
-                        <span class="me-1">
-                            هنوز مهارتی وارد نشده .
-                        </span>
 
-                        <ul id="sortable-list" class="skill-enter-information-skills-box w-100 d-flex flex-wrap gap-1 d-none w-100">
-                        </ul>
-                    </div>
-                    <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
-                        <span class="me-1">
-                            مهارت شما :
-                        </span>
-                        <div class="skill-name-input-box d-flex w-75">
-                            <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="html , c , java ...">
-                        </div>
-                        <span class="me-1 skill-erorr-text-name text-danger d-none">
+        <!-- Skill Container -->
+        <div class="skill-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="skill-container w-100 d-flex justify-content-between mt-3 mb-3">
 
-                        </span>
-                    </div>
-                    <div class="level d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
-                        <span class="me-1">
-                            سطح مهارت :
-                        </span>
-                        <div class="skill-level-input-box d-flex w-75">
-                            <select class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" name="" id="" style="font-weight: 200;">
-                                <option value="choose" disabled="disabled" selected="selected">مهارت شما دارای سطح ...</option>
-                                <option value="متوسط">متوسط</option>
-                                <option value="پیشرفته">پیشرفته</option>
-                                <option value="حرفه ای"> حرفه ای</option>
-                            </select>
-                            <div id="skill-add-icon" class="skill-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
-                                <i class="ri-add-fill fs-5 text-white"></i>
+                <div class="skill-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- ! -->
+                    <div id="skill-enter-information" class="skill-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="skill-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    هنوز مهارتی وارد نشده .
+                                </span>
+
+                                <ul id="sortable-list-skill" class="skill-enter-information-skills-box w-100 d-flex flex-wrap gap-1 d-none w-100 p-0">
+                                </ul>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    مهارت شما : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="skill-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.4%;" spellcheck="false" placeholder="html , c , java ...">
+                                </div>
+                                <span class="me-1 skill-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="level d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    سطح مهارت : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="skill-level-input-box d-flex w-75">
+                                    <select class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-75" name="" id="" style="font-weight: 200;">
+                                        <option value="choose" disabled="disabled" selected="selected">مهارت شما دارای سطح ...</option>
+                                        <option value="متوسط">متوسط</option>
+                                        <option value="پیشرفته">پیشرفته</option>
+                                        <option value="حرفه ای"> حرفه ای</option>
+                                    </select>
+                                    <div id="skill-add-icon" class="skill-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                                <span class="me-1 skill-erorr-text-level text-danger">
+
+                                </span>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="skill-enter-information-back-btn" class="skill-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="skill-enter-information-save-btn" class="skill-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
                             </div>
                         </div>
-                        <span class="me-1 skill-erorr-text-level text-danger d-none">
 
-                        </span>
                     </div>
-                    <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
-                        <span id="skill-enter-information-back-btn" class="skill-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
-                        <span id="skill-enter-information-save-btn" class="skill-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                    <!-- ! -->
+
+                    <div id="skill-db-table" class="skill-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="skill-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">Skill</span>
+                        </h6>
+                        <button id="skill-btn-change" style="background: transparent;" class="skill-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                            <i class="ri-pen-nib-fill"></i>
+                            <span>
+                                ویرایش
+                            </span>
+                        </button>
                     </div>
-                </div>
 
-            </div>
-            <!-- ! -->
+                    <!-- ! -->
+                    <div id="skill-information" class="skill-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
 
-            <div id="skill-db-table" class="skill-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
-                <h6 class="skill-db-table-text fw-semibold mt-2">
-                    <span class="text-dark">Skill</span>
-                </h6>
-                <button id="skill-btn-change" style="background: transparent;" class="skill-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
-                    <i class="ri-pen-nib-fill"></i>
-                    <span>
-                        ویرایش
-                    </span>
-                </button>
-            </div>
+                        <div class="skill-text-box" style="width: calc(100% - 20px);">
 
-            <!-- ! -->
-            <div id="skill-information" class="skill-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+                            <h6 class="skill-first-text fw-semibold" style="text-align: justify;">
+                                <span class="skill-first-text-lable text-dark">مهارت ها :</span>
+                                <span class="skill-first-text-value go-back-skill greenColor2" style="cursor: pointer;">
+                                    + اضافه کردن مهارت
+                                </span>
+                            </h6>
 
-                <div class="skill-text-box w-100">
+                            <ul id="skill-information-skills-box" class="skill-information-skills-box w-100 d-flex flex-wrap gap-2 p-0">
+                            </ul>
 
-                    <h6 class="skill-first-text fw-semibold" style="text-align: justify;">
-                        <span class="skill-first-text-lable text-dark">مهارت ها :</span>
-                        <span class="skill-first-text-value go-back-skill greenColor2" style="cursor: pointer;">
-                            + اضافه کردن مهارت
-                        </span>
-                    </h6>
+                        </div>
 
-                    <ul id="skill-information-skills-box" class="skill-information-skills-box w-100 d-flex flex-wrap gap-2 w-100">
-                    </ul>
+                    </div>
+                    <!-- ! -->
 
                 </div>
 
             </div>
-            <!-- ! -->
-
         </div>
+
+
+        <!-- Favorite Container -->
+        <div class="favorite-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="favorite-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                <div class="favorite-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- ! -->
+                    <div id="favorite-enter-information" class="favorite-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="favorite-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    هنوز علافه ای اضافه نشده .
+                                </span>
+
+                                <ul class="favorite-enter-information-favorites-box w-100 d-flex flex-wrap gap-1 d-none w-100 flex-column p-0">
+                                </ul>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    علاقه شما : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="favorite-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="cube , chest , golf ...">
+                                </div>
+                                <span class="me-1 favorite-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="detail d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    توضیع مختصر : <small class="greenColor2">( اختیاری )</small>
+                                </span>
+                                <div class="favorite-detail-input-box d-flex w-75">
+                                    <div class="favorite-detail-input-box d-flex w-75">
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-100" spellcheck="false" placeholder="من علاقه زیادی به ...">
+                                    </div>
+                                    <div id="favorite-add-icon" class="favorite-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="favorite-enter-information-back-btn" class="favorite-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="favorite-enter-information-save-btn" class="favorite-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                    <div id="favorite-db-table" class="favorite-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="favorite-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">favorite</span>
+                        </h6>
+                        <button id="favorite-btn-change" style="background: transparent;" class="favorite-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                            <i class="ri-pen-nib-fill"></i>
+                            <span>
+                                ویرایش
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="favorite-information" class="favorite-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                        <div class="favorite-text-box" style="width: calc(100% - 20px);">
+
+                            <h6 class="favorite-first-text fw-semibold" style="text-align: justify;">
+                                <span class="favorite-first-text-lable text-dark">علاقه ها :</span>
+                                <span class="favorite-first-text-value go-back-favorite greenColor2" style="cursor: pointer;">
+                                    + اضافه کردن علاقه
+                                </span>
+                            </h6>
+
+                            <ul id="favorite-information-favorites-box" class="favorite-information-favorites-box w-100 d-flex flex-wrap gap-2 w-100 p-0 flex-column" style="text-align:justify;">
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Servic Container -->
+        <div class="servic-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="servic-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                <div class="servic-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- ! -->
+                    <div id="servic-enter-information" class="servic-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="servic-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    هنوز خدماتی اضافه نشده .
+                                </span>
+
+                                <ul id="sortable-list-servic" class="servic-enter-information-servics-box w-100 d-flex flex-wrap gap-1 d-none w-100 p-0">
+                                </ul>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    خدمات شما : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="servic-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.4%;" spellcheck="false" placeholder="برنامه نویسی فرانت اند . سئو . گرافیک . فتوشاپ ...">
+                                </div>
+                                <span class="me-1 servic-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="icon d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    ایکون : <small class="greenColor2">( اختیاری )</small>
+                                </span>
+                                <div class="servic-icon-input-box d-flex w-75">
+                                    <div class="servic-icon-input-box d-flex w-75">
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-100" spellcheck="false" placeholder="Programmer . frontEnd . Player ...">
+                                    </div>
+                                    <div id="servic-add-icon" class="servic-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="servic-enter-information-back-btn" class="servic-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="servic-enter-information-save-btn" class="servic-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                    <div id="servic-db-table" class="servic-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="servic-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">servic</span>
+                        </h6>
+                        <button id="servic-btn-change" style="background: transparent;" class="servic-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                            <i class="ri-pen-nib-fill"></i>
+                            <span>
+                                ویرایش
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="servic-information" class="servic-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                        <div class="servic-text-box" style="width: calc(100% - 20px);">
+
+                            <h6 class="servic-first-text fw-semibold" style="text-align: justify;">
+                                <span class="servic-first-text-lable text-dark">خدمات :</span>
+                                <span class="servic-first-text-value go-back-servic greenColor2" style="cursor: pointer;">
+                                    + اضافه کردن خدمات
+                                </span>
+                            </h6>
+
+                            <ul id="servic-information-servics-box" class="servic-information-servics-box w-100 d-flex flex-wrap gap-2 p-0">
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Doing Container -->
+        <div class="doing-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="doing-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                <div class="doing-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- ! -->
+                    <div id="doing-enter-information" class="doing-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="doing-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    هنوز رکوردی اضافه نشده .
+                                </span>
+
+                                <ul class="doing-enter-information-doings-box w-100 d-flex flex-wrap gap-1 d-none w-100 flex-column p-0">
+                                </ul>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    در حال انجام : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="doing-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="تحصیل , پروژه , کار ...">
+                                </div>
+                                <span class="me-1 doing-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="location d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    لوکیشن : <small class="greenColor2">( اختیاری )</small>
+                                </span>
+                                <div class="doing-location-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="ادرس کاری که دارم انجام میدم ...">
+                                </div>
+                            </div>
+                            <div class="detail d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    توضیع مختصر : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="doing-detail-input-box d-flex w-75">
+                                    <div class="doing-detail-input-box d-flex w-75">
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-100" spellcheck="false" placeholder="فعالیتی که در حال حاضر دارم ...">
+                                    </div>
+                                    <div id="doing-add-icon" class="doing-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                                <span class="me-1 doing-erorr-text-detail text-danger">
+
+                                </span>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="doing-enter-information-back-btn" class="doing-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="doing-enter-information-save-btn" class="doing-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                    <div id="doing-db-table" class="doing-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="doing-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">doing</span>
+                        </h6>
+                        <button id="doing-btn-change" style="background: transparent;" class="doing-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                            <i class="ri-pen-nib-fill"></i>
+                            <span>
+                                ویرایش
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="doing-information" class="doing-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                        <div class="doing-text-box" style="width: calc(100% - 20px);">
+
+                            <h6 class="doing-first-text fw-semibold" style="text-align: justify;">
+                                <span class="doing-first-text-lable text-dark">در حال انجام :</span>
+                                <span class="doing-first-text-value go-back-doing greenColor2" style="cursor: pointer;">
+                                    + اضافه کردن علاقه
+                                </span>
+                            </h6>
+
+                            <ul id="doing-information-doings-box" class="doing-information-doings-box w-100 d-flex flex-wrap gap-2 w-100 p-0 flex-column" style="text-align:justify;">
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Social Net Work Container -->
+        <div class="social-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="social-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                <div class="social-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- ! -->
+                    <div id="social-enter-information" class="social-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="social-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    هنوز رکوردی اضافه نشده .
+                                </span>
+
+                                <ul class="social-enter-information-socials-box w-100 d-flex flex-wrap gap-1 d-none w-100 flex-column p-0">
+                                </ul>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    شبکه اچتماعی : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="social-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="اینستاگرام . تلگرام . لینکدین ...">
+                                </div>
+                                <span class="me-1 social-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="address d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    لینک سوشال مدیا : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="social-address-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="h ttps://www.instagram.com/heyvatech">
+                                </div>
+                                <span class="me-1 social-erorr-text-address text-danger">
+
+                                </span>
+                            </div>
+                            <div class="icon d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    ایکون : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="social-icon-input-box d-flex w-75">
+                                    <div class="social-icon-input-box d-flex w-75">
+                                        <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-100" spellcheck="false" placeholder="instagram . telegram . linkedin ...">
+                                    </div>
+                                    <div id="social-add-icon" class="social-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                                <span class="me-1 social-erorr-text-icon text-danger">
+
+                                </span>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="social-enter-information-back-btn" class="social-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="social-enter-information-save-btn" class="social-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                    <div id="social-db-table" class="social-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="social-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">social net work</span>
+                        </h6>
+                        <button id="social-btn-change" style="background: transparent;" class="social-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                            <i class="ri-pen-nib-fill"></i>
+                            <span>
+                                ویرایش
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="social-information" class="social-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                        <div class="social-text-box" style="width: calc(100% - 20px);">
+
+                            <h6 class="social-first-text fw-semibold" style="text-align: justify;">
+                                <span class="social-first-text-lable text-dark">شبکه های مجازی :</span>
+                                <span class="social-first-text-value go-back-social greenColor2" style="cursor: pointer;">
+                                    اضافه کردن شبکه مجازی +
+                                </span>
+                            </h6>
+
+                            <ul id="social-information-socials-box" class="social-information-socials-box w-100 d-flex flex-wrap gap-2 w-100 p-0 flex-column" style="text-align:justify;">
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Project Container -->
+        <div class="project-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="project-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                <div class="project-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- ! -->
+                    <div id="project-enter-information" class="project-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="project-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="first-text d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    هنوز پزوژه ای اضافه نشده .
+                                </span>
+
+                                <ul class="project-enter-information-projects-box w-100 d-flex flex-wrap gap-1 d-none w-100 flex-column p-0">
+                                </ul>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                   نام پروژه : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="پروژه رزومه . پروژه فروشگاهی ...">
+                                </div>
+                                <span class="me-1 project-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="applicant d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    درخواست کننده : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-applicant-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="مشتری . شرکت اپل . شرکت ...">
+                                </div>
+                                <span class="me-1 project-erorr-text-applicant text-danger">
+
+                                </span>
+                            </div>
+                            <div class="date d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    تاریخ : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-date-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="1400/3/14 . 1389 ...">
+                                </div>
+                                <span class="me-1 project-erorr-text-date text-danger">
+
+                                </span>
+                            </div>
+                            <div class="img d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    عکس برای پروژه : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-img-input-box d-flex w-75">
+                                    <div class="project-img-input-box d-flex w-75">
+                                        <input type="file" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-100" spellcheck="false">
+                                    </div>
+                                    <div id="project-add-icon" class="project-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                                <span class="me-1 project-erorr-text-img text-danger">
+
+                                </span>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="project-enter-information-back-btn" class="project-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="project-enter-information-save-btn" class="project-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                    <div id="project-db-table" class="project-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="project-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">project</span>
+                        </h6>
+                        <button id="project-btn-change" style="background: transparent;" class="project-btn-change greenColor2 fs-6 ms-4  d-flex align-items-center justify-content-center">
+                            <i class="ri-pen-nib-fill"></i>
+                            <span>
+                                ویرایش
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="project-information" class="project-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                        <div class="project-text-box" style="width: calc(100% - 20px);">
+
+                            <h6 class="project-first-text fw-semibold" style="text-align: justify;">
+                                <span class="project-first-text-lable text-dark">پروژه ها :</span>
+                                <span class="project-first-text-value go-back-project greenColor2" style="cursor: pointer;">
+                                    اضافه کردن پروژه +
+                                </span>
+                            </h6>
+
+                            <ul id="project-information-projects-box" class="project-information-projects-box w-100 d-flex flex-wrap gap-2 w-100 p-0 flex-column" style="text-align:justify;">
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Education Container -->
+        <div class="education-Container-Box w-100 p-3 d-flex justify-content-center bg-white rounded-2 position-relative">
+            <div class="education-container w-100 d-flex justify-content-between mt-3 mb-3">
+
+                <div class="education-information-box d-flex flex-column gap-2 w-100 overflow-hidden">
+
+                    <!-- edit box for any record education -->
+                    <div id="education-change-information-recoard" class=" w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+                    </div>
+
+                    <div id="education-sortable-box" class="d-flex align-items-center justify-content-center flex-column gap-4 w-100 position-absolute top-0 start-0 d-none" style="background: rgba(31, 31, 31, 0.836);height:600px;">
+                        <ul id="sortable-list-education" class="sortable-list-education-box w-100 p-4 d-flex flex-column gap-2" style="max-height:350px;overflow-y:scroll;" >
+
+                        </ul>
+                        <div class="end-container-education-sorth d-flex align-items-center justify-content-evenly w-100">
+                            <span class="text-white">
+                                با کشیدن و رها کردن هر رکورد , اولویت نشان دادن مدارک رو مشخص کنید .
+                            </span>
+                            <div>
+                                <span id="education-sorth-back-btn" class="p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="education-sorth-save-btn" class="p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="education-enter-information" class="education-enter-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;border-right: 2px solid rgb(92, 141, 137); display: none;">
+
+                        <div class="education-enter-information-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4">
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    نام مدرک : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="education-name-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="کاردانی کامپیوتر . javaScript . دوره ...">
+                                </div>
+                                <span class="me-1 education-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="location d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    لوکیشن : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="education-location-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="microsoft . دانشگاه . اموزشگاه ...">
+                                </div>
+                                <span class="me-1 education-erorr-text-location text-danger">
+
+                                </span>
+                            </div>
+                            <div class="date d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    تاریخ : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="education-date-input-box d-flex w-75">
+                                    <input type="text" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="1400/3/14 . 1389 ...">
+                                </div>
+                                <span class="me-1 education-erorr-text-date text-danger">
+
+                                </span>
+                            </div>
+                            <div class="img d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    عکس مدرک : <small class="greenColor2">( اختیاری )</small>
+                                </span>
+                                <div class="education-img-input-box d-flex w-75">
+                                    <div class="education-img-input-box d-flex w-75">
+                                        <input id="educationImg" type="file" class="whiteBack1 text-dark fs-6 p-2 rounded-2 w-100">
+                                    </div>
+                                    <div id="education-add-icon" class="education-add-icon me-2 rounded-2 greenBack2 rounded-2 d-flex align-items-center justify-content-center" style="width: 2.5rem;cursor: pointer;">
+                                        <i class="ri-add-fill fs-5 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="education-enter-information-back-btn" class="education-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">بازگشت</span>
+                                @* <span id="education-enter-information-save-btn" class="education-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span> *@
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                    <div id="education-db-table" class="education-db-table w-100 me-4 pe-4 overflow-hidden d-flex align-items-center justify-content-between" style="border-right: 2px solid #5C8D89;">
+                        <h6 class="education-db-table-text fw-semibold mt-2">
+                            <span class="text-dark">education</span>
+                        </h6>
+                        <div class="btns-box-education d-flex align-items-center justify-content-center">
+                            <button id="education-btn-change" class="education-btn-change greenBack2 text-white fs-6 ms-2 p-2 rounded-3  d-flex align-items-center justify-content-center">
+                                <i class="ri-pen-nib-fill"></i>
+                            </button>
+                            <button id="education-btn-sortable" class="education-btn-change greenBack2 fs-6 ms-4 text-white p-2 rounded-3 d-flex align-items-center justify-content-center">
+                                <i class="ri-arrow-up-down-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ! -->
+                    <div id="education-information" class="education-information w-100 me-4 pe-4 overflow-hidden" style="border-right: 2px solid #5C8D89;">
+
+                        <div class="education-text-box" style="width: calc(100% - 20px);">
+
+                            <h6 class="education-first-text fw-semibold" style="text-align: justify;">
+                                <span class="education-first-text-lable text-dark">مدرک ها :</span>
+                                <span class="education-first-text-value go-back-education greenColor2" style="cursor: pointer;">
+                                    اضافه کردن مدرک +
+                                </span>
+                            </h6>
+
+                            <ul id="education-information-educations-box" class="education-information-educations-box w-100 d-flex flex-wrap gap-2 w-100 p-0 flex-column" style="text-align:justify;">
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <!-- ! -->
+
+                </div>
+
+            </div>
+        </div>
+
+
+        
 
     </div>
 </div>
+
 
 @section Scripts {
 

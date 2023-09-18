@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lb/IzzMmZhaxpaMywizTGbDU2KnkaNflvAHuXgsMluo=",
+  "Hash": "nGjXJatr5Sa52QokwBBChQdBygKUXjB4P+NTNfbzd7A=",
   "Source": "CV.Site",
   "BasePath": "_content/CV.Site",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fontA\\NTDI.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\defult-image.jpg",
+      "SourceId": "CV.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\",
+      "BasePath": "_content/CV.Site",
+      "RelativePath": "image/defult-image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image\\defult-image.jpg"
     },
     {
       "Identity": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\js\\adminScript.js",

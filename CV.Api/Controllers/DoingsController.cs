@@ -1,6 +1,7 @@
 ﻿using CV.Application.DTOs.Doings;
 using CV.Application.Features.Doings.Requests.Commands;
 using CV.Application.Features.Doings.Requests.Queries;
+using CV.Application.Features.Favorites.Requests.Commands;
 using CV.Application.Response;
 using CV.Domain;
 using MediatR;
@@ -64,6 +65,16 @@ namespace CV.Api.Controllers
             var doing = new DeleteDoingCommand { Id = id };
 
             var apiResponse = await _mediator.Send(doing);
+
+            return Ok(apiResponse);
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<BaseCommandResponse>> Delete(List<int> ids)
+        {
+            var doings = new DeleteAllDoingCommand { Ids = ids };
+
+            var apiResponse = await _mediator.Send(doings);
 
             return Ok(apiResponse);
         }

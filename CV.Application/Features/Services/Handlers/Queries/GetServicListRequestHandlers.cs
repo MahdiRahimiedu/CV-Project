@@ -26,7 +26,7 @@ namespace CV.Application.Features.Services.Handlers.Queries
 
         public async Task<List<ServicDto>> Handle(GetServicListRequest request, CancellationToken cancellationToken)
         {
-            var servic = await _serviceRepo.GetAllAsync();
+            var servic = await _serviceRepo.GetAllSortedPriority();
             return _mapper.Map<List<ServicDto>>(servic);
         }
     }
