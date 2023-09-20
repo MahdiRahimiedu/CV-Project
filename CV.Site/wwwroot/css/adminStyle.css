@@ -15,15 +15,15 @@
     font-family: myFont;
 }
 
-html::-webkit-scrollbar {
+html::-webkit-scrollbar, #sortable-list-education::-webkit-scrollbar, #sortable-list-hemployment::-webkit-scrollbar {
     width: .3rem;
 }
 
-html::-webkit-scrollbar-track {
+html::-webkit-scrollbar-track, #sortable-list-education::-webkit-scrollbar-track, #sortable-list-hemployment::-webkit-scrollbar-track {
     background: #e7eaea;
 }
 
-html::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb, #sortable-list-education::-webkit-scrollbar-thumb, #sortable-list-hemployment::-webkit-scrollbar-thumb {
     background: #5C8D89;
     border-radius: 7rem;
 }
@@ -118,36 +118,37 @@ body {
 @media screen And (max-width:980px) {
 
 
-    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container {
+    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container, .hemployment-container , .json-container {
         flex-direction: column !important;
         gap: 2rem !important;
         justify-content: center !important;
         align-items: center !important;
     }
 
-    .skill-enter-information, .skill-information, .favorite-enter-information, .favorite-information, .doing-enter-information, .doing-information, .servic-enter-information, .servic-information, .social-enter-information, .social-information, .project-enter-information, .project-information, .education-enter-information, .education-information {
+    .skill-enter-information, .skill-information, .favorite-enter-information, .favorite-information, .doing-enter-information, .doing-information, .servic-enter-information, .servic-information, .social-enter-information, .social-information, .project-enter-information, .project-information, .education-enter-information, .education-information, .education-change-information-recoard, .hemployment-enter-information, .hemployment-information, .hemployment-change-information-recoard, .json-enter-information ,
+    .json-information {
         border-right: none !important;
         padding-top: 0rem;
         margin: 0 !important;
         padding-right: 0 !important;
     }
 
-    .skill-db-table, .favorite-db-table, .doing-db-table, .servic-db-table, .social-db-table, .project-db-table, .education-db-table {
+    .skill-db-table, .favorite-db-table, .doing-db-table, .servic-db-table, .social-db-table, .project-db-table, .education-db-table, .hemployment-db-table, .json-db-table {
         margin: 0 !important;
         padding-right: .5rem !important;
     }
 
 
-    .skill-enter-information-form, .favorite-enter-information-form, .doing-enter-information-form, .servic-enter-information-form, .social-enter-information-form, .project-enter-information-form, education-enter-information-form {
+    .skill-enter-information-form, .favorite-enter-information-form, .doing-enter-information-form, .servic-enter-information-form, .social-enter-information-form, .project-enter-information-form, .education-enter-information-form, .education-change-information-recoard-form, .hemployment-enter-information-form, .hemployment-change-information-recoard-form, .json-enter-information-form {
         padding-left: 0 !important;
     }
 
-    .skill-btn-change span, .favorite-btn-change span, .doing-btn-change span, .servic-btn-change span, .social-btn-change span, .project-btn-change span, .education-btn-change span {
+    .skill-btn-change span, .favorite-btn-change span, .doing-btn-change span, .servic-btn-change span, .social-btn-change span, .project-btn-change span, .json-btn-change span {
         display: none;
     }
 
-    input, .skill-name-input-box, .skill-level-input-box, .skill-level-input-box select, .favorite-name-input-box, .favorite-detail-input-box, .doing-name-input-box, .doing-detail-input-box, .doing-location-input-box, .servic-name-input-box, .servic-icon-input-box, .social-name-input-box, .social-address-input-box, .social-icon-input-box, .project-name-input-box, .project-applicant-input-box, .project-date-input-box, .project-img-input-box, .education-name-input-box, .education-location-input-box, .education-date-input-box, .education-img-input-box {
-        width: 100% !important;
+    input, .InputBox {
+         width: 100% !important;
     }
 }
 
@@ -162,16 +163,12 @@ body {
     }
 
 
-    .skill-enter-information-form .btn-box, .favorite-enter-information-form .btn-box, .doing-enter-information-form .btn-box, .servic-enter-information-form .btn-box, .social-enter-information-form .btn-box, .project-enter-information-form .btn-box, .education-enter-information-form .btn-box {
-        justify-content: space-between !important;
-    }
-
-    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container {
+    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container, .hemployment-container, .json-container {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
     }
 
-    .favorite-text-box, .skill-text-box, .doing-text-box, .servic-text-boxx, .social-text-box, .project-text-box, .education-text-box {
+    .favorite-text-box, .skill-text-box, .doing-text-box, .servic-text-box, .social-text-box, .project-text-box, .education-text-box, .hemployment-text-box, .json-f-box {
         width: 100% !important;
     }
 }

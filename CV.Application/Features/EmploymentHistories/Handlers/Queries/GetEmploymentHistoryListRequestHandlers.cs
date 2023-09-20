@@ -26,7 +26,7 @@ namespace CV.Application.Features.EmploymentHistories.Handlers.Queries
 
         public async Task<List<EmploymentHistoryDto>> Handle(GetEmploymentHistoryListRequest request, CancellationToken cancellationToken)
         {
-            var employmentRepo = await _employmentHestoryRepo.GetAllAsync();
+            var employmentRepo = await _employmentHestoryRepo.GetAllSortedPriority();
             return _mapper.Map<List<EmploymentHistoryDto>>(employmentRepo);
         }
     }

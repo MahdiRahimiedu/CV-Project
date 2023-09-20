@@ -12,6 +12,7 @@ namespace CV.Application.Contracts.Persistence
         Task<bool> UpdatePrioritiesAsync(List<int> ids);
         Task<int> PriorityMaxAsync();
         Task<List<Education>> GetAllSortedPriority();
+        Task<bool> ChangeImageAsync(int id , string img);
 
     }
 }

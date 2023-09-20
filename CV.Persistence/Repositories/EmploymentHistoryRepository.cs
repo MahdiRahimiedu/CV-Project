@@ -46,5 +46,9 @@ namespace CV.Persistence.Repositories
                 return await _context.EmploymentHistorys.MaxAsync(p => p.Priority) + 1;
             return 1;
         }
+        public async Task<List<EmploymentHistory>> GetAllSortedPriority()
+        {
+            return await _context.EmploymentHistorys.OrderBy(x => x.Priority).ToListAsync();
+        }
     }
 }

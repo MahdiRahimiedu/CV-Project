@@ -51,5 +51,26 @@ namespace CV.Persistence.Repositories
         {
             return await _context.Educations.OrderBy(x => x.Priority).ToListAsync();
         }
+
+        public async Task<bool> ChangeImageAsync(int id, string img)
+        {
+            var education = await GetByIdAsync(id);
+
+            if(education == null) return false;
+
+            education.Img = img;
+
+            try
+            {
+                await UpdateAsync(education);
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
+            return true;
+        }
     }
 }

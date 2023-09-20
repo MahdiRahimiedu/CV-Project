@@ -75,5 +75,15 @@ namespace CV.Api.Controllers
 
             return Ok(apiResponse);
         }
+
+        [HttpPut("{id}/{img}")]
+        public async Task<ActionResult<BaseCommandResponse>> ChangeImg(int id , string img)
+        {
+            var changeImg = new ChangeEducationCommand { Id = id, Img = img };
+
+            var apiResponse = await _mediator.Send(changeImg);
+
+            return Ok(apiResponse);
+        }
     }
 }

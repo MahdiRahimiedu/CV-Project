@@ -66,7 +66,7 @@ namespace CV.Api.Controllers
             return Ok(apiResponse);
         }
 
-        [HttpPut("{ids}")]
+        [HttpPut]
         public async Task<ActionResult<BaseCommandResponse>> Priorities(List<int> ids)
         {
             var priorities = new UpdatePrioritiesEmploymentHistoryCommand { Ids = ids };

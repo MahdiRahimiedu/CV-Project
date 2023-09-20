@@ -6,18 +6,29 @@ const emptyErorrText = "فیلد را پر کنید .",
       choosErorrText = "یک گزینرو انتخاب کنید .",
       sameErorrText = "این رکورد قبلا ثبت شده .";
 
+let countErorr = true;
 function FormValidator() {
+    countErorr = true;
 
     for (let i = 0; i < validatorDB.length; i++) {
         $(validatorDB[i].erorrTag).text("");
 
         if (validatorDB[i].checkEmpty) { 
-            if (validatorDB[i].inputValue === "" || validatorDB[i].inputValue === null) $(validatorDB[i].erorrTag).text(emptyErorrText);
+            if (validatorDB[i].inputValue === "" || validatorDB[i].inputValue === null) {
+                $(validatorDB[i].erorrTag).text(emptyErorrText);
+                countErorr = false;
+            } 
         }
         if (!validatorDB[i].checkEqual === false) {
-            if (validatorDB[i].inputValue == validatorDB[i].checkEqual) $(validatorDB[i].erorrTag).text(choosErorrText);
+            if (validatorDB[i].inputValue == validatorDB[i].checkEqual) {
+                $(validatorDB[i].erorrTag).text(choosErorrText);
+                countErorr = false;
+            } 
         }
-        if (validatorDB[i].chackHasBefor) $(validatorDB[i].erorrTag).text(sameErorrText);
+        if (validatorDB[i].chackHasBefor) {
+            $(validatorDB[i].erorrTag).text(sameErorrText);
+            countErorr = false;
+        }
     }
     validatorDB = [];
 }
@@ -44,7 +55,7 @@ const skillNameInput = D.querySelector(".skill-enter-information-form .name inpu
     skillFirstText = D.querySelector(".skill-first-text-lable"),
     skillFirstTextValue = D.querySelector(".skill-first-text-value");
 
-const skillInputFirstTextFValue = skillFirstTextValue.textContent;
+//const skillInputFirstTextFValue = skillFirstTextValue.textContent;
 
 var checkTemperryDeleteForDeletedAllSkill = true; //* for that time all skill is deleted and we wanted first text in form come back
 
@@ -61,7 +72,7 @@ const favoriteNameInput = D.querySelector(".favorite-enter-information-form .nam
     favoriteFirstText = D.querySelector(".favorite-first-text-lable"),
     favoriteFirstTextValue = D.querySelector(".favorite-first-text-value");
 
-const favoriteInputFirstTextFValue = favoriteFirstTextValue.textContent;
+//const favoriteInputFirstTextFValue = favoriteFirstTextValue.textContent;
 
 var checkTemperryDeleteForDeletedAllFavorite = true; //* for that time all favorite is deleted and we wanted first text in form come back
 
@@ -74,7 +85,7 @@ const servicNameInput = D.querySelector(".servic-enter-information-form .name in
     servicFirstText = D.querySelector(".servic-first-text-lable"),
     servicFirstTextValue = D.querySelector(".servic-first-text-value");
 
-const servicInputFirstTextFValue = servicFirstTextValue.textContent;
+//const servicInputFirstTextFValue = servicFirstTextValue.textContent;
 
 var checkTemperryDeleteForDeletedAllServic = true; //* for that time all servic is deleted and we wanted first text in form come back
 
@@ -91,7 +102,7 @@ const doingNameInput = D.querySelector(".doing-enter-information-form .name inpu
     doingFirstText = D.querySelector(".doing-first-text-lable"),
     doingFirstTextValue = D.querySelector(".doing-first-text-value");
 
-const doingInputFirstTextFValue = doingFirstTextValue.textContent;
+//const doingInputFirstTextFValue = doingFirstTextValue.textContent;
 
 var checkTemperryDeleteForDeletedAllDoing = true; //* for that time all doing is deleted and we wanted first text in form come back
 
@@ -106,7 +117,7 @@ const socialNameInput = D.querySelector(".social-enter-information-form .name in
     socialFirstText = D.querySelector(".social-first-text-lable"),
     socialFirstTextValue = D.querySelector(".social-first-text-value");
 
-const socialInputFirstTextFValue = socialFirstTextValue.textContent;
+//const socialInputFirstTextFValue = socialFirstTextValue.textContent;
 
 var checkTemperryDeleteForDeletedAllDoing = true; //* for that time all social is deleted and we wanted first text in form come back
 
@@ -122,7 +133,7 @@ const projectNameInput = D.querySelector(".project-enter-information-form .name 
     projectFirstText = D.querySelector(".project-first-text-lable"),
     projectFirstTextValue = D.querySelector(".project-first-text-value");
 
- const projectInputFirstTextFValue = projectFirstTextValue.textContent;
+ //const projectInputFirstTextFValue = projectFirstTextValue.textContent;
 
  var checkTemperryDeleteForDeletedAllDoing = true; //* for that time all project is deleted and we wanted first text in form come back
 
@@ -130,19 +141,60 @@ var projectDB = []; //* project database
 
 //TODO Education Container Script ===============================================
 
-
 const educationNameInput = D.querySelector(".education-enter-information-form .name input"),
     educationLocationInput = D.querySelector(".education-enter-information-form .location input"),
     educationDateInput = D.querySelector(".education-enter-information-form .date input"),
     educationImgInput = D.querySelector(".education-enter-information-form .img input"),
     educationFirstText = D.querySelector(".education-first-text-lable"),
-    educationFirstTextValue = D.querySelector(".education-first-text-value"),
-    educationSortableBox = D.querySelector("#education-sortable-box");
+    educationFirstTextValue = D.querySelector(".education-first-text-value");
+    //educationSortableBox = D.querySelector("#education-sortable-box");
 
-const educationInputFirstTextFValue = educationFirstTextValue.textContent;
+//const educationInputFirstTextFValue = educationFirstTextValue.textContent;
 
 var educationDB = []; //* education database
 var sortedEducationIds = []; //* education database for priority
+
+//TODO employment history Container Script ===============================================
+
+const hemploymentNameInput = D.querySelector(".hemployment-enter-information-form .name input"),
+    hemploymentComponyInput = D.querySelector(".hemployment-enter-information-form .compony input"),
+    hemploymentDateInput = D.querySelector(".hemployment-enter-information-form .date input"),
+    hemploymentImgInput = D.querySelector(".hemployment-enter-information-form .img input"),
+    hemploymentFirstText = D.querySelector(".hemployment-first-text-lable"),
+    hemploymentFirstTextValue = D.querySelector(".hemployment-first-text-value");
+    //hemploymentSortableBox = D.querySelector("#hemployment-sortable-box");
+
+
+//const hemploymentInputFirstTextFValue = hemploymentFirstTextValue.textContent;
+
+var hemploymentDB = []; //* hemployment database
+var sortedHemploymentIds = []; //* hemployment database for priority
+
+//TODO Json Container Script ===============================================
+
+const jsonNameInput = D.querySelector(".json-enter-information-form .name input"),
+    jsonDescriptionInput = D.querySelector(".json-enter-information-form .description input"),
+    jsonAbouteMeInput = D.querySelector(".json-enter-information-form .abouteMe input"),
+    jsonCupCoffeeInput = D.querySelector(".json-enter-information-form .cupCoffee input"),
+    jsonCompletedProjectInput = D.querySelector(".json-enter-information-form .completedProject input"),
+    jsonNameF = D.querySelector(".json-namef-lable"),
+    jsonNameFValue = D.querySelector(".json-namef-value"),
+    jsonDescriptionF = D.querySelector(".json-descriptionf-lable"),
+    jsonDescriptionFValue = D.querySelector(".json-descriptionf-value"),
+    jsonAbouteMeF = D.querySelector(".json-abouteMef-lable"),
+    jsonAbouteMeFValue = D.querySelector(".json-abouteMef-value"),
+    jsonCupCoffeeF = D.querySelector(".json-cupCuffeef-lable"),
+    jsonCupCoffeeFValue = D.querySelector(".json-cupCuffeef-value"),
+    jsonProjectF = D.querySelector(".json-projectf-lable"),
+    jsonProjectFValue = D.querySelector(".json-projectf-value");
+
+const firstValueOfName = jsonNameFValue.textContent,
+     firstValueOfDescription = jsonDescriptionFValue.textContent,
+    firstValueOfAbouteMe = jsonAbouteMeFValue.textContent,
+    firstValueOfCupCoffee = jsonCupCoffeeFValue.textContent,
+    firstValueOfProject = jsonProjectFValue.textContent;
+
+let jsonNameVT = "", jsonDescriptionVT = "", jsonAbouteVT = "", jsonCupCoffeeVT = "", jsonProjectVT = "";
 
 $(document).ready(function () {
     
@@ -365,7 +417,12 @@ $(document).ready(function () {
             }
         }
 
-        if (skillLevelSelect && selectedOptionFirstValue.value !== "choose" && name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".skill-erorr-text-name" });
+        validatorDB.push({ inputValue: selectedOptionFirstValue.value, checkEmpty: false, checkEqual: "choose", chackHasBefor: false, erorrTag: ".skill-erorr-text-level" });
+
+        FormValidator();
+
+        if (countErorr) {
 
             $(".skill-erorr-text-name").text("");
             $(".skill-erorr-text-level").text("");
@@ -399,11 +456,6 @@ $(document).ready(function () {
             });
         }
 
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".skill-erorr-text-name" });
-        validatorDB.push({ inputValue: selectedOptionFirstValue.value, checkEmpty: false, checkEqual: "choose", chackHasBefor: false, erorrTag: ".skill-erorr-text-level" });
-
-        FormValidator();
-
         skillNameInput.focus();
     });
 
@@ -426,7 +478,6 @@ $(document).ready(function () {
     function fullBothSideAfterChangeFavorite() {
 
         $(".favorite-erorr-text-name").text("");
-/*        $(".favorite-erorr-text-level").text("");*/
 
         if (favoriteDB.length == 0) {
             $(".favorite-enter-information-favorites-box").html("");
@@ -601,7 +652,11 @@ $(document).ready(function () {
             }
         }
 
-        if (name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".favorite-erorr-text-name" });
+
+        FormValidator();
+
+        if (countErorr) {
 
             $(".favorite-erorr-text-name").text("");
 
@@ -626,10 +681,6 @@ $(document).ready(function () {
                 }
             });
         }
-
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".favorite-erorr-text-name" });
-
-        FormValidator();
 
         favoriteNameInput.focus();
 
@@ -855,7 +906,12 @@ $(document).ready(function () {
             }
         }
 
-        if (name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".servic-erorr-text-name" });
+
+        FormValidator();
+
+
+        if (countErorr) {
 
             $(".servic-erorr-text-name").text("");
 
@@ -888,9 +944,6 @@ $(document).ready(function () {
             });
         }
 
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".servic-erorr-text-name" });
-
-        FormValidator();
 
         servicNameInput.focus();
     });
@@ -1091,7 +1144,12 @@ $(document).ready(function () {
             }
         }
 
-        if (name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".doing-erorr-text-name" });
+        validatorDB.push({ inputValue: detailP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".doing-erorr-text-detail" });
+
+        FormValidator();
+
+        if (countErorr) {
 
             $(".doing-erorr-text-name").text("");
             $(".doing-erorr-detail-name").text("");
@@ -1103,7 +1161,7 @@ $(document).ready(function () {
                 type: "POST",
                 url: "https://localhost:7120/api/doings",
                 contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({ Title: name, Location: locationP , Detail: detailP }),
+                data: JSON.stringify({ Title: name, Location: locationP, Detail: detailP }),
                 success: function (data) {
                     if (data.success) {
                         doingDB.push({ id: data.id, name: name, detail: detailP, location: locationP, deleted: false });
@@ -1118,10 +1176,6 @@ $(document).ready(function () {
             });
         }
 
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".doing-erorr-text-name" });
-        validatorDB.push({ inputValue: detailP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".doing-erorr-text-detail" });
-
-        FormValidator();
 
         doingNameInput.focus();
 
@@ -1321,7 +1375,14 @@ $(document).ready(function () {
             }
         }
 
-        if (name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".social-erorr-text-name" });
+        validatorDB.push({ inputValue: addressP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".social-erorr-text-address" });
+        validatorDB.push({ inputValue: iconP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".social-erorr-text-icon" });
+
+        FormValidator();
+
+
+        if (countErorr) {
 
             $(".social-erorr-text-name").text("");
             $(".social-erorr-text-address").text("");
@@ -1349,11 +1410,6 @@ $(document).ready(function () {
             });
         }
 
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".social-erorr-text-name" });
-        validatorDB.push({ inputValue: addressP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".social-erorr-text-address" });
-        validatorDB.push({ inputValue: iconP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".social-erorr-text-icon" });
-
-        FormValidator();
 
         socialNameInput.focus();
 
@@ -1559,8 +1615,14 @@ $(document).ready(function () {
             }
         }
 
-        if (name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".project-erorr-text-name" });
+        validatorDB.push({ inputValue: applicantP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-applicant" });
+        validatorDB.push({ inputValue: dateP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-date" });
+        //validatorDB.push({ inputValue: imgP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-img" });
 
+        FormValidator();
+        //name !== "" && name !== null && !hasRecoardInDb
+        if (countErorr) {
             $(".project-erorr-text-name").text("");
             $(".project-erorr-applicant-name").text("");
             $(".project-erorr-date-name").text("");
@@ -1570,11 +1632,12 @@ $(document).ready(function () {
             $(".project-enter-information-projects-box").removeClass("d-none");
 
             $.ajax({
+
                 type: "POST",
                 url: "https://localhost:7120/api/projects",
                 contentType: "application/json; charset=utf-8",
                 //, Img: imgP
-                data: JSON.stringify({ Name: name, Applicant: applicantP, Date: dateP, Img : "ko" }),
+                data: JSON.stringify({ Name: name, Applicant: applicantP, Date: dateP, Img: "ko" }),
                 success: function (data) {
                     if (data.success) {
                         //img: imgP,
@@ -1589,13 +1652,6 @@ $(document).ready(function () {
                 }
             });
         }
-
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".project-erorr-text-name" });
-        validatorDB.push({ inputValue: applicantP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-applicant" });
-        validatorDB.push({ inputValue: dateP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-date" });
-        //validatorDB.push({ inputValue: imgP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-img" });
-
-        FormValidator();
 
         projectNameInput.focus();
 
@@ -1618,10 +1674,8 @@ $(document).ready(function () {
     function createFormForChangeAnyRecoardEducation(erID , erMID) {
         
         $("#education-change-information-recoard").html("");
-
-       /* const educationRecoardChanged = $(`#${erID}`);*/
-        let numberInput = parseFloat(erMID);
-
+        
+        let numberInput = parseInt(erMID);
 
         $.ajax({
             type: "GET",
@@ -1647,7 +1701,7 @@ $(document).ready(function () {
                                 <span class="me-1">
                                     نام مدرک : <small class="greenColor2">*</small>
                                 </span>
-                                <div class="education-change-name-input-box d-flex w-75">
+                                <div class="education-change-name-input-box InputBox d-flex w-75">
                                     <input type="text" value="${data.name}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="کاردانی کامپیوتر . javaScript . دوره ...">
                                 </div>
                                 <span class="me-1 education-change-erorr-text-name text-danger">
@@ -1658,7 +1712,7 @@ $(document).ready(function () {
                                 <span class="me-1">
                                     لوکیشن : <small class="greenColor2">*</small>
                                 </span>
-                                <div class="education-change-location-input-box d-flex w-75">
+                                <div class="education-change-location-input-box InputBox d-flex w-75">
                                     <input type="text" value="${data.location}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="microsoft . دانشگاه . اموزشگاه ...">
                                 </div>
                                 <span class="me-1 education-change-erorr-text-location text-danger">
@@ -1669,7 +1723,7 @@ $(document).ready(function () {
                                 <span class="me-1">
                                     تاریخ : <small class="greenColor2">*</small>
                                 </span>
-                                <div class="education-change-date-input-box d-flex w-75">
+                                <div class="education-change-date-input-box InputBox d-flex w-75">
                                     <input type="text" value="${data.date}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="1400/3/14 . 1389 ...">
                                 </div>
                                 <span class="me-1 education-change-erorr-text-date text-danger">
@@ -1680,7 +1734,7 @@ $(document).ready(function () {
                                 <span class="me-1">
                                     عکس مدرک : <small class="greenColor2">( اختیاری )</small>
                                 </span>
-                                <div class="education-change-img-input-box d-flex w-75">
+                                <div class="education-change-img-input-box InputBox d-flex w-75">
                                     <input type="file" class="whiteBack1 text-dark fs-6 p-2 rounded-2" spellcheck="false" style="width: 80.7%;">
                                 </div>
                             </div>
@@ -1695,7 +1749,6 @@ $(document).ready(function () {
 
                 $("#education-change-enter-information-delete-btn").click(function (e) {
                     $("#askForDeleteEducation").removeClass("d-none");
-                    $("body").addClass("overflow-hidden");
                 });
 
                 $("#yesAsk").click(function (e) {
@@ -1708,7 +1761,6 @@ $(document).ready(function () {
                         success: function (data) {
                             if (data.success) {
                                 $("#askForDeleteEducation").addClass("d-none");
-                                $("body").removeClass("overflow-hidden");
 
                                 $("#education-change-information-recoard").html("");
 
@@ -1718,8 +1770,8 @@ $(document).ready(function () {
                                 educationDB = [];
 
                     
-
                                 $("#education-btn-change").removeClass("d-none");
+                                $("#education-btn-sortable").removeClass("d-none");
 
                                 fullBothSideAfterChangeEducation();
                                 getAllEducation();
@@ -1731,7 +1783,6 @@ $(document).ready(function () {
                 });
                 $("#noAsk").click(function (e) {
                     $("#askForDeleteEducation").addClass("d-none");
-                    $("body").removeClass("overflow-hidden");
                 });
 
                 $("#education-change-enter-information-back-btn").click(function (e) {
@@ -1739,33 +1790,52 @@ $(document).ready(function () {
                     $("#education-information").slideToggle("slow");
                     $("#education-change-information-recoard").slideToggle("slow");
                     $("#education-btn-change").removeClass("d-none");
+                    $("#education-btn-sortable").removeClass("d-none");
                 });
 
                 $("#education-change-enter-information-save-btn").click(function (e) {
 
-                    //let numberInputChange = parseFloat(erMID);
-                    let numberInputChange = parseInt(erMID);
-
+                    let numberInput = parseInt(erMID);
                     let nameP = D.querySelector(".education-change-name-input-box input"),
                         locationP = D.querySelector(".education-change-location-input-box input"),
                         dateP = D.querySelector(".education-change-date-input-box input");
                     //imgP = D.querySelector(".education-change-img-input-box input");
 
-                    if (nameP !== "" && nameP !== null) {
+                    validatorDB.push({ inputValue: nameP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-name" });
+                    validatorDB.push({ inputValue: locationP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-location" });
+                    validatorDB.push({ inputValue: dateP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-date" });
+
+                    FormValidator();
+
+                    if (countErorr) {
 
                         $.ajax({
                             type: "PUT",
-                            url: "https://localhost:7120/api/educations/" + numberInputChange,
+                            url: "https://localhost:7120/api/educations/" + numberInput,
                             contentType: "application/json; charset=utf-8",
-                            data: JSON.stringify({ Id: numberInputChange, Name: nameP.value, Location: locationP.value, Date: dateP.value, Img: "" }),
+                            data: JSON.stringify({ Id: numberInput, Name: nameP.value, Location: locationP.value, Date: dateP.value, Img: "" }),
                             success: function (data) {
                                 if (data.success) {
                                     $("#education-change-information-recoard").html("");
                                     $("#education-information").slideToggle("slow");
                                     $("#education-change-information-recoard").slideToggle("slow");
                                     $("#education-btn-change").removeClass("d-none");
-                                    educationDB = [];
-                                    getAllEducation();
+                                    $("#education-btn-sortable").removeClass("d-none");
+
+                                    for (var i = 0; i < educationDB.length; i++) {
+                                        if (educationDB[i].id == numberInput) {
+                                            educationDB[i].name = nameP.value;
+                                            educationDB[i].location = locationP.value;
+                                            educationDB[i].date = dateP.value; 
+                                        }
+                                    }
+
+                                    fullBothSideAfterChangeEducation();
+
+                                    
+                                    //let pp = $(this).attr("atrr-id");
+                                    //console.log(pp);
+                                    
                                 }
                             },
                             error: function () {
@@ -1775,11 +1845,7 @@ $(document).ready(function () {
                         });
                     }
 
-                    validatorDB.push({ inputValue: nameP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-name" });
-                    validatorDB.push({ inputValue: locationP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-location" });
-                    validatorDB.push({ inputValue: dateP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-date" });
-
-                    FormValidator();
+                    
                 });
 
             }
@@ -1833,6 +1899,7 @@ $(document).ready(function () {
     });
 
     $("#education-sorth-back-btn").click(function () {
+
         sortedEducationIds = [];
 
         $("#education-sortable-box").addClass("d-none");
@@ -1840,6 +1907,7 @@ $(document).ready(function () {
     });
 
     $("#education-sorth-save-btn").click(function () {
+
           if (sortedEducationIds.length != 0) {
                $.ajax({
                    type: 'PUT',
@@ -1860,9 +1928,7 @@ $(document).ready(function () {
     });
 
     function fullBothSideAfterChangeEducation() {
-
-
-
+        
         $(".education-erorr-text-name").text("");
         $(".education-erorr-text-location").text("");
         $(".education-erorr-text-date").text("");
@@ -1895,7 +1961,7 @@ $(document).ready(function () {
 
                 informationElemet += ` 
                 <li atrr-id="${educationDB[i].name}" atrr-main-id="${educationDB[i].id}" id="${educationDB[i].name}" class=" education-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
-                     <div id="img-box-education-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:110px;hegth:110px;">
+                     <div id="img-box-education-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
                           <img class="w-100 h-100" src="image/defult-image.jpg"/>
                      </div>
                      <div id="text-box-education-any-recoard" class="d-flex flex-column gap-1">
@@ -1917,6 +1983,7 @@ $(document).ready(function () {
                 $("#education-change-information-recoard").slideToggle("slow");
 
                 $("#education-btn-change").addClass("d-none");
+                $("#education-btn-sortable").addClass("d-none");
 
                 let EducationRecoardID = $(this).attr("atrr-id");
                 let EducationRecoardMainId = $(this).attr("atrr-main-id");
@@ -1927,7 +1994,7 @@ $(document).ready(function () {
 
             });
 
-            $("#education-btn-sortable")
+            //$("#education-btn-sortable")
 
         }
 
@@ -1964,6 +2031,7 @@ $(document).ready(function () {
         $("#education-enter-information").slideToggle("slow");
 
         $("#education-btn-change").addClass("d-none");
+        $("#education-btn-sortable").addClass("d-none");
 
         fullBothSideAfterChangeEducation();
 
@@ -1978,6 +2046,8 @@ $(document).ready(function () {
         $("#education-enter-information").slideToggle("slow");
 
         $("#education-btn-change").removeClass("d-none");
+        $("#education-btn-sortable").removeClass("d-none");
+
 
         emptyInputEducation();
 
@@ -2007,7 +2077,14 @@ $(document).ready(function () {
             }
         }
 
-        if (name !== "" && name !== null && !hasRecoardInDb) {
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".education-erorr-text-name" });
+        validatorDB.push({ inputValue: locationP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-erorr-text-location" });
+        validatorDB.push({ inputValue: dateP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-erorr-text-date" });
+
+        FormValidator();
+
+
+        if (countErorr) {
 
             $(".education-erorr-text-name").text("");
             $(".education-erorr-text-location").text("");
@@ -2022,36 +2099,50 @@ $(document).ready(function () {
                 priorty = 1;
             }
 
-          
 
-            $.ajax({
-                type: "POST",
-                url: "https://localhost:7120/api/educations",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({ Name: name, Location: locationP, Date: dateP, Img: "" }),
-                success: function (data) {
-                    if (data.success) {
-                        educationDB.push({ id: data.id, name: name, location: locationP, date: dateP, priority: priorty });
-                        fullBothSideAfterChangeEducation();
-                        emptyInputEducation();
-                        alert("یک مدرک جدید اضافه شد . برای مشاهده همه مدرک ها دکمه بازگشت را بزنید .");
+            var imageFile = $('#educationImg')[0].files[0];
 
+            if (imageFile) {
+                var formData = new FormData();
+                formData.append('image', imageFile);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Home/UploadImageWithId',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+
+                        $.ajax({
+                            type: "POST",
+                            url: "https://localhost:7120/api/educations",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify({ Name: name, Location: locationP, Date: dateP, Img: response }),
+                            success: function (data) {
+                                if (data.success) {
+                                    educationDB.push({ id: data.id, name: name, location: locationP, date: dateP, priority: priorty, img: response });
+                                    fullBothSideAfterChangeEducation();
+                                    emptyInputEducation();
+                                    alert("یک مدرک جدید اضافه شد . برای مشاهده همه مدرک ها دکمه بازگشت را بزنید .");
+                                }
+                            },
+                            error: function () {
+                                $(".education-erorr-text-name").html("خطا در ارسال درخواست.");
+                                success = false;
+                            }
+                        });
+
+                    },
+                    error: function () {
+                        alert('مشکلی در آپلود عکس به وجود آمده است.');
                     }
-                },
-                error: function () {
-                    $(".education-education-text-name").html("خطا در ارسال درخواست.");
-                    success = false;
-                }
-            });
-
-
+                });
+            } else {
+                alert('لطفاً یک عکس و یک ایدی وارد کنید.');
+            }
+           
         }
-
-        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".education-erorr-text-name" });
-        validatorDB.push({ inputValue: locationP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-erorr-text-location" });
-        validatorDB.push({ inputValue: dateP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-erorr-text-date" });
-
-        FormValidator();
 
         educationNameInput.focus();
     });
@@ -2066,8 +2157,612 @@ $(document).ready(function () {
         fullBothSideAfterChangeEducation();
 
         $("#education-btn-change").addClass("d-none");
+        $("#education-btn-sortable").addClass("d-none");
+
 
         educationNameInput.focus();
+    });
+
+    // {} Employment History Container Script  -----------------------------------------------
+
+    function createFormForChangeAnyRecoardHemployment(erID, erMID) {
+
+        $("#hemployment-change-information-recoard").html("");
+
+        let numberInput = parseFloat(erMID);
+
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7120/api/employmenthistories/" + numberInput,
+            contentType: "application/json; charset=utf-8",
+            success: (data) => {
+
+                let formChangeHemployment = `
+
+                  <div class="hemployment-change-information-recoard-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4 position-relative">
+                            <div id="askForDeleteHemployment" class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center flex-column gap-3 justify-content-center d-none" style="background: rgba(33, 33, 33, 0.549);z-index:100;">
+                                <div class="textBox">
+                                    <span class="text-white">
+                                        آیا از حذف این مدرک تحصیلی مطمئن هستید ؟
+                                    </span>
+                                </div>
+                                <div class="btnBox">
+                                    <button id="noAskHemployment" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">خیر</button>
+                                    <button id="yesAskHemployment" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">بله</button>
+                                </div>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    نام مدرک : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="hemployment-change-name-input-box InputBox d-flex w-75">
+                                    <input type="text" value="${data.title}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="کاردانی کامپیوتر . javaScript . دوره ...">
+                                </div>
+                                <span class="me-1 hemployment-change-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="date d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    تاریخ : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="hemployment-change-date-input-box InputBox d-flex w-75">
+                                    <input type="text" value="${data.date}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="1400/3/14 . 1389 ...">
+                                </div>
+                                <span class="me-1 hemployment-change-erorr-text-date text-danger">
+
+                                </span>
+                            </div>
+                            <div class="compony d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    شرکت : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="hemployment-change-compony-input-box InputBox d-flex w-75">
+                                    <input type="text" value="${data.compony}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="دیجیکالا . مجموعه فیلادلفیا ...">
+                                </div>
+                                <span class="me-1 hemployment-change-erorr-text-compony text-danger">
+
+                                </span>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="hemployment-change-enter-information-delete-btn" class="hemployment-change-enter-information-delete-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">حذف</span>
+                                <span id="hemployment-change-enter-information-back-btn" class="hemployment-change-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="hemployment-change-enter-information-save-btn" class="hemployment-change-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+                `;
+                $("#hemployment-change-information-recoard").html(formChangeHemployment);
+
+                $("#hemployment-change-enter-information-delete-btn").click(function (e) {
+                    $("#askForDeleteHemployment").removeClass("d-none");
+                    $("body").addClass("overflow-hidden");
+                });
+
+                $("#yesAskHemployment").click(function (e) {
+
+                    $.ajax({
+                        type: "DELETE",
+                        url: "https://localhost:7120/api/employmenthistories/" + numberInput,
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(erID),
+                        success: function (data) {
+                            if (data.success) {
+                                $("#askForDeleteHemployment").addClass("d-none");
+                                $("body").removeClass("overflow-hidden");
+
+                                $("#hemployment-change-information-recoard").html("");
+
+                                $("#hemployment-information").slideToggle("slow");
+                                $("#hemployment-change-information-recoard").slideToggle("slow");
+
+                                hemploymentDB = [];
+
+
+
+                                $("#hemployment-btn-change").removeClass("d-none");
+                                $("#hemployment-btn-sortable").removeClass("d-none");
+
+                                fullBothSideAfterChangeHemployment();
+                                getAllHemployment();
+
+                            }
+                        }
+                    });
+
+                });
+                $("#noAskHemployment").click(function (e) {
+                    $("#askForDeleteHemployment").addClass("d-none");
+                    $("body").removeClass("overflow-hidden");
+                });
+
+                $("#hemployment-change-enter-information-back-btn").click(function (e) {
+                    $("#hemployment-change-information-recoard").html("");
+                    $("#hemployment-information").slideToggle("slow");
+                    $("#hemployment-change-information-recoard").slideToggle("slow");
+                    $("#hemployment-btn-change").removeClass("d-none");
+                    $("#hemployment-btn-sortable").removeClass("d-none");
+                });
+
+                $("#hemployment-change-enter-information-save-btn").click(function (e) {
+
+                    let numberInputChange = parseInt(erMID);
+
+                    let nameP = D.querySelector(".hemployment-change-name-input-box input"),
+                        componyP = D.querySelector(".hemployment-change-compony-input-box input"),
+                        dateP = D.querySelector(".hemployment-change-date-input-box input");
+
+                    validatorDB.push({ inputValue: nameP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".hemployment-change-erorr-text-name" });
+                    validatorDB.push({ inputValue: componyP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".hemployment-change-erorr-text-compony" });
+                    validatorDB.push({ inputValue: dateP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".hemployment-change-erorr-text-date" });
+
+                    FormValidator();
+
+                    if (countErorr) {
+
+                        $.ajax({
+                            type: "PUT",
+                            url: "https://localhost:7120/api/employmenthistories/" + numberInputChange,
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify({ Id: numberInputChange, Title: nameP.value, Date: dateP.value, Compony: componyP.value }),
+                            success: function (data) {
+                                if (data.success) {
+                                    $("#hemployment-change-information-recoard").html("");
+                                    $("#hemployment-information").slideToggle("slow");
+                                    $("#hemployment-change-information-recoard").slideToggle("slow");
+                                    $("#hemployment-btn-change").removeClass("d-none");
+                                    $("#hemployment-btn-sortable").removeClass("d-none");
+
+                                    for (var i = 0; i < hemploymentDB.length; i++) {
+                                        if (hemploymentDB[i].id == numberInputChange) {
+                                            hemploymentDB[i].name = nameP.value;
+                                            hemploymentDB[i].compony = componyP.value;
+                                            hemploymentDB[i].date = dateP.value;
+                                        }
+                                    }
+
+                                    fullBothSideAfterChangeHemployment();
+                                }
+                            },
+                            error: function () {
+                                $(".hemployment-change-erorr-text-name").html("خطا در ارسال درخواست.");
+                                success = false;
+                            }
+                        });
+
+                    }
+
+                    
+                });
+
+            }
+        });
+
+    }
+
+    $("#hemployment-btn-sortable").click(function () {
+
+        //D.querySelector(".hemployment-Container-Box").scrollIntoView({ behavior: 'smooth' });
+
+        $(".sortable-list-hemployment-box").html("");
+
+        sortedHemploymentIds = [];
+
+        let sorthTable = "";
+
+        for (let i = 0; i < hemploymentDB.length; i++) {
+
+            sorthTable += ` 
+                <li class=" hemployment-change-view rounded-2 bg-white text-dark d-flex align-items-center justify-content-start p-1 m-1 sortable-item-hemployment" style="flex : 1;cursor: pointer;" data-hemployment-id="${hemploymentDB[i].id}">
+                     <div id="text-box-hemployment-any-recoard" class="d-flex align-items-center justify-content-between">
+                        <i class="ri-drag-move-2-fill fs-2 greenColor-2"></i>
+                        <div class="d-flex p-2">
+                           <span class="mx-2">${hemploymentDB[i].name}</span>
+                           :
+                           <span class="mx-2">${hemploymentDB[i].compony}</span>
+                           --
+                           <span class="mx-2">${hemploymentDB[i].date}</span>
+                        </div>
+                     </div>
+                </li> `;
+        }
+
+        $(".sortable-list-hemployment-box").html(sorthTable);
+
+        $("#hemployment-sortable-box").removeClass("d-none");
+
+    });
+
+    $("#sortable-list-hemployment").sortable({
+        update: function (event, ui) {
+
+            sortedHemploymentIds = [];
+
+            $(".sortable-item-hemployment").each(function () {
+                sortedHemploymentIds.push($(this).data("hemployment-id"));
+            });
+
+        }
+    });
+
+    $("#hemployment-sorth-back-btn").click(function () {
+
+        sortedEemploymentIds = [];
+
+        $("#hemployment-sortable-box").addClass("d-none");
+
+    });
+
+    $("#hemployment-sorth-save-btn").click(function () {
+
+        if (sortedHemploymentIds.length != 0) {
+            $.ajax({
+                type: 'PUT',
+                url: 'https://localhost:7120/api/employmenthistories',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sortedHemploymentIds),
+                success: function (data) {
+                    if (data.success) {
+                        hemploymentDB = [];
+                        getAllHemployment();
+
+                    }
+                }
+            });
+        }
+        $("#hemployment-sortable-box").addClass("d-none");
+
+    });
+
+    function fullBothSideAfterChangeHemployment() {
+
+        $(".hemployment-erorr-text-name").text("");
+        $(".hemployment-erorr-text-compony").text("");
+        $(".hemployment-erorr-text-date").text("");
+
+        if (hemploymentDB.length == 0) {
+            $(".hemployment-enter-information-hemployments-box").html("");
+            $("#hemployment-information-hemployments-box").html("");
+            $("#hemployment-information-hemployments-box").addClass("d-none");
+            $(".hemployment-enter-information-hemployments-box").addClass("d-none");
+            hemploymentFirstText.classList.replace("greenColor2", "text-dark");
+            hemploymentFirstTextValue.classList.remove("d-none");
+        }
+
+        if (!hemploymentDB.length == 0) {
+            $("#hemployment-information-hemployments-box").html(" ");
+            $("#hemployment-information-hemployments-box").removeClass("d-none");
+            $(".hemployment-enter-information-hemployments-box").html(" ");
+            $(".hemployment-enter-information-hemployments-box").removeClass("d-none");
+            hemploymentFirstText.classList.replace("text-dark", "greenColor2");
+            hemploymentFirstTextValue.classList.add("d-none");
+
+            let informationElemet = "";
+
+            for (let i = 0; i < hemploymentDB.length; i++) {
+
+                hemploymentDB[i].deleted = false;
+
+                informationElemet += ` 
+                <li atrr-id="${hemploymentDB[i].name}" atrr-main-id="${hemploymentDB[i].id}" id="${hemploymentDB[i].name}" class=" hemployment-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
+                     <div id="img-box-hemployment-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                          <img class="w-100 h-100" src="image/defult-image.jpg"/>
+                     </div>
+                     <div id="text-box-hemployment-any-recoard" class="d-flex flex-column gap-1">
+                        <span class="mx-2">${hemploymentDB[i].name}</span>
+                        <div class="d-flex p-2">
+                           <span class="mx-2">${hemploymentDB[i].compony}</span>
+                           --
+                           <span class="mx-2">${hemploymentDB[i].date}</span>
+                        </div>
+                     </div>
+                </li> `;
+
+            }
+            $("#hemployment-information-hemployments-box").html(informationElemet);
+
+            $(".hemployment-change-view").click(function (e) {
+                D.querySelector(".hemployment-Container-Box").scrollIntoView({ behavior: 'smooth' });
+                $("#hemployment-information").slideToggle("slow");
+                $("#hemployment-change-information-recoard").slideToggle("slow");
+
+                $("#hemployment-btn-change").addClass("d-none");
+                $("#hemployment-btn-sortable").addClass("d-none");
+
+                let HemploymentRecoardID = $(this).attr("atrr-id");
+                let HemploymentRecoardMainId = $(this).attr("atrr-main-id");
+
+                createFormForChangeAnyRecoardHemployment(HemploymentRecoardID, HemploymentRecoardMainId);
+
+                sortedHemploymentIds = [];
+
+            });
+
+            $("#hemployment-btn-sortable")
+
+        }
+
+    }
+
+    function emptyInputHemployment() {
+        hemploymentNameInput.value = "";
+        hemploymentComponyInput.value = "";
+        hemploymentDateInput.value = "";
+    }
+
+    function getAllHemployment() {
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7120/api/employmenthistories",
+            contentType: "application/json; charset=utf-8",
+            success: (data) => {
+                jQuery.each(data, (index, itemData) => {
+                    hemploymentDB.push({ id: itemData.id, name: itemData.title, compony: itemData.compony, date: itemData.date, priority: itemData.priority });
+                });
+                fullBothSideAfterChangeHemployment();
+            }
+        });
+    };
+
+    //! change btn for go in form
+    $("#hemployment-btn-change").click(function () {
+
+        D.querySelector(".hemployment-Container-Box").scrollIntoView({ behavior: 'smooth' });
+
+        $("#hemployment-information").slideToggle("slow");
+        $("#hemployment-enter-information").slideToggle("slow");
+
+        $("#hemployment-btn-change").addClass("d-none");
+        $("#hemployment-btn-sortable").addClass("d-none");
+
+        fullBothSideAfterChangeHemployment();
+
+        hemploymentNameInput.focus();
+
+    });
+
+    //! back btn
+    $("#hemployment-enter-information-back-btn").click(function () {
+
+        $("#hemployment-information").slideToggle("slow");
+        $("#hemployment-enter-information").slideToggle("slow");
+
+        $("#hemployment-btn-change").removeClass("d-none");
+        $("#hemployment-btn-sortable").removeClass("d-none");
+
+
+        emptyInputHemployment();
+
+    });
+
+    getAllHemployment();
+
+    //! add btn
+    $("#hemployment-add-icon").click(function (e) {
+
+        let name = hemploymentNameInput.value;
+        let componyP = hemploymentComponyInput.value;
+        let dateP = hemploymentDateInput.value;
+        let priority = 0;
+
+        var hasRecoardInDb = false;
+
+        const testNameValueForHasedInDb1 = name.trim();
+        const testNameValueForHasedInDb2 = testNameValueForHasedInDb1.replace(/\s+/g, ' ');
+        const testNameValueForHasedInDb3 = testNameValueForHasedInDb2.toLowerCase();
+
+        for (let h = 0; h < hemploymentDB.length; h++) { //* Check to see if we don't have an object with this name in the database
+            var testForSameRecord = hemploymentDB[h].name.toLowerCase();
+            if (testForSameRecord === testNameValueForHasedInDb3) {
+                hasRecoardInDb = true;
+            }
+        }
+
+        validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".hemployment-erorr-text-name" });
+        validatorDB.push({ inputValue: componyP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".hemployment-erorr-text-compony" });
+        validatorDB.push({ inputValue: dateP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".hemployment-erorr-text-date" });
+
+        FormValidator();
+
+        if (countErorr) {
+
+            $(".hemployment-erorr-text-name").text("");
+            $(".hemployment-erorr-text-compony").text("");
+            $(".hemployment-erorr-text-date").text("");
+
+            $(".hemployment-enter-information-hemployments-box").removeClass("d-none");
+
+            if (hemploymentDB.length != 0) {
+                priorty = getMax(hemploymentDB, "priority").priority;
+                priorty += 1;
+            } else {
+                priorty = 1;
+            }
+
+
+
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:7120/api/employmenthistories",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ Title: name, Compony: componyP, Date: dateP }),
+                success: function (data) {
+                    if (data.success) {
+                        hemploymentDB.push({ id: data.id, name: name, compony: componyP, date: dateP, priority: priorty });
+                        fullBothSideAfterChangeHemployment();
+                        emptyInputHemployment();
+                        alert("یک سابقه کار جدید اضافه شد . برای مشاهده همه مدرک ها دکمه بازگشت را بزنید .");
+
+                    }
+                },
+                error: function () {
+                    $(".hemployment-erorr-text-name").html("خطا در ارسال درخواست.");
+                    success = false;
+                }
+            });
+
+
+        }
+
+
+        hemploymentNameInput.focus();
+    });
+
+    $(".go-back-hemployment").click(function () {
+
+        D.querySelector(".hemployment-Container-Box").scrollIntoView({ behavior: 'smooth' });
+
+        $("#hemployment-information").slideToggle("slow");
+        $("#hemployment-enter-information").slideToggle("slow");
+
+        fullBothSideAfterChangeHemployment();
+
+        $("#hemployment-btn-change").addClass("d-none");
+        $("#hemployment-btn-sortable").addClass("d-none");
+
+
+        hemploymentNameInput.focus();
+    });
+
+    // {} Json Container Script  -----------------------------------------------
+
+    function checkJsonInputsValue(Value , ValueTag , ValueLable , ValueInput , firstValue) {
+
+        if (Value == null || Value == "") {
+
+            ValueTag.textContent = firstValue;
+            ValueInput.value = "";
+            ValueTag.classList.replace("text-dark", "greenColor2");
+            ValueLable.classList.replace("greenColor2", "text-dark");
+        }
+
+        if (Value !== null && Value !== "") {
+
+            ValueTag.innerText = Value;
+            ValueInput.value = Value;
+            ValueTag.classList.replace( "greenColor2", "text-dark");
+            ValueLable.classList.replace("text-dark", "greenColor2");
+        }
+
+    }
+
+    function addClickEvent(valueTag, ValueInput) {
+        valueTag.addEventListener("click", () => {
+            D.querySelector(".json-Container-Box").scrollIntoView({ behavior: 'smooth' });
+
+            $("#json-information").slideToggle("slow");
+            $("#json-enter-information").slideToggle("slow");
+            loadJson();
+            $("#json-btn-change").addClass("d-none");
+            ValueInput.focus();
+
+            if (!valueTag.classList.contains("greenColor2")) {
+                ValueInput.value = valueTag.textContent;
+            } else {
+                ValueInput.value = "";
+            }
+
+        });
+    }
+
+    addClickEvent(jsonNameFValue, jsonNameInput);
+    addClickEvent(jsonDescriptionFValue, jsonDescriptionInput);
+    addClickEvent(jsonAbouteMeFValue, jsonAbouteMeInput);
+    addClickEvent(jsonCupCoffeeFValue, jsonCupCoffeeInput);
+    addClickEvent(jsonProjectFValue, jsonCompletedProjectInput);
+    function loadJson() {
+
+        $(".json-erorr-text-name").text("");
+        $(".json-erorr-text-description").text("");
+        $(".json-erorr-text-abouteMe").text("");
+        $(".json-erorr-text-cupCoffee").text("");
+        $(".json-erorr-text-completedProject").text("");
+
+        checkJsonInputsValue(jsonNameVT, jsonNameFValue, jsonNameF, jsonNameInput, firstValueOfName);
+        checkJsonInputsValue(jsonDescriptionVT, jsonDescriptionFValue, jsonDescriptionF, jsonDescriptionInput, firstValueOfDescription);
+        checkJsonInputsValue(jsonAbouteVT, jsonAbouteMeFValue, jsonAbouteMeF, jsonAbouteMeInput, firstValueOfAbouteMe);
+        checkJsonInputsValue(jsonCupCoffeeVT, jsonCupCoffeeFValue, jsonCupCoffeeF, jsonCupCoffeeInput, firstValueOfCupCoffee);
+        checkJsonInputsValue(jsonProjectVT, jsonProjectFValue, jsonProjectF, jsonCompletedProjectInput, firstValueOfProject);
+    }
+
+    //getAllJson();
+    function getJsonRecoards() {
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7120/api/educations",
+            contentType: "application/json; charset=utf-8",
+            success: (data) => {
+                jQuery.each(data, (index, itemData) => {
+                    jsonNameVT = itemData.name;
+                    jsonDescriptionVT = itemData.description;
+                    jsonAbouteVT = itemData.abouteme;
+                    jsonCupCoffeeVT = itemData.cupcoffee;
+                    jsonProjectVT = itemData.project;
+                });
+                loadJson();
+            }
+        });
+    };
+
+    //! change btn for go in form
+    $("#json-btn-change").click(function () {
+
+        D.querySelector(".json-Container-Box").scrollIntoView({ behavior: 'smooth' });
+
+        $("#json-information").slideToggle("slow");
+        $("#json-enter-information").slideToggle("slow");
+
+        $("#json-btn-change").addClass("d-none");
+
+        loadJson();
+
+        jsonNameInput.focus();
+
+    });
+
+    //! back btn
+    $("#json-enter-information-back-btn").click(function () {
+
+        $("#json-information").slideToggle("slow");
+        $("#json-enter-information").slideToggle("slow");
+
+        $("#json-btn-change").removeClass("d-none");
+
+    });
+
+    //! save btn
+    $("#json-enter-information-save-btn").click(function (e) {
+
+        validatorDB.push({ inputValue: jsonNameInput.value.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".json-erorr-text-name" });
+        validatorDB.push({ inputValue: jsonDescriptionInput.value.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".json-erorr-text-description" });
+        validatorDB.push({ inputValue: jsonAbouteMeInput.value.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".json-erorr-text-abouteMe" });
+        validatorDB.push({ inputValue: jsonCupCoffeeInput.value.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".json-erorr-text-cupCoffee" });
+        validatorDB.push({ inputValue: jsonCompletedProjectInput.value.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".json-erorr-text-completedProject" });
+
+        FormValidator();
+
+        if (countErorr) {
+
+            jsonNameVT = jsonNameInput.value;
+            jsonDescriptionVT = jsonDescriptionInput.value;
+            jsonAbouteVT = jsonAbouteMeInput.value;
+            jsonCupCoffeeVT = jsonCupCoffeeInput.value;
+            jsonProjectVT = jsonCompletedProjectInput.value;
+
+
+            jsonNameFValue.textContent = jsonNameVT;
+            jsonDescriptionFValue.textContent = jsonDescriptionVT;
+            jsonAbouteMeFValue.textContent = jsonAbouteVT;
+            jsonCupCoffeeFValue.textContent = jsonCupCoffeeVT;
+            jsonProjectFValue.textContent = jsonProjectVT;
+
+
+            $("#json-information").slideToggle("slow");
+            $("#json-enter-information").slideToggle("slow");
+
+            $("#json-btn-change").removeClass("d-none");
+            loadJson();
+        }
+
     });
 
 });

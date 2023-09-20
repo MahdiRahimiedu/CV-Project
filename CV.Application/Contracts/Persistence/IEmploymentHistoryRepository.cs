@@ -11,5 +11,6 @@ namespace CV.Application.Contracts.Persistence
     {
         Task<bool> UpdatePrioritiesAsync(List<int> ids);
         Task<int> PriorityMaxAsync();
+        Task<List<EmploymentHistory>> GetAllSortedPriority();
     }
 }
