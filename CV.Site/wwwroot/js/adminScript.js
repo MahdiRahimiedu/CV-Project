@@ -3,8 +3,8 @@
 var validatorDB = [];// To store validation information temporarily
 
 const emptyErorrText = "فیلد را پر کنید .",
-      choosErorrText = "یک گزینرو انتخاب کنید .",
-      sameErorrText = "این رکورد قبلا ثبت شده .";
+    choosErorrText = "یک گزینرو انتخاب کنید .",
+    sameErorrText = "این رکورد قبلا ثبت شده .";
 
 let countErorr = true;
 function FormValidator() {
@@ -13,17 +13,17 @@ function FormValidator() {
     for (let i = 0; i < validatorDB.length; i++) {
         $(validatorDB[i].erorrTag).text("");
 
-        if (validatorDB[i].checkEmpty) { 
+        if (validatorDB[i].checkEmpty) {
             if (validatorDB[i].inputValue === "" || validatorDB[i].inputValue === null) {
                 $(validatorDB[i].erorrTag).text(emptyErorrText);
                 countErorr = false;
-            } 
+            }
         }
         if (!validatorDB[i].checkEqual === false) {
             if (validatorDB[i].inputValue == validatorDB[i].checkEqual) {
                 $(validatorDB[i].erorrTag).text(choosErorrText);
                 countErorr = false;
-            } 
+            }
         }
         if (validatorDB[i].chackHasBefor) {
             $(validatorDB[i].erorrTag).text(sameErorrText);
@@ -41,6 +41,14 @@ function getMax(arr, prop) {
     }
     return max;
 }
+
+function GetImageWhitId(id, db) {
+    for (var i = 0; i < db.length; i++) {
+        if (db[i].id == id) {
+            return db[i].img;
+        }
+    }
+};
 
 
 const D = document;
@@ -133,9 +141,9 @@ const projectNameInput = D.querySelector(".project-enter-information-form .name 
     projectFirstText = D.querySelector(".project-first-text-lable"),
     projectFirstTextValue = D.querySelector(".project-first-text-value");
 
- //const projectInputFirstTextFValue = projectFirstTextValue.textContent;
+//const projectInputFirstTextFValue = projectFirstTextValue.textContent;
 
- var checkTemperryDeleteForDeletedAllDoing = true; //* for that time all project is deleted and we wanted first text in form come back
+var checkTemperryDeleteForDeletedAllDoing = true; //* for that time all project is deleted and we wanted first text in form come back
 
 var projectDB = []; //* project database
 
@@ -147,7 +155,7 @@ const educationNameInput = D.querySelector(".education-enter-information-form .n
     educationImgInput = D.querySelector(".education-enter-information-form .img input"),
     educationFirstText = D.querySelector(".education-first-text-lable"),
     educationFirstTextValue = D.querySelector(".education-first-text-value");
-    //educationSortableBox = D.querySelector("#education-sortable-box");
+//educationSortableBox = D.querySelector("#education-sortable-box");
 
 //const educationInputFirstTextFValue = educationFirstTextValue.textContent;
 
@@ -162,7 +170,7 @@ const hemploymentNameInput = D.querySelector(".hemployment-enter-information-for
     hemploymentImgInput = D.querySelector(".hemployment-enter-information-form .img input"),
     hemploymentFirstText = D.querySelector(".hemployment-first-text-lable"),
     hemploymentFirstTextValue = D.querySelector(".hemployment-first-text-value");
-    //hemploymentSortableBox = D.querySelector("#hemployment-sortable-box");
+//hemploymentSortableBox = D.querySelector("#hemployment-sortable-box");
 
 
 //const hemploymentInputFirstTextFValue = hemploymentFirstTextValue.textContent;
@@ -189,7 +197,7 @@ const jsonNameInput = D.querySelector(".json-enter-information-form .name input"
     jsonProjectFValue = D.querySelector(".json-projectf-value");
 
 const firstValueOfName = jsonNameFValue.textContent,
-     firstValueOfDescription = jsonDescriptionFValue.textContent,
+    firstValueOfDescription = jsonDescriptionFValue.textContent,
     firstValueOfAbouteMe = jsonAbouteMeFValue.textContent,
     firstValueOfCupCoffee = jsonCupCoffeeFValue.textContent,
     firstValueOfProject = jsonProjectFValue.textContent;
@@ -197,7 +205,7 @@ const firstValueOfName = jsonNameFValue.textContent,
 let jsonNameVT = "", jsonDescriptionVT = "", jsonAbouteVT = "", jsonCupCoffeeVT = "", jsonProjectVT = "";
 
 $(document).ready(function () {
-    
+
     // {} Skill Container Script -----------------------------------------------
     function fullBothSideAfterChangeSkill() {
 
@@ -244,7 +252,7 @@ $(document).ready(function () {
                     }
                 }
 
-                checkTemperryDeleteForDeletedAllSkill = true; 
+                checkTemperryDeleteForDeletedAllSkill = true;
 
                 for (let io = 0; io < skillDB.length; io++) {
                     if (skillDB[io].deleted !== true) {
@@ -253,7 +261,7 @@ $(document).ready(function () {
                     }
                 }
 
-                if (checkTemperryDeleteForDeletedAllSkill) { 
+                if (checkTemperryDeleteForDeletedAllSkill) {
                     skillFirstTextInForm.classList.remove("d-none");
                     $(".skill-enter-information-skills-box").addClass("d-none");
                 }
@@ -318,7 +326,7 @@ $(document).ready(function () {
         skillNameInput.focus();
 
     });
-    
+
     //! back btn
     $("#skill-enter-information-back-btn").click(function () {
         $("#skill-information").slideToggle("slow");
@@ -1670,11 +1678,11 @@ $(document).ready(function () {
     });
 
     // {} Education Container Script  -----------------------------------------------
+    
+    function createFormForChangeAnyRecoardEducation(erID, erMID) {
 
-    function createFormForChangeAnyRecoardEducation(erID , erMID) {
-        
         $("#education-change-information-recoard").html("");
-        
+
         let numberInput = parseInt(erMID);
 
         $.ajax({
@@ -1682,7 +1690,6 @@ $(document).ready(function () {
             url: "https://localhost:7120/api/educations/" + numberInput,
             contentType: "application/json; charset=utf-8",
             success: (data) => {
-                // img : itemDate.img
                 let formChangeEducation = `
 
                   <div class="education-change-information-recoard-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4 position-relative">
@@ -1735,7 +1742,7 @@ $(document).ready(function () {
                                     عکس مدرک : <small class="greenColor2">( اختیاری )</small>
                                 </span>
                                 <div class="education-change-img-input-box InputBox d-flex w-75">
-                                    <input type="file" class="whiteBack1 text-dark fs-6 p-2 rounded-2" spellcheck="false" style="width: 80.7%;">
+                                    <input type="file" id="education-change-img" class="whiteBack1 text-dark fs-6 p-2 rounded-2" spellcheck="false" style="width: 80.7%;">
                                 </div>
                             </div>
                             <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
@@ -1755,26 +1762,49 @@ $(document).ready(function () {
 
                     $.ajax({
                         type: "DELETE",
-                        url: "https://localhost:7120/api/educations/" + numberInput ,
+                        url: "https://localhost:7120/api/educations/" + numberInput,
                         contentType: "application/json; charset=utf-8",
                         data: JSON.stringify(erID),
                         success: function (data) {
                             if (data.success) {
+                                let imgName = GetImageWhitId(numberInput, educationDB);
+
+                                if (imgName !== "education-defult-image.jpg") {
+                                    $.ajax({
+                                        type: "DELETE",
+                                        url: "Admin/DeleteImage/" + imgName,
+                                        contentType: "application/json; charset=utf-8",
+                                        data: JSON.stringify(imgName),
+                                        success: function (date) {
+
+                                        }
+                                    });
+                                }
+
+                                educationDB = educationDB.filter(item => item.id !== numberInput);
+
+                                if (educationDB.length == 0) {
+
+                                    $(".education-enter-information-educations-box").html("");
+
+                                    $("#education-information-educations-box").addClass("d-none");
+                                    $(".education-enter-information-educations-box").addClass("d-none");
+                                    educationFirstText.classList.replace("greenColor2", "text-dark");
+                                    educationFirstTextValue.classList.remove("d-none");
+                                }
+
+                                $(`#education-information-educations-box [atrr-main-id="${numberInput}"]`).remove();
+
                                 $("#askForDeleteEducation").addClass("d-none");
-
-                                $("#education-change-information-recoard").html("");
-
                                 $("#education-information").slideToggle("slow");
                                 $("#education-change-information-recoard").slideToggle("slow");
-
-                                educationDB = [];
-
-                    
                                 $("#education-btn-change").removeClass("d-none");
+                                $("#education-change-information-recoard").html("");
                                 $("#education-btn-sortable").removeClass("d-none");
 
-                                fullBothSideAfterChangeEducation();
-                                getAllEducation();
+                                $(".education-erorr-text-name").text("");
+                                $(".education-erorr-text-location").text("");
+                                $(".education-erorr-text-date").text("");
 
                             }
                         }
@@ -1784,7 +1814,6 @@ $(document).ready(function () {
                 $("#noAsk").click(function (e) {
                     $("#askForDeleteEducation").addClass("d-none");
                 });
-
                 $("#education-change-enter-information-back-btn").click(function (e) {
                     $("#education-change-information-recoard").html("");
                     $("#education-information").slideToggle("slow");
@@ -1795,57 +1824,160 @@ $(document).ready(function () {
 
                 $("#education-change-enter-information-save-btn").click(function (e) {
 
+                    $(".education-erorr-text-name").text("");
+                    $(".education-erorr-text-location").text("");
+                    $(".education-erorr-text-date").text("");
+
+                    let editImage;
+
                     let numberInput = parseInt(erMID);
                     let nameP = D.querySelector(".education-change-name-input-box input"),
                         locationP = D.querySelector(".education-change-location-input-box input"),
                         dateP = D.querySelector(".education-change-date-input-box input");
-                    //imgP = D.querySelector(".education-change-img-input-box input");
 
-                    validatorDB.push({ inputValue: nameP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-name" });
-                    validatorDB.push({ inputValue: locationP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-location" });
-                    validatorDB.push({ inputValue: dateP, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-date" });
+                    validatorDB.push({ inputValue: nameP.value, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-name" });
+                    validatorDB.push({ inputValue: locationP.value, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-location" });
+                    validatorDB.push({ inputValue: dateP.value, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".education-change-erorr-text-date" });
 
                     FormValidator();
 
                     if (countErorr) {
+                        
+                        var formData = new FormData();
 
-                        $.ajax({
-                            type: "PUT",
-                            url: "https://localhost:7120/api/educations/" + numberInput,
-                            contentType: "application/json; charset=utf-8",
-                            data: JSON.stringify({ Id: numberInput, Name: nameP.value, Location: locationP.value, Date: dateP.value, Img: "" }),
-                            success: function (data) {
-                                if (data.success) {
-                                    $("#education-change-information-recoard").html("");
-                                    $("#education-information").slideToggle("slow");
-                                    $("#education-change-information-recoard").slideToggle("slow");
-                                    $("#education-btn-change").removeClass("d-none");
-                                    $("#education-btn-sortable").removeClass("d-none");
+                        var imageFileChange = $('#education-change-img')[0].files[0];
 
-                                    for (var i = 0; i < educationDB.length; i++) {
-                                        if (educationDB[i].id == numberInput) {
-                                            educationDB[i].name = nameP.value;
-                                            educationDB[i].location = locationP.value;
-                                            educationDB[i].date = dateP.value; 
+                        if (imageFileChange == null || imageFileChange == "") {
+                            editImage = GetImageWhitId(numberInput, educationDB);
+
+                            $.ajax({
+                                type: "PUT",
+                                url: "https://localhost:7120/api/educations/" + numberInput,
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify({ Id: numberInput, Name: nameP.value, Location: locationP.value, Date: dateP.value, Img: editImage }),
+                                success: function (data) {
+                                    if (data.success) {
+
+                                        for (var i = 0; i < educationDB.length; i++) {
+                                            if (educationDB[i].id == numberInput) {
+                                                educationDB[i].name = nameP.value;
+                                                educationDB[i].location = locationP.value;
+                                                educationDB[i].date = dateP.value;
+                                                educationDB[i].img = editImage;
+                                            }
                                         }
+
+                                        $(`#education-information-educations-box [atrr-main-id="${numberInput}"]`).html(`
+                                                <div id="img-box-education-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                                                <img class="w-100 h-100" src="image/${editImage}" />
+                                                </div>
+                                                <div id="text-box-education-any-recoard" class="d-flex flex-column gap-1">
+                                                   <span class="mx-2">${nameP.value}</span>
+                                                   <div class="d-flex p-2">
+                                                      <span class="mx-2">${locationP.value}</span>
+                                                      --
+                                                      <span class="mx-2">${dateP.value}</span>
+                                                   </div>
+                                                </div>
+                                            `);
+
+                                    }
+                                },
+                                error: function () {
+                                    $(".education-erorr-text-name").html("خطا در ارسال درخواست.");
+                                    success = false;
+                                }
+                            });
+
+
+
+
+                        }
+                        else {
+                            formData.append('image', imageFileChange);
+
+                            let imgNameChange = GetImageWhitId(numberInput, educationDB);
+                            if (imgNameChange !== "education-defult-image.jpg") {
+                                $.ajax({
+                                    type: "DELETE",
+                                    url: "Admin/DeleteImage/" + imgNameChange,
+                                    contentType: "application/json; charset=utf-8",
+                                    data: JSON.stringify(imgNameChange),
+                                    success: function (date) {
+
+                                    }
+                                });
+
+                            }
+
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Admin/UploadImageWithId',
+                                data: formData,
+                                contentType: false,
+                                processData: false,
+                                success: function (response) {
+                                    if (countErorr) {
+                                        $.ajax({
+                                            type: "PUT",
+                                            url: "https://localhost:7120/api/educations/" + numberInput,
+                                            contentType: "application/json; charset=utf-8",
+                                            data: JSON.stringify({ Id: numberInput, Name: nameP.value, Location: locationP.value, Date: dateP.value, Img: response }),
+                                            success: function (data) {
+                                                if (data.success) {
+
+                                                    for (var i = 0; i < educationDB.length; i++) {
+                                                        if (educationDB[i].id == numberInput) {
+                                                            educationDB[i].name = nameP.value;
+                                                            educationDB[i].location = locationP.value;
+                                                            educationDB[i].date = dateP.value;
+                                                            educationDB[i].img = response;
+                                                        }
+                                                    }
+
+                                                    $(`#education-information-educations-box [atrr-main-id="${numberInput}"]`).html(`
+                                                <div id="img-box-education-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                                                <img class="w-100 h-100" src="image/${response}" />
+                                                </div>
+                                                <div id="text-box-education-any-recoard" class="d-flex flex-column gap-1">
+                                                   <span class="mx-2">${nameP.value}</span>
+                                                   <div class="d-flex p-2">
+                                                      <span class="mx-2">${locationP.value}</span>
+                                                      --
+                                                      <span class="mx-2">${dateP.value}</span>
+                                                   </div>
+                                                </div>
+                                            `);
+
+                                                }
+                                            },
+                                            error: function () {
+                                                $(".education-erorr-text-name").html("خطا در ارسال درخواست.");
+                                                success = false;
+                                            }
+                                        });
                                     }
 
-                                    fullBothSideAfterChangeEducation();
-
-                                    
-                                    //let pp = $(this).attr("atrr-id");
-                                    //console.log(pp);
-                                    
+                                },
+                                error: function () {
+                                    alert('مشکلی در آپلود عکس به وجود آمده است.');
                                 }
-                            },
-                            error: function () {
-                                $(".education-change-erorr-text-name").html("خطا در ارسال درخواست.");
-                                success = false;
-                            }
-                        });
+                            });
+                        }
+
+                        $(".education-erorr-text-name").text("");
+                        $(".education-erorr-text-location").text("");
+                        $(".education-erorr-text-date").text("");
+
+                        $("#education-change-information-recoard").html("");
+                        $("#education-information").slideToggle("slow");
+                        $("#education-change-information-recoard").slideToggle("slow");
+                        $("#education-btn-change").removeClass("d-none");
+                        $("#education-btn-sortable").removeClass("d-none");
+
                     }
 
-                    
                 });
 
             }
@@ -1878,11 +2010,12 @@ $(document).ready(function () {
                         </div>
                      </div>
                 </li> `;
-            }
+        }
 
         $(".sortable-list-education-box").html(sorthTable);
 
-        $("#education-sortable-box").removeClass("d-none");
+        $("#education-sortable-box").removeClass("d-none"); 
+        $(".education-Container-Box").height("580px");
 
     });
 
@@ -1903,32 +2036,36 @@ $(document).ready(function () {
         sortedEducationIds = [];
 
         $("#education-sortable-box").addClass("d-none");
+        $(".education-Container-Box").height("auto");
+
 
     });
 
     $("#education-sorth-save-btn").click(function () {
 
-          if (sortedEducationIds.length != 0) {
-               $.ajax({
-                   type: 'PUT',
-                   url: 'https://localhost:7120/api/educations',
-                   contentType: "application/json; charset=utf-8",
-                   data: JSON.stringify(sortedEducationIds),
-                   success: function (data) {
-                       if (data.success) {
-                           educationDB = [];
-                           getAllEducation();
-                          
-                       }
-                   }
-               });
+        if (sortedEducationIds.length != 0) {
+            $.ajax({
+                type: 'PUT',
+                url: 'https://localhost:7120/api/educations',
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(sortedEducationIds),
+                success: function (data) {
+                    if (data.success) {
+                        educationDB = [];
+                        getAllEducation();
+
+                    }
+                }
+            });
         }
         $("#education-sortable-box").addClass("d-none");
+        $(".education-Container-Box").height("auto");
+
 
     });
 
     function fullBothSideAfterChangeEducation() {
-        
+
         $(".education-erorr-text-name").text("");
         $(".education-erorr-text-location").text("");
         $(".education-erorr-text-date").text("");
@@ -1953,16 +2090,13 @@ $(document).ready(function () {
             let informationElemet = "";
 
             for (let i = 0; i < educationDB.length; i++) {
-   
-                         //< !-- < img class="w-100 h-100" src = "${education[i].img}" > -->
-                         
 
                 educationDB[i].deleted = false;
-
+                //
                 informationElemet += ` 
                 <li atrr-id="${educationDB[i].name}" atrr-main-id="${educationDB[i].id}" id="${educationDB[i].name}" class=" education-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
                      <div id="img-box-education-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
-                          <img class="w-100 h-100" src="image/defult-image.jpg"/>
+                          <img class="w-100 h-100" src="image/${educationDB[i].img}" />
                      </div>
                      <div id="text-box-education-any-recoard" class="d-flex flex-column gap-1">
                         <span class="mx-2">${educationDB[i].name}</span>
@@ -1994,8 +2128,6 @@ $(document).ready(function () {
 
             });
 
-            //$("#education-btn-sortable")
-
         }
 
     }
@@ -2014,12 +2146,12 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             success: (data) => {
                 jQuery.each(data, (index, itemData) => {
-                    // img : itemDate.img
-                    educationDB.push({ id: itemData.id, name: itemData.name, location: itemData.location, date: itemData.date, priority: itemData.priority });
+                    educationDB.push({ id: itemData.id, name: itemData.name, location: itemData.location, date: itemData.date, priority: itemData.priority, img: itemData.img });
                 });
                 fullBothSideAfterChangeEducation();
             }
         });
+
     };
 
     //! change btn for go in form
@@ -2048,20 +2180,38 @@ $(document).ready(function () {
         $("#education-btn-change").removeClass("d-none");
         $("#education-btn-sortable").removeClass("d-none");
 
+        if (educationDB.length == 0) {
+
+            $(".education-enter-information-educations-box").html("");
+            $("#education-information-educations-box").html("");
+            $("#education-information-educations-box").addClass("d-none");
+            $(".education-enter-information-educations-box").addClass("d-none");
+            educationFirstText.classList.replace("greenColor2", "text-dark");
+            educationFirstTextValue.classList.remove("d-none");
+        }
+
+        if (!educationDB.length == 0) {
+
+            $("#education-information-educations-box").removeClass("d-none");
+            $(".education-enter-information-educations-box").html(" ");
+            $(".education-enter-information-educations-box").removeClass("d-none");
+            educationFirstText.classList.replace("text-dark", "greenColor2");
+            educationFirstTextValue.classList.add("d-none");
+        }
 
         emptyInputEducation();
+
 
     });
 
     getAllEducation();
-    
+
     //! add btn
     $("#education-add-icon").click(function (e) {
 
         let name = educationNameInput.value;
         let locationP = educationLocationInput.value;
         let dateP = educationDateInput.value;
-        let imgP = educationImgInput.value;
         let priority = 0;
 
         var hasRecoardInDb = false;
@@ -2083,7 +2233,6 @@ $(document).ready(function () {
 
         FormValidator();
 
-
         if (countErorr) {
 
             $(".education-erorr-text-name").text("");
@@ -2099,49 +2248,81 @@ $(document).ready(function () {
                 priorty = 1;
             }
 
+            var imageFile = $('#education-img')[0].files[0];
 
-            var imageFile = $('#educationImg')[0].files[0];
+            //if (imageFile) {
+            var formData = new FormData();
+            formData.append('image', imageFile);
 
-            if (imageFile) {
-                var formData = new FormData();
-                formData.append('image', imageFile);
-
-                $.ajax({
-                    type: 'POST',
-                    url: '/Home/UploadImageWithId',
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    success: function (response) {
-
-                        $.ajax({
-                            type: "POST",
-                            url: "https://localhost:7120/api/educations",
-                            contentType: "application/json; charset=utf-8",
-                            data: JSON.stringify({ Name: name, Location: locationP, Date: dateP, Img: response }),
-                            success: function (data) {
-                                if (data.success) {
-                                    educationDB.push({ id: data.id, name: name, location: locationP, date: dateP, priority: priorty, img: response });
-                                    fullBothSideAfterChangeEducation();
-                                    emptyInputEducation();
-                                    alert("یک مدرک جدید اضافه شد . برای مشاهده همه مدرک ها دکمه بازگشت را بزنید .");
-                                }
-                            },
-                            error: function () {
-                                $(".education-erorr-text-name").html("خطا در ارسال درخواست.");
-                                success = false;
-                            }
-                        });
-
-                    },
-                    error: function () {
-                        alert('مشکلی در آپلود عکس به وجود آمده است.');
+            $.ajax({
+                type: 'POST',
+                url: '/Admin/UploadImageWithId',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response == null || response == "") {
+                        response = "education-defult-image.jpg";
                     }
-                });
-            } else {
-                alert('لطفاً یک عکس و یک ایدی وارد کنید.');
-            }
-           
+                    $.ajax({
+                        type: "POST",
+                        url: "https://localhost:7120/api/educations",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify({ Name: name, Location: locationP, Date: dateP, Img: response }),
+                        success: function (data) {
+                            if (data.success) {
+                              
+                                educationDB.push({ id: data.id, name: name, location: locationP, date: dateP, priority: priorty, img: response });
+                                $("#education-information-educations-box").append(
+                                    `<li atrr-id="${name}" atrr-main-id="${data.id}" id="${name}" class=" education-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
+                                        <div id="img-box-education-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                                            <img class="w-100 h-100" src="image/${response}" />
+                                        </div>
+                                        <div id="text-box-education-any-recoard" class="d-flex flex-column gap-1">
+                                            <span class="mx-2">${name}</span>
+                                            <div class="d-flex p-2">
+                                                <span class="mx-2">${locationP}</span>
+                                                --
+                                                <span class="mx-2">${dateP}</span>
+                                            </div>
+                                        </div>
+                                    </li> `
+                                );
+
+                                $(".education-change-view").click(function (e) {
+                                    D.querySelector(".education-Container-Box").scrollIntoView({ behavior: 'smooth' });
+                                    $("#education-information").slideToggle("slow");
+                                    $("#education-change-information-recoard").slideToggle("slow");
+
+                                    $("#education-btn-change").addClass("d-none");
+                                    $("#education-btn-sortable").addClass("d-none");
+
+                                    let EducationRecoardID = $(this).attr("atrr-id");
+                                    let EducationRecoardMainId = $(this).attr("atrr-main-id");
+
+                                    createFormForChangeAnyRecoardEducation(EducationRecoardID, EducationRecoardMainId);
+
+                                    sortedEducationIds = [];
+
+                                });
+                                
+                                emptyInputEducation();
+                                alert("یک مدرک جدید اضافه شد . برای مشاهده همه مدرک ها دکمه بازگشت را بزنید .");
+                            }
+                        },
+                        error: function () {
+                            $(".education-erorr-text-name").html("خطا در ارسال درخواست.");
+                            success = false;
+                        }
+                    });
+
+                },
+                error: function () {
+                    alert('مشکلی در آپلود عکس به وجود آمده است.');
+                }
+            });
+
+
         }
 
         educationNameInput.focus();
@@ -2247,6 +2428,8 @@ $(document).ready(function () {
                         data: JSON.stringify(erID),
                         success: function (data) {
                             if (data.success) {
+
+
                                 $("#askForDeleteHemployment").addClass("d-none");
                                 $("body").removeClass("overflow-hidden");
 
@@ -2256,8 +2439,6 @@ $(document).ready(function () {
                                 $("#hemployment-change-information-recoard").slideToggle("slow");
 
                                 hemploymentDB = [];
-
-
 
                                 $("#hemployment-btn-change").removeClass("d-none");
                                 $("#hemployment-btn-sortable").removeClass("d-none");
@@ -2331,7 +2512,7 @@ $(document).ready(function () {
 
                     }
 
-                    
+
                 });
 
             }
@@ -2369,6 +2550,8 @@ $(document).ready(function () {
         $(".sortable-list-hemployment-box").html(sorthTable);
 
         $("#hemployment-sortable-box").removeClass("d-none");
+        $(".hemployment-Container-Box").height("580px");
+
 
     });
 
@@ -2389,6 +2572,8 @@ $(document).ready(function () {
         sortedEemploymentIds = [];
 
         $("#hemployment-sortable-box").addClass("d-none");
+        $(".hemployment-Container-Box").height("auto");
+
 
     });
 
@@ -2410,6 +2595,8 @@ $(document).ready(function () {
             });
         }
         $("#hemployment-sortable-box").addClass("d-none");
+        $(".hemployment-Container-Box").height("auto");
+
 
     });
 
@@ -2444,17 +2631,11 @@ $(document).ready(function () {
 
                 informationElemet += ` 
                 <li atrr-id="${hemploymentDB[i].name}" atrr-main-id="${hemploymentDB[i].id}" id="${hemploymentDB[i].name}" class=" hemployment-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
-                     <div id="img-box-hemployment-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
-                          <img class="w-100 h-100" src="image/defult-image.jpg"/>
-                     </div>
-                     <div id="text-box-hemployment-any-recoard" class="d-flex flex-column gap-1">
                         <span class="mx-2">${hemploymentDB[i].name}</span>
-                        <div class="d-flex p-2">
-                           <span class="mx-2">${hemploymentDB[i].compony}</span>
-                           --
-                           <span class="mx-2">${hemploymentDB[i].date}</span>
-                        </div>
-                     </div>
+                        :
+                        <span class="mx-2">${hemploymentDB[i].compony}</span>
+                        --
+                        <span class="mx-2">${hemploymentDB[i].date}</span>
                 </li> `;
 
             }
@@ -2625,7 +2806,7 @@ $(document).ready(function () {
 
     // {} Json Container Script  -----------------------------------------------
 
-    function checkJsonInputsValue(Value , ValueTag , ValueLable , ValueInput , firstValue) {
+    function checkJsonInputsValue(Value, ValueTag, ValueLable, ValueInput, firstValue) {
 
         if (Value == null || Value == "") {
 
@@ -2639,7 +2820,7 @@ $(document).ready(function () {
 
             ValueTag.innerText = Value;
             ValueInput.value = Value;
-            ValueTag.classList.replace( "greenColor2", "text-dark");
+            ValueTag.classList.replace("greenColor2", "text-dark");
             ValueLable.classList.replace("text-dark", "greenColor2");
         }
 
@@ -2755,6 +2936,17 @@ $(document).ready(function () {
             jsonCupCoffeeFValue.textContent = jsonCupCoffeeVT;
             jsonProjectFValue.textContent = jsonProjectVT;
 
+
+            POST
+            $.ajax({
+                type: "POST",
+                url: "Admin/CreateAndSaveJson",
+                data: JSON.stringify({ Name: jsonNameVT, Description: jsonDescriptionVT, AbouteMe: jsonAbouteVT, CupCuffee: jsonCupCoffeeVT, CompletedProject: jsonProjectVT }),
+                contentType: "application/json; charset=utf-8",
+                success: (data) => {
+
+                }
+            });
 
             $("#json-information").slideToggle("slow");
             $("#json-enter-information").slideToggle("slow");

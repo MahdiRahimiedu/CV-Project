@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BVPHhidaNWgPj1N5i2ffAsZ49HPgY+ASPaYzA+qX681zHtMmdy83QXkvB1V36NUrrOK1YmYOmdOk5RcQVJmKOw==",
+  "dgSpecHash": "vZtpuPvGDjWHQAe4+JUC2f5/YUAhkDIvhfC7rs1xjpUdN52UvC9ra4N5zTz0dCx+S3NnnAOclC2+KW+TZI0vgw==",
   "success": true,
   "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\CV.Site.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\LENOVO\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

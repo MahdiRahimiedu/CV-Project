@@ -29,8 +29,20 @@
       "PackagePath": "staticwebassets\\fontA\\all.js"
     },
     {
-      "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\defult-image.jpg",
-      "PackagePath": "staticwebassets\\image\\defult-image.jpg"
+      "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\29bd7b46-f2ec-450b-b5e5-f239a0e6f6b8_Programing 2.jpg",
+      "PackagePath": "staticwebassets\\image\\29bd7b46-f2ec-450b-b5e5-f239a0e6f6b8_Programing 2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\2ba04a54-d018-414c-8cf6-2d532cb8171a_Guy 6.jpg",
+      "PackagePath": "staticwebassets\\image\\2ba04a54-d018-414c-8cf6-2d532cb8171a_Guy 6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\34f19eb1-21e6-45a0-98aa-480d0b19ec6a_Programing 1.jpg",
+      "PackagePath": "staticwebassets\\image\\34f19eb1-21e6-45a0-98aa-480d0b19ec6a_Programing 1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\image\\education-defult-image.jpg",
+      "PackagePath": "staticwebassets\\image\\education-defult-image.jpg"
     },
     {
       "Id": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\wwwroot\\js\\adminScript.js",
