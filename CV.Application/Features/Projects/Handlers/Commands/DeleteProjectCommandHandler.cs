@@ -34,7 +34,7 @@ namespace CV.Application.Features.Projects.Handlers.Commands
 
             await _projectRepository.DeleteAsync(project);
 
-            response.Success = false;
+            response.Success = true;
             response.Message = "deleted faild";
             return response;
         }

@@ -112,12 +112,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\fontA\NTDI.woff2))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\29bd7b46-f2ec-450b-b5e5-f239a0e6f6b8_Programing 2.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\5fb1a4e2-e4b9-48b4-bd0f-b1a53255755b_Programing 1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CV.Site</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CV.Site</BasePath>
-      <RelativePath>image/29bd7b46-f2ec-450b-b5e5-f239a0e6f6b8_Programing 2.jpg</RelativePath>
+      <RelativePath>image/5fb1a4e2-e4b9-48b4-bd0f-b1a53255755b_Programing 1.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -126,14 +126,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\29bd7b46-f2ec-450b-b5e5-f239a0e6f6b8_Programing 2.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\5fb1a4e2-e4b9-48b4-bd0f-b1a53255755b_Programing 1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\2ba04a54-d018-414c-8cf6-2d532cb8171a_Guy 6.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\97fd39d6-65ec-49aa-b616-cd759bde1d26_Compony 3.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CV.Site</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CV.Site</BasePath>
-      <RelativePath>image/2ba04a54-d018-414c-8cf6-2d532cb8171a_Guy 6.jpg</RelativePath>
+      <RelativePath>image/97fd39d6-65ec-49aa-b616-cd759bde1d26_Compony 3.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -142,14 +142,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\2ba04a54-d018-414c-8cf6-2d532cb8171a_Guy 6.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\97fd39d6-65ec-49aa-b616-cd759bde1d26_Compony 3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\34f19eb1-21e6-45a0-98aa-480d0b19ec6a_Programing 1.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\df50cd19-42b4-4ce7-b69c-6fb9aa7d7c88_Programing 7.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CV.Site</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CV.Site</BasePath>
-      <RelativePath>image/34f19eb1-21e6-45a0-98aa-480d0b19ec6a_Programing 1.jpg</RelativePath>
+      <RelativePath>image/df50cd19-42b4-4ce7-b69c-6fb9aa7d7c88_Programing 7.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -158,7 +158,23 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\34f19eb1-21e6-45a0-98aa-480d0b19ec6a_Programing 1.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\df50cd19-42b4-4ce7-b69c-6fb9aa7d7c88_Programing 7.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\dfaf0249-5a3b-4f1d-9f59-5763b0cdb9df_Guy 6.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CV.Site</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CV.Site</BasePath>
+      <RelativePath>image/dfaf0249-5a3b-4f1d-9f59-5763b0cdb9df_Guy 6.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\dfaf0249-5a3b-4f1d-9f59-5763b0cdb9df_Guy 6.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\education-defult-image.jpg))">
       <SourceType>Package</SourceType>
@@ -175,6 +191,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\education-defult-image.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\fd226f13-50a1-47cb-bbd0-349adf73a1eb_Compony 2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CV.Site</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CV.Site</BasePath>
+      <RelativePath>image/fd226f13-50a1-47cb-bbd0-349adf73a1eb_Compony 2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\image\fd226f13-50a1-47cb-bbd0-349adf73a1eb_Compony 2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\js\adminScript.js))">
       <SourceType>Package</SourceType>

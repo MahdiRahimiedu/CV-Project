@@ -3,6 +3,7 @@ using CV.Application.DTOs.Projects;
 using CV.Application.DTOs.Projectss;
 using CV.Application.Features.Doings.Requests.Commands;
 using CV.Application.Features.Doings.Requests.Queries;
+using CV.Application.Features.Educations.Requests.Commands;
 using CV.Application.Features.Projects.Requests.Commands;
 using CV.Application.Features.Projects.Requests.Queries;
 using CV.Application.Features.SocialNetWorks.Requests.Commands;
@@ -59,7 +60,7 @@ namespace CV.Api.Controllers
 
             return Ok(apiResponse);
         }
-
+       
         [HttpDelete("{id}")]
         public async Task<ActionResult<BaseCommandResponse>> Delete(int id)
         {

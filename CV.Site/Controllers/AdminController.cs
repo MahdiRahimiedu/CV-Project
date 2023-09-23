@@ -18,13 +18,16 @@ namespace CV.Site.Controllers
         {
             try
             {
+                // یه جی یو ایدی به اول اسم اضافه میکنه تا شبیه نشه اسما
                 string guid = Guid.NewGuid() + "_" + image.FileName;
                 if (image != null && image.Length > 0)
                 {
-                    
+                    // واسه اپلود کردن عکس
                     var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image");
+                    // واسه ساخت مسیر فایل برای اپلود شدن تو روت
                     var filePath = Path.Combine(uploads, guid);
 
+                    
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         image.CopyTo(fileStream);
@@ -82,20 +85,26 @@ namespace CV.Site.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAndSaveJson(JsonPop model)
+        public IActionResult CreateAndSaveJson(AboutUs model) 
         {
             try
             {
-
+                //  ابجکت به جیسان
                 // Convert the object to JSON
                 var json = JsonConvert.SerializeObject(model);
 
-                // Get the root path where the JSON file will be saved
-                var webRootPath = _webHostEnvironment.WebRootPath;
+                // تبدیل جیسان به ابجکت
+                //JsonConvert.DeserializeObject(json);
 
+                // ادرس جایی که قراره ذخیره شه
+                // Get the root path where the JSON file will be saved
+                var webRootPath = _webHostEnvironment.WebRootPath + "\\js\\" ;
+
+                // دادن اسم و پسوند فایل جیسان برای ذخیره سازی اطلاعات
                 // Combine the root path with the file name to get the full path
                 var jsonFilePath = Path.Combine(webRootPath, "jsonPop.json");
 
+                // سیو کردن اطلاعات
                 // Save the JSON data to the file
                 System.IO.File.WriteAllText(jsonFilePath, json);
 

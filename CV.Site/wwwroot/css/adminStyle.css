@@ -82,11 +82,11 @@ html {
 }
 
 .greenColor2 {
-    color: #5C8D89;
+    color: #183D3D;
 }
 
 .greenBack2 {
-    background-color: #5C8D89;
+    background-color: #183D3D;
 }
 
 .box-shadoww {
@@ -115,31 +115,31 @@ body {
     justify-content: center;
 }
 
-@media screen And (max-width:980px) {
+@media screen And (max-width:1000px) {
 
 
-    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container, .hemployment-container , .json-container {
+    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container, .hemployment-container, .json-container, .cvFile-container {
         flex-direction: column !important;
         gap: 2rem !important;
         justify-content: center !important;
         align-items: center !important;
     }
 
-    .skill-enter-information, .skill-information, .favorite-enter-information, .favorite-information, .doing-enter-information, .doing-information, .servic-enter-information, .servic-information, .social-enter-information, .social-information, .project-enter-information, .project-information, .education-enter-information, .education-information, .education-change-information-recoard, .hemployment-enter-information, .hemployment-information, .hemployment-change-information-recoard, .json-enter-information ,
-    .json-information {
+    .skill-enter-information, .skill-information, .favorite-enter-information, .favorite-information, .doing-enter-information, .doing-information, .servic-enter-information, .servic-information, .social-enter-information, .social-information, .project-enter-information, .project-information, .project-change-information-recoard, .education-enter-information, .education-information, .education-change-information-recoard, .hemployment-enter-information, .hemployment-information, .hemployment-change-information-recoard, .json-enter-information,
+    .json-information, .hemployment-information {
         border-right: none !important;
         padding-top: 0rem;
         margin: 0 !important;
         padding-right: 0 !important;
     }
 
-    .skill-db-table, .favorite-db-table, .doing-db-table, .servic-db-table, .social-db-table, .project-db-table, .education-db-table, .hemployment-db-table, .json-db-table {
+    .skill-db-table, .favorite-db-table, .doing-db-table, .servic-db-table, .social-db-table, .project-db-table, .education-db-table, .hemployment-db-table, .json-db-table, .cvFile-db-table {
         margin: 0 !important;
         padding-right: .5rem !important;
     }
 
 
-    .skill-enter-information-form, .favorite-enter-information-form, .doing-enter-information-form, .servic-enter-information-form, .social-enter-information-form, .project-enter-information-form, .education-enter-information-form, .education-change-information-recoard-form, .hemployment-enter-information-form, .hemployment-change-information-recoard-form, .json-enter-information-form {
+    .skill-enter-information-form, .favorite-enter-information-form, .doing-enter-information-form, .servic-enter-information-form, .social-enter-information-form, .project-enter-information-form, .project-change-information-recoard-form, .education-enter-information-form, .education-change-information-recoard-form, .hemployment-enter-information-form, .hemployment-change-information-recoard-form, .json-enter-information-form {
         padding-left: 0 !important;
     }
 
@@ -149,6 +149,16 @@ body {
 
     input, .InputBox {
          width: 100% !important;
+    }
+
+    .end-container-hemployment-sorth, .end-container-education-sorth {
+        flex-direction: column !important;
+        gap:1.5rem !important;
+        padding:.5rem !important;
+    }
+
+    .sortable-list-hemployment-box, .sortable-list-education-box {
+        padding:.5rem !important;
     }
 }
 
@@ -162,8 +172,11 @@ body {
         font-size: .9rem !important;
     }
 
+    .btnChange {
+        margin-left: .5rem !important;
+    }
 
-    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container, .hemployment-container, .json-container {
+    .skill-container, .favorite-container, .doing-container, .servic-container, .social-container, .project-container, .education-container, .hemployment-container, .json-container, .cvFile-container {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
     }

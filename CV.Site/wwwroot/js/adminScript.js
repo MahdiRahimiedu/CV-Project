@@ -1201,7 +1201,7 @@ $(document).ready(function () {
         doingNameInput.focus();
     });
 
-    // {} Social Net Work Container Script  -----------------------------------------------
+    // {} Social Net Work Container Script  -----------------------------------------------  ***
 
     function fullBothSideAfterChangeSocial() {
         $(".social-erorr-text-name").text("");
@@ -1233,7 +1233,7 @@ $(document).ready(function () {
                 EnterInformationElement += ` <li class="rounded-2 greenBack2 text-white ps-4 d-flex align-items-center justify-content-start p-1 m-1 position-relative"><span class="mx-2">${socialDB[i].name}</span>  :  <span class="mx-2">${socialDB[i].address}</span> | <i class="mx-2 ri-${socialDB[i].icon}-fill"></i>   <i class="ri-close-fill fs-5 text-white itemSocial position-absolute top-0 start-0 ps-2" style="padding-top:.4rem;" data-social-id="${socialDB[i].id}"></i></li> `;
                 socialDB[i].deleted = false;
 
-                informationElemet += ` <li class="social-view greenBack2 rounded-2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;"><span class="mx-2">${socialDB[i].name}</span>  :  <span class="mx-2">${socialDB[i].address}</span> | <i class="mx-2 ri-${socialDB[i].icon}-fill"></i></li> `;
+                informationElemet += ` <li atrr-main-id="${socialDB.id}" class="social-view greenBack2 rounded-2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;"><span class="mx-2">${socialDB[i].name}</span>  :  <span class="mx-2">${socialDB[i].address}</span> | <i class="mx-2 ri-${socialDB[i].icon}-fill"></i></li> `;
             }
 
             $(".social-enter-information-socials-box").html(EnterInformationElement);
@@ -1348,6 +1348,7 @@ $(document).ready(function () {
             data: JSON.stringify(ids),
             success: function (data) {
                 if (data.success) {
+
                     fullBothSideAfterChangeSocial();
                     emptyInputSocial();
                 }
@@ -1407,7 +1408,66 @@ $(document).ready(function () {
                 success: function (data) {
                     if (data.success) {
                         socialDB.push({ id: data.id, name: name, address: addressP, icon: iconP, deleted: false });
-                        fullBothSideAfterChangeSocial();
+
+
+                        $(".social-enter-information-socials-box").append(`
+                             <li class="rounded-2 greenBack2 text-white ps-4 d-flex align-items-center justify-content-start p-1 m-1 position-relative"><span class="mx-2">${name}</span>  :  <span class="mx-2">${addressP}</span> | <i class="mx-2 ri-${iconP}-fill"></i>   <i class="ri-close-fill fs-5 text-white itemSocial position-absolute top-0 start-0 ps-2" style="padding-top:.4rem;" data-social-id="${data.id}"></i></li> 
+                        `);
+
+                        $("#social-information-socials-box").append(`
+                             <li atrr-main-id="${data.id}" class="social-view greenBack2 rounded-2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;"><span class="mx-2">${name}</span>  :  <span class="mx-2">${addressP}</span> | <i class="mx-2 ri-${iconP}-fill"></i></li> 
+                        `);
+
+
+                        $(`#social-enter-information-socials-box [data-social-id="${data.id}"]`).click(function (e) {
+                            this.parentElement.remove();
+                            let deleteId = $(this).attr("data-social-id");
+                            for (let i = 0; i < socialDB.length; i++) {
+                                if (socialDB[i].id == deleteId) {
+                                    socialDB[i].deleted = true;
+                                }
+                            }
+ 
+                            checkTemperryDeleteForDeletedAllSocial = true;
+
+                            for (let io = 0; io < socialDB.length; io++) {
+                                if (socialDB[io].deleted !== true) {
+                                    checkTemperryDeleteForDeletedAllSocial = false;
+                                    break;
+                                }
+                            }
+
+                            if (checkTemperryDeleteForDeletedAllSocial) {
+                                socialFirstTextInForm.classList.remove("d-none");
+                                $(".social-enter-information-socials-box").addClass("d-none");
+                            }
+                        });
+
+                        $(`#social-information-socials-box [atrr-main-id="${data.id}"]`).click(function (e) {
+
+                            D.querySelector(".social-Container-Box").scrollIntoView({ behavior: 'smooth' });
+                            $("#social-information").slideToggle("slow");
+                            $("#social-enter-information").slideToggle("slow");
+
+                            $("#social-btn-change").addClass("d-none");
+
+                            fullBothSideAfterChangeSocial();
+
+                            socialNameInput.focus();
+                        });
+
+                        $(".social-erorr-text-name").text("");
+                        $(".social-erorr-text-address").text("");
+                        $(".social-erorr-text-icon").text("");
+
+                        if (!socialDB.length == 0) {
+                            $("#social-information-socials-box").removeClass("d-none");
+                            socialFirstTextInForm.classList.add("d-none");
+                            $(".social-enter-information-socials-box").removeClass("d-none");
+                            socialFirstText.classList.replace("text-dark", "greenColor2");
+                            socialFirstTextValue.classList.add("d-none");
+                        };
+
                         emptyInputSocial();
                     }
                 },
@@ -1434,20 +1494,318 @@ $(document).ready(function () {
 
         socialNameInput.focus();
     });
+     
+    // {} Project Net Work Container Script  ----------------------------------------------- ***
+    function createFormForChangeAnyRecoardProject(erID, erMID) {
 
-    // {} Project Net Work Container Script  -----------------------------------------------
+        $("#project-change-information-recoard").html("");
+
+        let numberInput = parseInt(erMID);
+
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7120/api/projects/" + numberInput,
+            contentType: "application/json; charset=utf-8",
+            success: (data) => {
+                let formChangeProject = `
+                         <div class="project-change-information-recoard-form w-100 d-flex align-items-start justify-content-start flex-column gap-3 ps-4 position-relative">
+                            <div id="askForDeleteProject" class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center flex-column gap-3 justify-content-center d-none" style="background: rgba(33, 33, 33, 0.549);z-index:100;">
+                                <div class="textBox">
+                                    <span class="text-white">
+                                        آیا از حذف این پروژه مطمئن هستید ؟
+                                    </span>
+                                </div>
+                                <div class="btnBox">
+                                    <button id="noAskProject" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">خیر</button>
+                                    <button id="yesAskProject" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">بله</button>
+                                </div>
+                            </div>
+                            <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    نام پروژه : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-change-name-input-box InputBox d-flex w-75">
+                                    <input type="text" value="${data.name}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="کاردانی کامپیوتر . javaScript . دوره ...">
+                                </div>
+                                <span class="me-1 project-change-erorr-text-name text-danger">
+
+                                </span>
+                            </div>
+                            <div class="applicant d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    درخواست کننده : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-change-applicant-input-box InputBox d-flex w-75">
+                                    <input type="text" value="${data.applicant}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="مشتری . شرکت اپل . شرکت ...">
+                                </div>
+                                <span class="me-1 project-change-erorr-text-applicant text-danger">
+
+                                </span>
+                            </div>
+                            <div class="date d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    تاریخ : <small class="greenColor2">*</small>
+                                </span>
+                                <div class="project-change-date-input-box InputBox d-flex w-75">
+                                    <input type="text" value="${data.date}" class="whiteBack1 text-dark fs-6 p-2 rounded-2" style="width: 80.7%;" spellcheck="false" placeholder="1400/3/14 . 1389 ...">
+                                </div>
+                                <span class="me-1 project-change-erorr-text-date text-danger">
+
+                                </span>
+                            </div>
+                            <div class="img d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
+                                <span class="me-1">
+                                    عکس پروژه : <small class="greenColor2">( اختیاری )</small>
+                                </span>
+                                <div class="project-change-img-input-box InputBox d-flex w-75">
+                                    <input type="file" id="project-change-img" class="whiteBack1 text-dark fs-6 p-2 rounded-2" spellcheck="false" style="width: 80.7%;">
+                                </div>
+                            </div>
+                            <div class="btn-box d-flex w-100 justify-content-end gap-1 align-items-start">
+                                <span id="project-change-enter-information-delete-btn" class="project-change-enter-information-delete-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">حذف</span>
+                                <span id="project-change-enter-information-back-btn" class="project-change-enter-information-back-btn p-2 px-4 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">انصراف</span>
+                                <span id="project-change-enter-information-save-btn" class="project-change-enter-information-save-btn p-2 px-4 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">ذخیره</span>
+                            </div>
+                        </div>
+                `;
+                $("#project-change-information-recoard").html(formChangeProject);
+
+                $("#project-change-enter-information-delete-btn").click(function (e) {
+                    $("#askForDeleteProject").removeClass("d-none");
+                });
+
+                $("#yesAskProject").click(function (e) {
+                    $.ajax({
+                        type: "DELETE",
+                        url: "https://localhost:7120/api/projects/" + numberInput,
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(erID),
+                        success: function (data) {
+                            if (data.success) {
+                                let imgName = GetImageWhitId(numberInput, projectDB);
+                                
+                                $.ajax({
+                                    type: "DELETE",
+                                    url: "Admin/DeleteImage/" + imgName,
+                                    contentType: "application/json; charset=utf-8",
+                                    data: JSON.stringify(imgName),
+                                    success: function (date) {
+                                    }
+                                });
+
+                                projectDB = projectDB.filter(item => item.id !== numberInput);
+
+                                if (projectDB.length == 0) {
+
+                                    $(".project-enter-information-projects-box").html("");
+
+                                    $("#project-information-projects-box").addClass("d-none");
+                                    $(".project-enter-information-projects-box").addClass("d-none");
+                                    projectFirstText.classList.replace("greenColor2", "text-dark");
+                                    projectFirstTextValue.classList.remove("d-none");
+                                }
+
+                                $(`#project-information-projects-box [atrr-main-id="${numberInput}"]`).remove();
+
+                                $("#askForDeleteProject").addClass("d-none");
+                                $("#project-information").slideToggle("slow");
+                                $("#project-change-information-recoard").slideToggle("slow");
+                                $("#project-btn-change").removeClass("d-none");
+                                $("#project-change-information-recoard").html("");
+                                $("#project-btn-sortable").removeClass("d-none");
+
+                                $(".project-erorr-text-name").text("");
+                                $(".project-erorr-text-applicant").text("");
+                                $(".project-erorr-text-date").text("");
+                            }
+                        }
+                    });
+
+                });
+                $("#noAskProject").click(function (e) {
+                    $("#askForDeleteProject").addClass("d-none");
+                });
+                $("#project-change-enter-information-back-btn").click(function (e) {
+                    $("#project-change-information-recoard").html("");
+                    $("#project-information").slideToggle("slow");
+                    $("#project-change-information-recoard").slideToggle("slow");
+                    $("#project-btn-change").removeClass("d-none");
+                    $("#project-btn-sortable").removeClass("d-none");
+                });
+
+                $("#project-change-enter-information-save-btn").click(function (e) {
+
+                    $(".project-erorr-text-name").text("");
+                    $(".project-erorr-text-applicant").text("");
+                    $(".project-erorr-text-date").text("");
+
+                    let editImage;
+
+                    let numberInput = parseInt(erMID);
+                    let nameP = D.querySelector(".project-change-name-input-box input"),
+                        applicantP = D.querySelector(".project-change-applicant-input-box input"),
+                        dateP = D.querySelector(".project-change-date-input-box input");
+
+                    validatorDB.push({ inputValue: nameP.value, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-change-erorr-text-name" });
+                    validatorDB.push({ inputValue: applicantP.value, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-change-erorr-text-applicant" });
+                    validatorDB.push({ inputValue: dateP.value, checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-change-erorr-text-date" });
+
+                    FormValidator();
+
+                    if (countErorr) {
+
+                        var formData = new FormData();
+
+                        var imageFileChange = $('#project-change-img')[0].files[0];
+
+                        if (imageFileChange == null || imageFileChange == "") {
+                            editImage = GetImageWhitId(numberInput, projectDB);
+
+                            $.ajax({
+                                type: "PUT",
+                                url: "https://localhost:7120/api/projects/" + numberInput,
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify({ Id: numberInput, Name: nameP.value, Applicant: applicantP.value, Date: dateP.value, Img: editImage }),
+                                success: function (data) {
+                                    if (data.success) {
+
+                                        for (var i = 0; i < projectDB.length; i++) {
+                                            if (projectDB[i].id == numberInput) {
+                                                projectDB[i].name = nameP.value;
+                                                projectDB[i].applicant = applicantP.value;
+                                                projectDB[i].date = dateP.value;
+                                                projectDB[i].img = editImage;
+                                            }
+                                        }
+
+                                        $(`#project-information-projects-box [atrr-main-id="${numberInput}"]`).html(`
+                                                <div id="img-box-project-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                                                <img class="w-100 h-100" src="image/${editImage}" />
+                                                </div>
+                                                <div id="text-box-project-any-recoard" class="d-flex flex-column gap-1">
+                                                   <span class="mx-2">${nameP.value}</span>
+                                                   <div class="d-flex p-2">
+                                                      <span class="mx-2">${applicantP.value}</span>
+                                                      --
+                                                      <span class="mx-2">${dateP.value}</span>
+                                                   </div>
+                                                </div>
+                                            `);
+
+                                    }
+                                },
+                                error: function () {
+                                    $(".project-erorr-text-name").html("خطا در ارسال درخواست.");
+                                    success = false;
+                                }
+                            });
+
+
+
+
+                        }
+                        else {
+                            formData.append('image', imageFileChange);
+
+                            let imgNameChange = GetImageWhitId(numberInput, projectDB);
+                            if (imgNameChange !== "project-defult-image.jpg") {
+                                $.ajax({
+                                    type: "DELETE",
+                                    url: "Admin/DeleteImage/" + imgNameChange,
+                                    contentType: "application/json; charset=utf-8",
+                                    data: JSON.stringify(imgNameChange),
+                                    success: function (date) {
+
+                                    }
+                                });
+
+                            }
+
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '/Admin/UploadImageWithId',
+                                data: formData,
+                                contentType: false,
+                                processData: false,
+                                success: function (response) {
+                                    if (countErorr) {
+                                        $.ajax({
+                                            type: "PUT",
+                                            url: "https://localhost:7120/api/projects/" + numberInput,
+                                            contentType: "application/json; charset=utf-8",
+                                            data: JSON.stringify({ Id: numberInput, Name: nameP.value, Applicant: applicantP.value, Date: dateP.value, Img: response }),
+                                            success: function (data) {
+                                                if (data.success) {
+
+                                                    for (var i = 0; i < projectDB.length; i++) {
+                                                        if (projectDB[i].id == numberInput) {
+                                                            projectDB[i].name = nameP.value;
+                                                            projectDB[i].applicant = applicantP.value;
+                                                            projectDB[i].date = dateP.value;
+                                                            projectDB[i].img = response;
+                                                        }
+                                                    }
+
+                                                    $(`#project-information-projects-box [atrr-main-id="${numberInput}"]`).html(`
+                                                <div id="img-box-project-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                                                <img class="w-100 h-100" src="image/${response}" />
+                                                </div>
+                                                <div id="text-box-project-any-recoard" class="d-flex flex-column gap-1">
+                                                   <span class="mx-2">${nameP.value}</span>
+                                                   <div class="d-flex p-2">
+                                                      <span class="mx-2">${applicantP.value}</span>
+                                                      --
+                                                      <span class="mx-2">${dateP.value}</span>
+                                                   </div>
+                                                </div>
+                                            `);
+
+                                                }
+                                            },
+                                            error: function () {
+                                                $(".project-erorr-text-name").html("خطا در ارسال درخواست.");
+                                                success = false;
+                                            }
+                                        });
+                                    }
+
+                                },
+                                error: function () {
+                                    alert('مشکلی در آپلود عکس به وجود آمده است.');
+                                }
+                            });
+                        }
+
+                        $(".project-erorr-text-name").text("");
+                        $(".project-erorr-text-applicant").text("");
+                        $(".project-erorr-text-date").text("");
+
+                        $("#project-change-information-recoard").html("");
+                        $("#project-information").slideToggle("slow");
+                        $("#project-change-information-recoard").slideToggle("slow");
+                        $("#project-btn-change").removeClass("d-none");
+                        $("#project-btn-sortable").removeClass("d-none");
+
+                    }
+
+                });
+
+            }
+        });
+
+    }
 
     function fullBothSideAfterChangeProject() {
+
         $(".project-erorr-text-name").text("");
-        $(".project-erorr-text-applicent").text("");
+        $(".project-erorr-text-applicant").text("");
         $(".project-erorr-text-date").text("");
-        $(".project-erorr-text-img").text("");
 
         if (projectDB.length == 0) {
             $(".project-enter-information-projects-box").html("");
             $("#project-information-projects-box").html("");
             $("#project-information-projects-box").addClass("d-none");
-            projectFirstTextInForm.classList.remove("d-none");
             $(".project-enter-information-projects-box").addClass("d-none");
             projectFirstText.classList.replace("greenColor2", "text-dark");
             projectFirstTextValue.classList.remove("d-none");
@@ -1457,63 +1815,51 @@ $(document).ready(function () {
             $("#project-information-projects-box").html(" ");
             $("#project-information-projects-box").removeClass("d-none");
             $(".project-enter-information-projects-box").html(" ");
-            projectFirstTextInForm.classList.add("d-none");
             $(".project-enter-information-projects-box").removeClass("d-none");
             projectFirstText.classList.replace("text-dark", "greenColor2");
             projectFirstTextValue.classList.add("d-none");
 
-            let informationElemet = "", EnterInformationElement = "";
-            //<img src="${projectDB[i].img}" class="rounded-3" stayl="width:120px;heigth:120px;"> 
+            let informationElemet = "";
+
             for (let i = 0; i < projectDB.length; i++) {
-                EnterInformationElement += ` <li class="rounded-2 greenBack2 text-white ps-4 d-flex align-items-center justify-content-start p-1 m-1 position-relative"><span class="mx-2">${projectDB[i].name}</span>  :  <span class="mx-2">${projectDB[i].applicant}</span> | <span class="mx-2">${projectDB[i].date}</span> <i class="ri-close-fill fs-5 text-white itemProject position-absolute top-0 start-0 ps-2" style="padding-top:.4rem;" data-project-id="${projectDB[i].id}"></i></li> `;
+
                 projectDB[i].deleted = false;
+                
+                informationElemet += ` 
+                <li atrr-id="${projectDB[i].name}" atrr-main-id="${projectDB[i].id}" id="${projectDB[i].name}" class=" project-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
+                     <div id="img-box-project-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                          <img class="w-100 h-100" src="image/${projectDB[i].img}" />
+                     </div>
+                     <div id="text-box-project-any-recoard" class="d-flex flex-column gap-1">
+                        <span class="mx-2">${projectDB[i].name}</span>
+                        <div class="d-flex p-2">
+                           <span class="mx-2">${projectDB[i].applicant}</span>
+                           --
+                           <span class="mx-2">${projectDB[i].date}</span>
+                        </div>
+                     </div>
+                </li> `;
 
-                informationElemet += ` <li class="project-view greenBack2 rounded-2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;"><span class="mx-2">${projectDB[i].name}</span>  :  <span class="mx-2">${projectDB[i].applicant}</span> | <span class="mx-2">${projectDB[i].date}</span> </li> `;
             }
-
-            $(".project-enter-information-projects-box").html(EnterInformationElement);
             $("#project-information-projects-box").html(informationElemet);
 
-            $(".itemProject").click(function (e) {
-                this.parentElement.remove();
-                let deleteId = $(this).attr("data-project-id");
-                for (let i = 0; i < projectDB.length; i++) {
-                    if (projectDB[i].id == deleteId) {
-                        projectDB[i].deleted = true;
-                    }
-                }
+            $(".project-change-view").click(function (e) {
 
-                checkTemperryDeleteForDeletedAllProject = true;
-
-                for (let io = 0; io < projectDB.length; io++) {
-                    if (projectDB[io].deleted !== true) {
-                        checkTemperryDeleteForDeletedAllProject = false;
-                        break;
-                    }
-                }
-
-                if (checkTemperryDeleteForDeletedAllProject) {
-                    projectFirstTextInForm.classList.remove("d-none");
-                    $(".project-enter-information-projects-box").addClass("d-none");
-                }
-            });
-
-            $(".project-view").click(function (e) {
                 D.querySelector(".project-Container-Box").scrollIntoView({ behavior: 'smooth' });
                 $("#project-information").slideToggle("slow");
-                $("#project-enter-information").slideToggle("slow");
+                $("#project-change-information-recoard").slideToggle("slow");
 
                 $("#project-btn-change").addClass("d-none");
+                $("#project-btn-sortable").addClass("d-none");
 
-                fullBothSideAfterChangeProject();
+                let ProjectRecoardID = $(this).attr("atrr-id");
+                let ProjectRecoardMainId = $(this).attr("atrr-main-id");
 
-                projectNameInput.focus();
+                createFormForChangeAnyRecoardProject(ProjectRecoardID, ProjectRecoardMainId);
 
             });
 
-
         }
-
 
     }
 
@@ -1531,22 +1877,24 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             success: (data) => {
                 jQuery.each(data, (index, itemData) => {
-                    //img: itemData.img,
-                    projectDB.push({ id: itemData.id, name: itemData.name, applicant: itemData.applicant, date: itemData.date, deleted: false });
+                    projectDB.push({ id: itemData.id, name: itemData.name, applicant: itemData.applicant, date: itemData.date, img: itemData.img });
                 });
                 fullBothSideAfterChangeProject();
             }
-        })
+        });
+
     };
 
     //! change btn for go in form
     $("#project-btn-change").click(function () {
-        D.querySelector(".project-Container-Box").scrollIntoView({ behavior: 'smooth' });
 
+        D.querySelector(".project-Container-Box").scrollIntoView({ behavior: 'smooth' });
+        $(".project-erorr-text-img").text("");
         $("#project-information").slideToggle("slow");
         $("#project-enter-information").slideToggle("slow");
 
         $("#project-btn-change").addClass("d-none");
+        $("#project-btn-sortable").addClass("d-none");
 
         fullBothSideAfterChangeProject();
 
@@ -1556,59 +1904,44 @@ $(document).ready(function () {
 
     //! back btn
     $("#project-enter-information-back-btn").click(function () {
+
         $("#project-information").slideToggle("slow");
         $("#project-enter-information").slideToggle("slow");
 
         $("#project-btn-change").removeClass("d-none");
+        $("#project-btn-sortable").removeClass("d-none");
+
+        if (projectDB.length == 0) {
+
+            $(".project-enter-information-projects-box").html("");
+            $("#project-information-projects-box").addClass("d-none");
+            $("#project-information-projects-box").html("");
+            $(".project-enter-information-projects-box").addClass("d-none");
+            projectFirstText.classList.replace("greenColor2", "text-dark");
+            projectFirstTextValue.classList.remove("d-none");
+        }
+
+        if (!projectDB.length == 0) {
+
+            $("#project-information-projects-box").removeClass("d-none");
+            $(".project-enter-information-projects-box").html(" ");
+            $(".project-enter-information-projects-box").removeClass("d-none");
+            projectFirstText.classList.replace("text-dark", "greenColor2");
+            projectFirstTextValue.classList.add("d-none");
+        }
 
         emptyInputProject();
+
 
     });
 
     getAllProject();
 
-    //! save btn
-    $("#project-enter-information-save-btn").click(function (e) {
-        let ids = [];
-        let projectDBLength = projectDB.length;
-        for (let i = 0; i < projectDBLength; i++) {
-            if (projectDB[i].deleted) {
-                ids.push(projectDB[i].id);
-            }
-        }
-
-        projectDB = projectDB.filter(item => item.deleted !== true);
-
-
-        $.ajax({
-            type: "DELETE",
-            url: "https://localhost:7120/api/projects",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(ids),
-            success: function (data) {
-                if (data.success) {
-                    fullBothSideAfterChangeProject();
-                    emptyInputProject();
-                }
-            }
-        });
-
-
-        $("#project-information").slideToggle("slow");
-        $("#project-enter-information").slideToggle("slow");
-
-        $("#project-btn-change").removeClass("d-none");
-
-    });
-
     //! add btn
     $("#project-add-icon").click(function (e) {
-
         let name = projectNameInput.value;
         let applicantP = projectApplicantInput.value;
         let dateP = projectDateInput.value;
-        //let imgP = projectImgInput.value;
-        let priority = 0;
 
         var hasRecoardInDb = false;
 
@@ -1622,62 +1955,130 @@ $(document).ready(function () {
                 hasRecoardInDb = true;
             }
         }
-
+        
         validatorDB.push({ inputValue: name.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: hasRecoardInDb, erorrTag: ".project-erorr-text-name" });
         validatorDB.push({ inputValue: applicantP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-applicant" });
         validatorDB.push({ inputValue: dateP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-date" });
-        //validatorDB.push({ inputValue: imgP.trim(), checkEmpty: true, checkEqual: false, chackHasBefor: false, erorrTag: ".project-erorr-text-img" });
 
         FormValidator();
-        //name !== "" && name !== null && !hasRecoardInDb
-        if (countErorr) {
-            $(".project-erorr-text-name").text("");
-            $(".project-erorr-applicant-name").text("");
-            $(".project-erorr-date-name").text("");
-            $(".project-erorr-img-name").text("");
 
-            projectFirstTextInForm.classList.add("d-none");
+        var imageFile = $('#project-img')[0].files[0];
+
+        if (!imageFile) {
+            $(".project-erorr-text-img").text("یک عکس انتخاب کنید .");
+        }
+
+        if (countErorr) {
+
+            $(".project-erorr-text-name").text("");
+            $(".project-erorr-text-applicant").text("");
+            $(".project-erorr-text-date").text("");
+
             $(".project-enter-information-projects-box").removeClass("d-none");
 
-            $.ajax({
+            if (projectDB.length != 0) {
+                priorty = getMax(projectDB, "priority").priority;
+                priorty += 1;
+            } else {
+                priorty = 1;
+            }
 
-                type: "POST",
-                url: "https://localhost:7120/api/projects",
-                contentType: "application/json; charset=utf-8",
-                //, Img: imgP
-                data: JSON.stringify({ Name: name, Applicant: applicantP, Date: dateP, Img: "ko" }),
-                success: function (data) {
-                    if (data.success) {
-                        //img: imgP,
-                        projectDB.push({ id: data.id, name: name, applicant: applicantP, date: dateP, deleted: false });
-                        fullBothSideAfterChangeProject();
-                        emptyInputProject();
+            if (imageFile) {
+                $(".project-erorr-text-img").text("");
+
+                var formData = new FormData();
+                formData.append('image', imageFile);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Admin/UploadImageWithId',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        $.ajax({
+                            type: "POST",
+                            url: "https://localhost:7120/api/projects",
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify({ Name: name, Applicant: applicantP, Date: dateP, Img: response }),
+                            success: function (data) {
+                                if (data.success) {
+
+                                    projectDB.push({ id: data.id, name: name, Applicant: applicantP, date: dateP, priority: priorty, img: response });
+                                    $("#project-information-projects-box").append(
+                                        `<li atrr-id="${name}" atrr-main-id="${data.id}" id="${name}" class=" project-change-view rounded-2 greenBack2 text-white d-flex align-items-center justify-content-start p-1 m-1" style="flex : 1;cursor: pointer;">
+                                        <div id="img-box-project-any-recoard" class="mx-3 d-flex align-items-center justifuy-content-center overflow-hidden rounded-2 gap-1" style="width:80px;hegth:80px;">
+                                            <img class="w-100 h-100" src="image/${response}" />
+                                        </div>
+                                        <div id="text-box-project-any-recoard" class="d-flex flex-column gap-1">
+                                            <span class="mx-2">${name}</span>
+                                            <div class="d-flex p-2">
+                                                <span class="mx-2">${applicantP}</span>
+                                                --
+                                                <span class="mx-2">${dateP}</span>
+                                            </div>
+                                        </div>
+                                    </li> `
+                                    );
+
+                                    $(`#project-information-projects-box [atrr-main-id="${data.id}"]`).click(function (e) {
+                                        D.querySelector(".project-Container-Box").scrollIntoView({ behavior: 'smooth' });
+                                        $("#project-information").slideToggle("slow");
+                                        $("#project-change-information-recoard").slideToggle("slow");
+
+                                        $("#project-btn-change").addClass("d-none");
+                                        $("#project-btn-sortable").addClass("d-none");
+
+                                        let ProjectRecoardID = $(this).attr("atrr-id");
+                                        let ProjectRecoardMainId = $(this).attr("atrr-main-id");
+
+                                        createFormForChangeAnyRecoardProject(ProjectRecoardID, ProjectRecoardMainId);
+
+                                    });
+
+                                    emptyInputProject();
+                                    alert("یک پروژه جدید اضافه شد . برای مشاهده همه پروژه ها دکمه بازگشت را بزنید .");
+                                }
+                            },
+                            error: function () {
+                                $(".project-erorr-text-name").html("خطا در ارسال درخواست.");
+                                success = false;
+                            }
+                        });
+
+                    },
+                    error: function () {
+                        alert('مشکلی در آپلود عکس به وجود آمده است.');
                     }
-                },
-                error: function () {
-                    $(".project-erorr-text-name").html("خطا در ارسال درخواست.");
-                    success = false;
-                }
-            });
+                });
+            }
+            
+
+
         }
 
         projectNameInput.focus();
-
     });
 
     $(".go-back-project").click(function () {
+
         D.querySelector(".project-Container-Box").scrollIntoView({ behavior: 'smooth' });
+
         $("#project-information").slideToggle("slow");
         $("#project-enter-information").slideToggle("slow");
+        $(".project-erorr-text-img").text("");
 
         fullBothSideAfterChangeProject();
 
         $("#project-btn-change").addClass("d-none");
+        $("#project-btn-sortable").addClass("d-none");
+
 
         projectNameInput.focus();
     });
 
-    // {} Education Container Script  -----------------------------------------------
+
+    // {} Education Container Script  ----------------------------------------------- ***
     
     function createFormForChangeAnyRecoardEducation(erID, erMID) {
 
@@ -1700,8 +2101,8 @@ $(document).ready(function () {
                                     </span>
                                 </div>
                                 <div class="btnBox">
-                                    <button id="noAsk" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">خیر</button>
-                                    <button id="yesAsk" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">بله</button>
+                                    <button id="noAskEducation" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack2 text-white" style="cursor: pointer;">خیر</button>
+                                    <button id="yesAskEducation" class="p-2 px-4 mx-2 rounded-2 fs-6 greenBack1 text-dark" style="cursor: pointer;">بله</button>
                                 </div>
                             </div>
                             <div class="name d-flex w-100 flex-column justify-content-start gap-1 align-items-start">
@@ -1758,7 +2159,7 @@ $(document).ready(function () {
                     $("#askForDeleteEducation").removeClass("d-none");
                 });
 
-                $("#yesAsk").click(function (e) {
+                $("#yesAskEducation").click(function (e) {
 
                     $.ajax({
                         type: "DELETE",
@@ -1811,7 +2212,7 @@ $(document).ready(function () {
                     });
 
                 });
-                $("#noAsk").click(function (e) {
+                $("#noAskEducation").click(function (e) {
                     $("#askForDeleteEducation").addClass("d-none");
                 });
                 $("#education-change-enter-information-back-btn").click(function (e) {
@@ -2289,7 +2690,7 @@ $(document).ready(function () {
                                     </li> `
                                 );
 
-                                $(".education-change-view").click(function (e) {
+                                $(`#education-information-educations-box [atrr-main-id="${data.id}"]`).click(function (e) {
                                     D.querySelector(".education-Container-Box").scrollIntoView({ behavior: 'smooth' });
                                     $("#education-information").slideToggle("slow");
                                     $("#education-change-information-recoard").slideToggle("slow");
@@ -2303,9 +2704,8 @@ $(document).ready(function () {
                                     createFormForChangeAnyRecoardEducation(EducationRecoardID, EducationRecoardMainId);
 
                                     sortedEducationIds = [];
-
                                 });
-                                
+
                                 emptyInputEducation();
                                 alert("یک مدرک جدید اضافه شد . برای مشاهده همه مدرک ها دکمه بازگشت را بزنید .");
                             }
@@ -2429,23 +2829,29 @@ $(document).ready(function () {
                         success: function (data) {
                             if (data.success) {
 
-
                                 $("#askForDeleteHemployment").addClass("d-none");
                                 $("body").removeClass("overflow-hidden");
-
                                 $("#hemployment-change-information-recoard").html("");
-
                                 $("#hemployment-information").slideToggle("slow");
                                 $("#hemployment-change-information-recoard").slideToggle("slow");
-
-                                hemploymentDB = [];
-
                                 $("#hemployment-btn-change").removeClass("d-none");
                                 $("#hemployment-btn-sortable").removeClass("d-none");
 
-                                fullBothSideAfterChangeHemployment();
-                                getAllHemployment();
+                                hemploymentDB = hemploymentDB.filter(item => item.id !== numberInput);
 
+                                if (hemploymentDB.length == 0) {
+                                    $(".hemployment-enter-information-hemployments-box").html("");
+                                    $("#hemployment-information-hemployments-box").addClass("d-none");
+                                    $(".hemployment-enter-information-hemployments-box").addClass("d-none");
+                                    hemploymentFirstText.classList.replace("greenColor2", "text-dark");
+                                    hemploymentFirstTextValue.classList.remove("d-none");
+                                }
+
+                                $(`#hemployment-information-hemployments-box [atrr-main-id="${numberInput}"]`).remove();
+
+                                $(".hemployment-erorr-text-name").text("");
+                                $(".hemployment-erorr-text-compony").text("");
+                                $(".hemployment-erorr-text-date").text("");
                             }
                         }
                     });
@@ -2501,7 +2907,18 @@ $(document).ready(function () {
                                         }
                                     }
 
-                                    fullBothSideAfterChangeHemployment();
+                                    $(`#hemployment-information-hemployments-box [atrr-main-id="${numberInput}"]`).html(`
+                                                <span class="mx-2">${nameP.value}</span>
+                                                :
+                                                <span class="mx-2">${componyP.value}</span>
+                                                --
+                                                <span class="mx-2">${dateP.value}</span>
+                                            `);
+                                    $(".hemployment-erorr-text-name").text("");
+                                    $(".hemployment-erorr-text-compony").text("");
+                                    $(".hemployment-erorr-text-date").text("");
+
+
                                 }
                             },
                             error: function () {
@@ -2626,7 +3043,7 @@ $(document).ready(function () {
             let informationElemet = "";
 
             for (let i = 0; i < hemploymentDB.length; i++) {
-
+           
                 hemploymentDB[i].deleted = false;
 
                 informationElemet += ` 
@@ -2937,15 +3354,30 @@ $(document).ready(function () {
             jsonProjectFValue.textContent = jsonProjectVT;
 
 
-            POST
+          
+            //$.ajax({
+            //    type: "POST",
+            //    url: "https://localhost:7120/api/employmenthistories",
+            //    contentType: "application/json; charset=utf-8",
+            //    data: JSON.stringify({ Title: name, Compony: componyP, Date: dateP }),
+            //    success: function (data) {
+           
+            //    },
+            //    error: function () {
+            //        $(".hemployment-erorr-text-name").html("خطا در ارسال درخواست.");
+            //        success = false;
+            //    }
+            //});
+
+            console.log(jsonNameVT, jsonDescriptionVT, jsonAbouteVT, jsonCupCoffeeVT , "before");
             $.ajax({
                 type: "POST",
-                url: "Admin/CreateAndSaveJson",
-                data: JSON.stringify({ Name: jsonNameVT, Description: jsonDescriptionVT, AbouteMe: jsonAbouteVT, CupCuffee: jsonCupCoffeeVT, CompletedProject: jsonProjectVT }),
+                url: "/Admin/CreateAndSaveJson",
                 contentType: "application/json; charset=utf-8",
-                success: (data) => {
+                data: JSON.stringify({ Name: jsonNameVT, Description: jsonDescriptionVT, AbouteMe: jsonAbouteVT, CupCuffee: jsonCupCoffeeVT, CompletedProject: jsonProjectVT }),
+                success: function (data) {
 
-                }
+                },
             });
 
             $("#json-information").slideToggle("slow");
@@ -2956,5 +3388,17 @@ $(document).ready(function () {
         }
 
     });
+
+    // {} CV File Container Script  -----------------------------------------------
+    $("#cv-file-btn").click(function (e) {
+        D.querySelector("#cv-file").value = "";
+        $("#cv-file").click();
+    });
+    $("#cv-file").change(function (e) {
+        if (this.value !== null || this.value !== "") {
+            $("#cv-file-btn").text("فایل رزومه اضافه شد . برای عوض کردن دوباره کلیک کنید");
+        }
+    })
+
 
 });
