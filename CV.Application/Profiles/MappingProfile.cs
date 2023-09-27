@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CV.Application.DTOs.AboutUs;
 using CV.Application.DTOs.ContactMes;
 using CV.Application.DTOs.Doings;
 using CV.Application.DTOs.Educations;
@@ -63,7 +64,10 @@ namespace CV.Application.Profiles
             CreateMap<SocialsNetWork, CreateSocialNetWorkDto>().ReverseMap();
             CreateMap<SocialsNetWork, EditSocialNetWorkDto>().ReverseMap();
 
-           
+            CreateMap<AboutUs, AboutUsDto>().ReverseMap();
+
+
+
 
 
         }

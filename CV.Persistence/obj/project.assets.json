@@ -2348,23 +2348,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Users\\Mahdi Rahimi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Persistence\\CV.Persistence.csproj",
+      "projectUniqueName": "F:\\Repository\\CV-Project\\CV.Persistence\\CV.Persistence.csproj",
       "projectName": "CV.Persistence",
-      "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Persistence\\CV.Persistence.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Persistence\\obj\\",
+      "projectPath": "F:\\Repository\\CV-Project\\CV.Persistence\\CV.Persistence.csproj",
+      "packagesPath": "C:\\Users\\Mahdi Rahimi\\.nuget\\packages\\",
+      "outputPath": "F:\\Repository\\CV-Project\\CV.Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mahdi Rahimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2379,11 +2379,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Application\\CV.Application.csproj": {
-              "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Application\\CV.Application.csproj"
+            "F:\\Repository\\CV-Project\\CV.Application\\CV.Application.csproj": {
+              "projectPath": "F:\\Repository\\CV-Project\\CV.Application\\CV.Application.csproj"
             },
-            "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Domain\\CV.Domain.csproj": {
-              "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Domain\\CV.Domain.csproj"
+            "F:\\Repository\\CV-Project\\CV.Domain\\CV.Domain.csproj": {
+              "projectPath": "F:\\Repository\\CV-Project\\CV.Domain\\CV.Domain.csproj"
             }
           }
         }

@@ -55,23 +55,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Users\\Mahdi Rahimi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\CV.Site.csproj",
+      "projectUniqueName": "F:\\Repository\\CV-Project\\CV.Site\\CV.Site.csproj",
       "projectName": "CV.Site",
-      "projectPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\CV.Site.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Desktop\\CVProject\\CV.Site\\obj\\",
+      "projectPath": "F:\\Repository\\CV-Project\\CV.Site\\CV.Site.csproj",
+      "packagesPath": "C:\\Users\\Mahdi Rahimi\\.nuget\\packages\\",
+      "outputPath": "F:\\Repository\\CV-Project\\CV.Site\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mahdi Rahimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

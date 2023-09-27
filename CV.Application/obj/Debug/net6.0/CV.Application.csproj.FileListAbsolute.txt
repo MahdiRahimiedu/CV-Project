@@ -40,3 +40,11 @@ F:\Repository\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.dll
 F:\Repository\CVProject\CV.Application\obj\Debug\net6.0\refint\CV.Application.dll
 F:\Repository\CVProject\CV.Application\obj\Debug\net6.0\CV.Application.pdb
 F:\Repository\CVProject\CV.Application\obj\Debug\net6.0\ref\CV.Application.dll
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.csproj.AssemblyReference.cache
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.AssemblyInfoInputs.cache
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.AssemblyInfo.cs
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.csproj.CoreCompileInputs.cache
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.dll
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\refint\CV.Application.dll
+F:\Repository\CV-Project\CV.Application\obj\Debug\net6.0\CV.Application.pdb
